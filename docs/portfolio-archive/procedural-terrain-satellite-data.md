@@ -11,15 +11,25 @@ videoEmbed: ""
 
 # From Satellite Data to Procedural Terrain
 
-I built this workflow to turn satelit data into terrain 
+I built this workflow to turn satelit data into terrain
 
-show work 1
-before geo-data-terrain-mapping-mount-kilimanjaro-z9-01.png
-after geo-data-terrain-mapping-mount-kilimanjaro-z9-02.png
+<BeforeAfterSlider
+  before-src="/portfolio/geo-data-terrain-mapping-mount-kilimanjaro-z9-01.png"
+  after-src="/portfolio/geo-data-terrain-mapping-mount-kilimanjaro-z9-02.png"
+  before-alt="Mount Kilimanjaro satellite terrain before processing (zoom level 9)"
+  after-alt="Mount Kilimanjaro procedural terrain after processing (zoom level 9)"
+  height="420px"
+  :initial="50"
+/>
 
-show work 2
-before geo-data-terrain-mapping-mount-kilimanjaro-z12-01.png
-after geo-data-terrain-mapping-mount-kilimanjaro-z12-02.png
+<BeforeAfterSlider
+  before-src="/portfolio/geo-data-terrain-mapping-mount-kilimanjaro-z12-01.png"
+  after-src="/portfolio/geo-data-terrain-mapping-mount-kilimanjaro-z12-02.png"
+  before-alt="Mount Kilimanjaro satellite terrain before processing (zoom level 12)"
+  after-alt="Mount Kilimanjaro procedural terrain after processing (zoom level 12)"
+  height="420px"
+  :initial="50"
+/>
 
 ---
 
@@ -36,5 +46,4 @@ after geo-data-terrain-mapping-mount-kilimanjaro-z12-02.png
 
 
 ## Result
-
 

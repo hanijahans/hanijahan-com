@@ -4,6 +4,7 @@ import { useData, useRoute } from 'vitepress'
 import PortfolioGrid from './components/PortfolioGrid.vue'
 import PortfolioPage from './components/PortfolioPage.vue'
 import YouTube from './components/YouTube.vue' // Ensure this file exists
+import BeforeAfterSlider from './components/BeforeAfterSlider.vue'
 import './custom.css'
 
 // Your helper component
@@ -69,5 +70,8 @@ export default {
 
     // 4. Register YouTube (This is the new part added here)
     app.component('YouTube', YouTube)
+
+    // 5. Register reusable before/after slider
+    app.component('BeforeAfterSlider', BeforeAfterSlider)
   }
 }
