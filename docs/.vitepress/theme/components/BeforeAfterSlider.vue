@@ -27,9 +27,6 @@
 
     <figcaption class="visually-hidden">Before and after comparison slider</figcaption>
 
-    <span class="label before">Before</span>
-    <span class="label after">After</span>
-
     <input
       class="slider-range"
       type="range"
@@ -203,28 +200,6 @@ function onPointerDown(event) {
   border-left: 7px solid rgb(255 255 255 / 0.92);
 }
 
-.label {
-  position: absolute;
-  top: 0.85rem;
-  z-index: 4;
-  padding: 0.28rem 0.6rem;
-  border-radius: 999px;
-  font-size: 0.78rem;
-  font-weight: 650;
-  letter-spacing: 0.02em;
-  color: #fff;
-  background: rgb(0 0 0 / 0.5);
-  pointer-events: none;
-}
-
-.label.before {
-  left: 0.85rem;
-}
-
-.label.after {
-  right: 0.85rem;
-}
-
 .slider-range {
   position: absolute;
   inset: 0;
@@ -267,11 +242,6 @@ function onPointerDown(event) {
   .handle {
     width: 2rem;
     height: 2rem;
-  }
-
-  .label {
-    font-size: 0.72rem;
-    padding: 0.22rem 0.5rem;
   }
 }
 </style>
