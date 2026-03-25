@@ -11,6 +11,12 @@ const category = 'Terrain'
 const houdini = getPortfolioByCategory(category)
 </script>
 
+## Terrain as a System
+
+I design terrain through multiple approaches — from procedural generation to real-world data extraction and engine integration.
+
+Each project explores a different aspect of how terrain can be defined, analyzed, and deployed.
+
 <PortfolioPage
   title="PORTFOLIO"
   description=""
