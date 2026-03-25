@@ -135,7 +135,6 @@ function onPointerDown(event) {
   box-shadow: 0 8px 20px rgb(0 0 0 / 0.14);
   overflow: hidden;
   background: var(--vp-c-bg-soft);
-  touch-action: none;
 }
 
 .slider-image {
@@ -209,6 +208,7 @@ function onPointerDown(event) {
   opacity: 0;
   cursor: ew-resize;
   z-index: 5;
+  touch-action: pan-y;
 }
 
 .before-after-slider:focus-within {
