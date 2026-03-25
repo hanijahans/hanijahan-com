@@ -69,8 +69,8 @@ This project is less about a single terrain output and more about the system beh
 <BeforeAfterSlider
   before-src="/portfolio/geo-data-terrain-mapping-mount-kilimanjaro-z9-01.png"
   after-src="/portfolio/geo-data-terrain-mapping-mount-kilimanjaro-z9-02.png"
-  before-alt="Mount Kilimanjaro satellite terrain before processing (zoom level 9)"
-  after-alt="Mount Kilimanjaro procedural terrain after processing (zoom level 9)"
+  before-alt="Mount Kilimanjaro procedurally generated terrain with texture (zoom level 9)"
+  after-alt="Mount Kilimanjaro procedurally generated terrain without texture (zoom level 9)"
   height="420px"
   :initial="50"
 />
@@ -78,8 +78,8 @@ This project is less about a single terrain output and more about the system beh
 <BeforeAfterSlider
   before-src="/portfolio/geo-data-terrain-mapping-mount-kilimanjaro-z12-01.png"
   after-src="/portfolio/geo-data-terrain-mapping-mount-kilimanjaro-z12-02.png"
-  before-alt="Mount Kilimanjaro satellite terrain before processing (zoom level 12)"
-  after-alt="Mount Kilimanjaro procedural terrain after processing (zoom level 12)"
+  before-alt="Mount Kilimanjaro procedurally generated terrain with texture (zoom level 12)"
+  after-alt="Mount Kilimanjaro procedurally generated terrain without texture (zoom level 12)"
   height="420px"
   :initial="50"
 />
