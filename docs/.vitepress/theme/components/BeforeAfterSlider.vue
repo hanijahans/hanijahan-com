@@ -16,7 +16,7 @@
       <img
         class="slider-image"
         :src="afterSrc"
-        :alt="afterAlt || 'After image'"
+        alt=""
         draggable="false"
       />
     </div>
@@ -25,8 +25,6 @@
       <span class="handle" />
     </div>
 
-    <figcaption class="visually-hidden">Before and after comparison slider</figcaption>
-
     <input
       class="slider-range"
       type="range"
@@ -34,10 +32,8 @@
       max="100"
       step="1"
       :value="value"
-      :aria-label="`Before and after image comparison`"
+      :aria-label="comparisonLabel"
       @input="onInput"
-      @keydown.left.prevent="nudge(-1)"
-      @keydown.right.prevent="nudge(1)"
     />
   </figure>
 </template>
@@ -58,10 +54,6 @@ const props = defineProps({
     type: String,
     default: ''
   },
-  afterAlt: {
-    type: String,
-    default: ''
-  },
   height: {
     type: String,
     default: '420px'
@@ -70,6 +62,10 @@ const props = defineProps({
     type: Number,
     default: 50,
     validator: (value) => value >= 0 && value <= 100
+  },
+  comparisonLabel: {
+    type: String,
+    default: 'Before and after image comparison'
   }
 })
 
@@ -101,9 +97,6 @@ function onInput(event) {
   value.value = clamp(event.target.value)
 }
 
-function nudge(direction) {
-  value.value = clamp(value.value + direction)
-}
 
 function onPointerDown(event) {
   if (!sliderEl.value) return
@@ -221,16 +214,26 @@ function onPointerDown(event) {
   outline: none;
 }
 
-.visually-hidden {
+.label {
   position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+  top: 0.75rem;
+  z-index: 4;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgb(255 255 255 / 0.95);
+  background: rgb(0 0 0 / 0.45);
+  user-select: none;
+  pointer-events: none;
+}
+
+.label.before {
+  left: 0.75rem;
+}
+
+.label.after {
+  right: 0.75rem;
 }
 
 @media (max-width: 640px) {
