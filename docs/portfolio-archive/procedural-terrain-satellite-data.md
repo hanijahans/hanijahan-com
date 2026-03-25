@@ -9,7 +9,7 @@ mediaPreview: "hover"
 videoEmbed: ""
 ---
 
-# 🏔️ From Satellite Data to Procedural Terrain  
+# From Satellite Data to Production-Ready Procedural Terrain  
 
 A procedural system for reconstructing real-world terrain from geospatial data.
 Designed as a reusable pipeline applicable to any real-world terrain dataset.
