@@ -1,7 +1,7 @@
 ---
 title: From Satellite Data to Procedural Terrain
 description: Converting satellite imagery and elevation data into structured procedural 3D terrain.
-category: Geospatial
+category: Terrain
 categoryOrder: 1
 order: 1
 cover: "/portfolio/geo-data-terrain-mapping-ui-01.jpg"

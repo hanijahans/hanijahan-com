@@ -1,8 +1,8 @@
 ---
 title: Procedural Terrain System
 description: Terrain generator with flattening, and slope-aware scattering.
-category: Technical Art
-categoryOrder: 5
+category: Terrain
+categoryOrder: 1
 order: 1
 tags: [Houdini, Procedural, Terrain]
 ---

@@ -1,9 +1,9 @@
 ---
 title: LiDAR (Point Cloud) Processing
 description: 
-category: Geospatial
+category: Terrain
 categoryOrder: 1
-order: 2
+order: 3
 cover: "/portfolio/data-lidar-pc-01.png"
 ---
 
