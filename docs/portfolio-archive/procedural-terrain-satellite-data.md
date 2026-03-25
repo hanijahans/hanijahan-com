@@ -4,13 +4,31 @@ description: Converting satellite imagery and elevation data into structured pro
 category: Terrain
 categoryOrder: 1
 order: 1
-cover: "/portfolio/geo-data-terrain-mapping-ui-01.jpg"
+cover: "/portfolio/geo-data-terrain-mapping-mount-kilimanjaro-z12-02.png"
 mediaPreview: "hover"
 videoEmbed: ""
 ---
 
 # 🏔️ From Satellite Data to Procedural Terrain  
-Bridging real-world geospatial data and art-directable terrain systems.
+
+A procedural system for reconstructing real-world terrain from geospatial data.
+Designed as a reusable pipeline applicable to any real-world terrain dataset.
+Transforms messy real-world data into production-ready terrain.
+
+![Mount Kilimanjaro Render](/portfolio/geo-data-terrain-mapping-mount-kilimanjaro-z9-00.png)
+
+## Problem
+
+Raw satellite textures and elevation data contain useful information, but they are rarely production-ready.
+Without a structured pipeline, each new location becomes a manual one-off build.
+
+## System Design Focus
+
+This project is less about a single terrain output and more about the system behind it:
+
+- convert raw satellite data into consistent terrain
+- preserve geographic identity through processing
+- expose controls for non-destructive iteration
 
 ## Real-World Reference → Data → System → Result
 
@@ -20,11 +38,14 @@ Bridging real-world geospatial data and art-directable terrain systems.
 
 *Mount Kilimanjaro — real-world reference used for terrain reconstruction*
 
-### 2. Spatial Context (Google Earth)
+### 2. Spatial Context
 
-![Mount Kilimanjaro Google Earth context](/portfolio/geo-data-terrain-mount-kilimanjaro-google-earth.jpg)
+![Mount Kilimanjaro Google Earth View](/portfolio/geo-data-terrain-mount-kilimanjaro-google-earth.jpg)
 
 *Satellite view showing the full spatial footprint and surrounding terrain context*
+
+![Mount Kilimanjaro Mapbox API](/portfolio/geo-data-terrain-mapping-ui-01.jpg)
+
 
 ### 3. Raw Data Inputs
 
@@ -65,48 +86,25 @@ Bridging real-world geospatial data and art-directable terrain systems.
 
 *Final generated terrain inside the procedural system*
 
-This system converts real-world geospatial data into a controllable terrain inside Houdini.
 
-**Pipeline:**
+## System Approach
 
-- Import satellite height and color data
-- Process elevation into a usable heightfield
-- Apply filtering and shaping operations
-- Generate terrain with adjustable parameters
+I designed the workflow as a modular procedural pipeline:
 
-The system allows reconstruction of real locations while maintaining procedural control.
-
-### Pipeline
-
-**input → processing → output**
-
-- **input (satellite):** satellite imagery and terrain/elevation maps
-- **processing:** remapping, normalization, and node-based procedural terrain generation
-- **output (render):** structured 3D terrain that preserves real-world geography and supports creative control
-
-
-## Problem
-
-Raw satellite textures and elevation data are valuable, but they are not immediately production-friendly for procedural terrain pipelines.
-I needed a system that could retain recognizable geographic forms while remaining art-directable.
-
-## Approach
-
-I treated the pipeline as a straightforward sequence:
-
-## Tools
-
-- Satellite imagery and elevation datasets
-- Procedural node-based terrain workflow
-- Render/visualization pass for validation and iteration
+1. Ingest – import elevation + color
+2. Normalize – clean and remap heightfield
+3. Process – apply procedural terrain operations
+4. Control – expose parameters for art direction
+5. Validate – compare with real-world reference
 
 ## Result
 
-The final output keeps the identity of the original landscape while becoming flexible enough for procedural environment work.
+The result is a repeatable terrain-building system that reconstructs real places while staying flexible for creative direction.
+**Key Result:** Preserves geographic identity while enabling procedural control.
 
 ## Next Direction
 
-This dataset can be extended into:
+This system can be extended into:
 
 - slope / height-based material systems
 - erosion simulation and exaggeration
