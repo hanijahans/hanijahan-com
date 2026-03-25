@@ -1,6 +1,6 @@
 export type PortfolioItem = {
   title: string
-  category?: string
+  categories?: string[]
   categoryOrder?: number
   order?: number
   subtitle?: string
@@ -21,7 +21,7 @@ type ArchiveDocMeta = {
   shortDescription?: string
   tags?: string[]
   cover?: string
-  category?: string
+  categories?: string[]
   categoryOrder?: number
   order?: number
   video?: string
@@ -216,13 +216,15 @@ const extractFirstParagraph = (content: string): string | undefined => {
 const parseArchiveDoc = (raw: string): ParsedArchiveDoc => {
   const { frontmatter, content } = parseFrontmatter(raw)
 
+  const categories = toStringArrayOrUndefined(frontmatter.category)
+
   const data: ArchiveDocMeta = {
     title: toStringOrUndefined(frontmatter.title),
     description: toStringOrUndefined(frontmatter.description),
     shortDescription: toStringOrUndefined(frontmatter.shortDescription),
     tags: toStringArrayOrUndefined(frontmatter.tags),
     cover: toStringOrUndefined(frontmatter.cover),
-    category: toStringOrUndefined(frontmatter.category),
+    categories,
     categoryOrder: toNumberOrUndefined(frontmatter.categoryOrder),
     order: toNumberOrUndefined(frontmatter.order),
     video: toStringOrUndefined(frontmatter.video),
@@ -234,10 +236,13 @@ const parseArchiveDoc = (raw: string): ParsedArchiveDoc => {
 }
 
 const compareItems = (a: PortfolioItem, b: PortfolioItem): number => {
+  const aPrimaryCategory = a.categories?.[0] ?? ''
+  const bPrimaryCategory = b.categories?.[0] ?? ''
+
   return (
     (a.categoryOrder ?? Number.POSITIVE_INFINITY) -
       (b.categoryOrder ?? Number.POSITIVE_INFINITY) ||
-    (a.category ?? '').localeCompare(b.category ?? '') ||
+    aPrimaryCategory.localeCompare(bPrimaryCategory) ||
     (a.order ?? Number.POSITIVE_INFINITY) - (b.order ?? Number.POSITIVE_INFINITY) ||
     a.title.localeCompare(b.title)
   )
@@ -260,7 +265,7 @@ export const houdini: PortfolioItem[] = Object.entries(archiveDocs)
 
     return {
       title: data.title || toTitle(slug),
-      category: data.category,
+      categories: data.categories,
       categoryOrder: data.categoryOrder,
       order: data.order,
       tags,
@@ -276,4 +281,4 @@ export const houdini: PortfolioItem[] = Object.entries(archiveDocs)
   .sort(compareItems)
 
 export const getPortfolioByCategory = (category: string): PortfolioItem[] =>
-  houdini.filter((item) => item.category === category)
+  houdini.filter((item) => item.categories?.includes(category))
