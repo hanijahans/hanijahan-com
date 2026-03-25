@@ -6,7 +6,7 @@ import type { PortfolioItem } from '../../../data/portfolio1'
 const props = defineProps<{
   title: string
   description?: string
-  summary?: string
+  summary?: string | string[]
   skills?: string | string[]
   youtubeId?: string
   items?: PortfolioItem[]
@@ -14,6 +14,10 @@ const props = defineProps<{
 }>()
 
 const headingText = computed(() => props.heading ?? props.title)
+const summaryParagraphs = computed(() => {
+  if (!props.summary) return []
+  return Array.isArray(props.summary) ? props.summary : [props.summary]
+})
 const skillsText = computed(() =>
   Array.isArray(props.skills) ? props.skills.join(' • ') : props.skills
 )
@@ -24,7 +28,9 @@ const skillsText = computed(() =>
     <header class="hero">
       <h1>{{ headingText }}</h1>
       <p v-if="description" class="hero-description">{{ description }}</p>
-      <p v-if="summary" class="hero-summary">{{ summary }}</p>
+      <div v-if="summaryParagraphs.length" class="hero-summary">
+        <p v-for="(paragraph, index) in summaryParagraphs" :key="index">{{ paragraph }}</p>
+      </div>
       <p v-if="skillsText" class="hero-skills"><strong>Skills:</strong> {{ skillsText }}</p>
       <div v-if="youtubeId" class="hero-video">
         <YouTube :id="youtubeId" width="70%" />
@@ -48,15 +54,22 @@ const skillsText = computed(() =>
   gap: 12px;
 }
 .hero-description {
-  max-width: 100%;
+  max-width: 78ch;
   opacity: 0.85;
 }
 .hero-summary {
-  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 78ch;
   opacity: 0.9;
+  line-height: 1.65;
+}
+.hero-summary p {
+  margin: 0;
 }
 .hero-skills {
-  max-width: 100%;
+  max-width: 78ch;
   opacity: 0.95;
 }
 .hero-video {
