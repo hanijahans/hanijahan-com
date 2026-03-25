@@ -9,23 +9,41 @@ mediaPreview: "hover"
 videoEmbed: ""
 ---
 
-# From Satellite Data to Procedural Terrain
+# 🏔️ From Satellite Data to Procedural Terrain  
+Bridging real-world geospatial data and art-directable terrain systems.
 
+## Real-World Reference → Data → System → Result
 
-I built this workflow to convert satellite imagery and elevation data into structured 3D terrain.
+### 1. Real-World Reference
 
-![Geo-data terrain mapping workflow UI](/portfolio/geo-data-terrain-mapping-ui-01.jpg)
+![Mount Kilimanjaro real-world reference](/portfolio/geo-data-terrain-mount-kilimanjaro.jpg)
 
-The goal is to preserve real-world geography while still allowing procedural artistic control for look-dev and environment design.
+*Mount Kilimanjaro — real-world reference used for terrain reconstruction*
 
-### Pipeline
+### 2. Spatial Context (Google Earth)
 
-**input → processing → output**
+![Mount Kilimanjaro Google Earth context](/portfolio/geo-data-terrain-mount-kilimanjaro-google-earth.jpg)
 
-- **input (satellite):** satellite imagery and terrain/elevation maps
-- **processing:** remapping, normalization, and node-based procedural terrain generation
-- **output (render):** structured 3D terrain that preserves real-world geography and supports creative control
+*Satellite view showing the full spatial footprint and surrounding terrain context*
 
+### 3. Raw Data Inputs
+
+| Height map | Color (albedo) map |
+| --- | --- |
+| ![Mount Kilimanjaro height map input](/portfolio/geo-data-terrain-mount-kilimanjaro-maps-height.png) | ![Mount Kilimanjaro color albedo map input](/portfolio/geo-data-terrain-mount-kilimanjaro-maps-color.png) |
+
+*Raw satellite-derived data used as input (elevation + color)*
+
+<sub>elevation = heightfield</sub>  
+<sub>color = surface reference</sub>
+
+### 4. Procedural System (Houdini)
+
+![Mount Kilimanjaro Houdini node network](/portfolio/geo-data-terrain-mount-kilimanjaro-houdini-network.png)
+
+*Procedural pipeline for terrain reconstruction and processing*
+
+### 5. Final Output
 
 <BeforeAfterSlider
   before-src="/portfolio/geo-data-terrain-mapping-mount-kilimanjaro-z9-01.png"
@@ -44,6 +62,27 @@ The goal is to preserve real-world geography while still allowing procedural art
   height="420px"
   :initial="50"
 />
+
+*Final generated terrain inside the procedural system*
+
+This system converts real-world geospatial data into a controllable terrain inside Houdini.
+
+**Pipeline:**
+
+- Import satellite height and color data
+- Process elevation into a usable heightfield
+- Apply filtering and shaping operations
+- Generate terrain with adjustable parameters
+
+The system allows reconstruction of real locations while maintaining procedural control.
+
+### Pipeline
+
+**input → processing → output**
+
+- **input (satellite):** satellite imagery and terrain/elevation maps
+- **processing:** remapping, normalization, and node-based procedural terrain generation
+- **output (render):** structured 3D terrain that preserves real-world geography and supports creative control
 
 
 ## Problem
