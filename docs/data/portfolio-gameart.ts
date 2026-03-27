@@ -16,7 +16,7 @@ export const houdini: PortfolioItem[] = [
     title: "Platformer Kit",
     subtitle: " ",
     tags: ["", "", ""],
-    cover: "/portfolio/platformer-kit-01.png",
+    cover: "/portfolio/unity-asset-platformer-kit-01.png",
     url: "https://assetstore.unity.com/packages/3d/environments/lowpoly-platformer-kit-free-modular-stylized-blocks-319018", // or external if you prefer
     description:
       ""
@@ -25,7 +25,7 @@ export const houdini: PortfolioItem[] = [
     title: "Sci-Fi Lab Kit",
     subtitle: " ",
     tags: ["", "", ""],
-    cover: "/portfolio/scifi-lab-kit-01.png",
+    cover: "/portfolio/unity-asset-scifi-lab-kit-01.png",
     url: "https://assetstore.unity.com/packages/3d/environments/sci-fi/sci-fi-lab-kit-modular-stylized-low-poly-environment-assets-324212",
     description:
       ""
