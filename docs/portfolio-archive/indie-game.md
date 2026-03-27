@@ -4,6 +4,7 @@ description:
 category: Indie Game
 categoryOrder: 6
 order: 1
+tags: [Game Dev, WFC]
 cover: "/portfolio/worldlattice-01.png"
 mediaPreview: "hover"
 videoEmbed: "https://www.youtube.com/embed/n2kaECKiSeA?autoplay=1&mute=1&loop=1&playlist=GBCFRYMkSrY&rel=0"

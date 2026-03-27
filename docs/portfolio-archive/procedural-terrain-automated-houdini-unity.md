@@ -4,6 +4,7 @@ description: Streams, assembles, and geo-aligns terrain tiles on demand for rapi
 category: Terrain
 categoryOrder: 1
 order: 4
+tags: [Unity, Procedural, Terrain]
 cover: "/portfolio/geo-data-terrain-automated-houdini-unity-01.png"
 mediaPreview: "hover"
 videoEmbed: "https://www.youtube.com/embed/Ez4Oh8gTc3U?autoplay=1&mute=1&loop=1&playlist=GBCFRYMkSrY&rel=0"

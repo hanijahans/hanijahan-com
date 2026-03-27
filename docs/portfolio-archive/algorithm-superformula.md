@@ -4,6 +4,7 @@ description: Structural exploration of emergent form using Johan Gielis’ super
 category: Algorithmic
 categoryOrder: 4
 order: 1
+tags: [Houdini, Algorithmic Design]
 ---
 
 # Superformula

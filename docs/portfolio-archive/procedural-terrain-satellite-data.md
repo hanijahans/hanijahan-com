@@ -4,6 +4,7 @@ description: Converting satellite imagery and elevation data into structured pro
 category: Terrain
 categoryOrder: 1
 order: 1
+tags: [Houdini, Procedural, Terrain]
 cover: "/portfolio/geo-data-terrain-mapping-mount-kilimanjaro-z12-02.png"
 mediaPreview: "hover"
 videoEmbed: ""

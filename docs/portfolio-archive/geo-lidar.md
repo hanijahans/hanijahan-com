@@ -6,6 +6,7 @@ category:
   - Geospatial
 categoryOrder: 1
 order: 3
+tags: [LiDAR, Procedural, Terrain]
 cover: "/portfolio/data-lidar-pc-01.png"
 ---
 

@@ -1,25 +1,22 @@
 ---
-title: Procedural Terrain System
-description: Diorama-style terrain generator with flattening, erosion, and slope-aware scattering.
+title: Tool Development
+description: Tool Development
 category: Rest
 categoryOrder: 7
 order: 1
+tags: [Houdini, Tools]
 ---
 
-# Procedural Terrain System
+# Tool Development
 ![Preview](/portfolio/artist-friendly-toolset.png)
 
-A procedural terrain generator designed for stylized diorama-style environments.
 
 ## Features
-- Erosion-based terrain shaping
-- Flattening tools for roads, cities, and landmarks
-- Slope-aware scattering of vegetation and props
-- NPR-friendly style for readability
+
 
 ## Tools & Tech
 - Houdini
 - Procedural workflows
-- Engine export
+
 
 

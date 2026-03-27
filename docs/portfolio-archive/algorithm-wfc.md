@@ -4,6 +4,7 @@ description:
 category: Algorithmic
 categoryOrder: 4
 order: 3
+tags: [Houdini, Algorithmic Design]
 cover: "/portfolio/wfc-01.png"
 mediaPreview: "hover"
 videoEmbed: "https://www.youtube.com/embed/FsCk7Swlxr4?autoplay=1&mute=1&loop=1&playlist=GBCFRYMkSrY&rel=0"

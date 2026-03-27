@@ -4,6 +4,7 @@ description: Diorama-style terrain generator with flattening, erosion, and slope
 category: Rest
 categoryOrder: 7
 order: 2
+tags: [Concept Art, Photoshop]
 ---
 
 # Procedural Terrain System
