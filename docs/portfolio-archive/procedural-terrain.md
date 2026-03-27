@@ -10,6 +10,29 @@ tags: [Houdini, Procedural, Terrain]
 # Procedural Terrain System
 ![Preview](/portfolio/procedural-terrain.png)
 
+
+procedural
+final
+before: procedural-land-02-1-heightmap.png
+after: procedural-land-02-8-final.png
+
+heightmap
+procedural-land-02-1-heightmap.png
+
+slopemap
+procedural-land-02-2-slopemap.png
+
+rivermask
+procedural-land-02-3-rivermask.png
+
+treemask
+before: procedural-land-02-4-treemask.png
+after: procedural-land-02-5-treemask.png
+
+settlement
+before: procedural-land-02-6-settlement.png
+after: procedural-land-02-8-final.png
+
 A procedural terrain workflow for building environments quickly while preserving artistic control.
 
 ## Problem
