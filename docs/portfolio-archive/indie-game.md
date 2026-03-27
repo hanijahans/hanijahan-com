@@ -4,14 +4,14 @@ description:
 category: Indie Game
 categoryOrder: 6
 order: 1
-tags: [Game Dev, WFC]
-cover: "/portfolio/worldlattice-01.png"
+tags: [Game Dev, Unity, WFC]
+cover: "/portfolio/gamedev-worldlattice-01.png"
 mediaPreview: "hover"
 videoEmbed: "https://www.youtube.com/embed/n2kaECKiSeA?autoplay=1&mute=1&loop=1&playlist=GBCFRYMkSrY&rel=0"
 ---
 
 # WorldLattice
-![Preview](/portfolio/worldlattice-01.png)
+![Preview](/portfolio/gamedev-worldlattice-01.png)
 Playable at https://hanijahan.itch.io/worldlattice
 
 
