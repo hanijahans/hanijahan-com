@@ -8,7 +8,7 @@ tags: [Concept Art, Photoshop]
 ---
 
 # Visual Foundations
-![Preview](/portfolio/visual-foundations-scifi-01.png)
+![Preview](/portfolio/visual-foundations-scifi.png)
 
 ![Preview](/portfolio/visual-foundations-biomech-butterfly.jpg)
 
