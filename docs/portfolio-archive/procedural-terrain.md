@@ -2,7 +2,6 @@
 title: Procedural Terrain System
 description: Node-based terrain generation with slope-aware masks, settlement flattening, and art-directable controls.
 category: Terrain
-categoryOrder: 1
 order: 1
 tags: [Houdini, Procedural, Terrain]
 cover: "/portfolio/procedural-land-02-8-final.png"

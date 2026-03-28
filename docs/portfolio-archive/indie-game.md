@@ -2,7 +2,6 @@
 title: WorldLattice
 description: 
 category: Indie Game
-categoryOrder: 6
 order: 1
 tags: [Game Dev, Unity, WFC]
 cover: "/portfolio/gamedev-worldlattice-01.png"

@@ -2,7 +2,6 @@
 title: Dental
 description: 
 category: Medical
-categoryOrder: 3
 order: 2
 tags: [Houdini, Data]
 ---

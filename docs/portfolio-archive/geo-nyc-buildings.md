@@ -2,7 +2,6 @@
 title: New York Buildings
 description: 
 category: Geospatial
-categoryOrder: 1
 order: 4
 cover: "/portfolio/geo-data-nyc-buildings.png"
 mediaPreview: "hover"

@@ -2,7 +2,6 @@
 title: Tool Development
 description: Tool Development
 category: Rest
-categoryOrder: 7
 order: 1
 tags: [Houdini, Tools]
 ---

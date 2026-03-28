@@ -1,7 +1,8 @@
+import { getCategoryOrder } from './category-order'
+
 export type PortfolioItem = {
   title: string
   categories?: string[]
-  categoryOrder?: number
   order?: number
   subtitle?: string
   role?: string
@@ -22,7 +23,6 @@ type ArchiveDocMeta = {
   tags?: string[]
   cover?: string
   categories?: string[]
-  categoryOrder?: number
   order?: number
   video?: string
   videoEmbed?: string
@@ -225,7 +225,6 @@ const parseArchiveDoc = (raw: string): ParsedArchiveDoc => {
     tags: toStringArrayOrUndefined(frontmatter.tags),
     cover: toStringOrUndefined(frontmatter.cover),
     categories,
-    categoryOrder: toNumberOrUndefined(frontmatter.categoryOrder),
     order: toNumberOrUndefined(frontmatter.order),
     video: toStringOrUndefined(frontmatter.video),
     videoEmbed: toStringOrUndefined(frontmatter.videoEmbed),
@@ -240,8 +239,8 @@ const compareItems = (a: PortfolioItem, b: PortfolioItem): number => {
   const bPrimaryCategory = b.categories?.[0] ?? ''
 
   return (
-    (a.categoryOrder ?? Number.POSITIVE_INFINITY) -
-      (b.categoryOrder ?? Number.POSITIVE_INFINITY) ||
+    (getCategoryOrder(a.categories) ?? Number.POSITIVE_INFINITY) -
+      (getCategoryOrder(b.categories) ?? Number.POSITIVE_INFINITY) ||
     aPrimaryCategory.localeCompare(bPrimaryCategory) ||
     (a.order ?? Number.POSITIVE_INFINITY) - (b.order ?? Number.POSITIVE_INFINITY) ||
     a.title.localeCompare(b.title)
@@ -266,7 +265,6 @@ export const houdini: PortfolioItem[] = Object.entries(archiveDocs)
     return {
       title: data.title || toTitle(slug),
       categories: data.categories,
-      categoryOrder: data.categoryOrder,
       order: data.order,
       tags,
       cover: data.cover || firstImage || fallbackCover,

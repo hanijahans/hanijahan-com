@@ -2,7 +2,6 @@
 title: Wave Function Collapse
 description: 
 category: Algorithmic
-categoryOrder: 4
 order: 3
 tags: [Houdini, Algorithmic Design]
 cover: "/portfolio/wfc-01.png"
