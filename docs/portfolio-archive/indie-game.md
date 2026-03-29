@@ -1,6 +1,6 @@
 ---
-title: WorldLattice
-description: 
+title: Indie Games
+description:
 category: Indie Game
 order: 1
 tags: [Game Dev, Unity, WFC]
@@ -9,10 +9,9 @@ mediaPreview: "hover"
 videoEmbed: "https://www.youtube.com/embed/n2kaECKiSeA?autoplay=1&mute=1&loop=1&playlist=GBCFRYMkSrY&rel=0"
 ---
 
-# WorldLattice
-![Preview](/portfolio/gamedev-worldlattice-01.png)
-Playable at https://hanijahan.itch.io/worldlattice
+## 1. World Lattice
 
+https://hanijahan.com/worldlattice/
 
 <iframe
   style="width: 100%; aspect-ratio: 16 / 9; height: auto;"
@@ -24,3 +23,6 @@ Playable at https://hanijahan.itch.io/worldlattice
   allowfullscreen
 ></iframe>
 
+## 2. Placeholder
+
+Details coming soon.
