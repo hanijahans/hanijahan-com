@@ -1,8 +1,8 @@
 ---
 title: Tool Development
 description: Tool Development
-category: Rest
-order: 1
+category: Technical Art
+order: 4
 tags: [Houdini, Tools]
 ---
 
