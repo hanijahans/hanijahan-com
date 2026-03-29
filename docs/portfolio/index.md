@@ -6,6 +6,8 @@ layout: page
 
 <script setup>
 import { houdini } from '/data/portfolio'
+
+const visibleItems = houdini.filter((item) => !item.categories?.includes('Medical'))
 </script>
 
 <PortfolioPage
@@ -14,5 +16,5 @@ import { houdini } from '/data/portfolio'
   summary="I build procedural Houdini systems that convert scientific and spatial data into simulations, structures, and visual understanding for research, analysis, and communication."
   skills="Procedural Systems • Tool and pipeline development"
   youtube-id=""
-  :items="houdini"
+  :items="visibleItems"
 />
