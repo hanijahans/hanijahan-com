@@ -12,10 +12,15 @@ cover: "/portfolio/data-lidar-pc-01.png"
 # Procedural Processing of LiDAR Point Clouds
 This project explores a procedural workflow for processing LiDAR datasets and reconstructing terrain environments from raw point cloud data.
 
-<div class="image-row1" style="--image-max-width: 780px; --image-max-width-mobile: 100%;">
-  <img src="/portfolio/data-lidar-pc-01.png">
-</div>
-image: Raw LiDAR Point Cloud
+<BeforeAfterSlider
+  before-src="/portfolio/data-lidar-pc-04-hf.png"
+  after-src="/portfolio/data-lidar-pc-01.png"
+  before-alt="Raw LiDAR Point Cloud"
+  after-alt="Heightfield Reconstruction"
+  height="360px"
+  :initial="45"
+/>
+
 
 The dataset used in this experiment comes from the SwissSurface3D LiDAR dataset provided by Swisstopo, which contains high-resolution airborne laser scanning data covering Switzerland.
 
@@ -44,10 +49,14 @@ Each stage transforms the dataset into a more structured representation that can
 
 ## Classification
 
-<div class="image-row1" style="--image-max-width: 780px; --image-max-width-mobile: 100%;">
-  <img src="/portfolio/data-lidar-pc-02-colored.png">
-</div>
-image: Filtering
+<BeforeAfterSlider
+  before-src="/portfolio/data-lidar-pc-02-colored.png"
+  after-src="/portfolio/data-lidar-pc-01.png"
+  before-alt="Raw LiDAR Point Cloud"
+  after-alt="Filtering"
+  height="360px"
+  :initial="45"
+/>
 
 - water → blue
 - terrain → brown
@@ -62,10 +71,14 @@ The point cloud is classified into semantic categories including:
 
 ## Heightfield Reconstruction
 
-<div class="image-row1" style="--image-max-width: 780px; --image-max-width-mobile: 100%;">
-  <img src="/portfolio/data-lidar-pc-04-hf.png">
-</div>
-image: Surface Reconstruction (Height Field)
+<BeforeAfterSlider
+  before-src="/portfolio/data-lidar-pc-04-hf.png"
+  after-src="/portfolio/data-lidar-pc-01.png"
+  before-alt="Raw LiDAR Point Cloud"
+  after-alt="Heightfield Reconstruction"
+  height="360px"
+  :initial="45"
+/>
 
 This image shows the terrain heightfield reconstructed from LiDAR data.
 
@@ -75,9 +88,14 @@ This representation removes most vegetation and structural noise from the point 
 
 ## Voxel Representation
 
-<div class="image-row1" style="--image-max-width: 780px; --image-max-width-mobile: 100%;">
-  <img src="/portfolio/data-lidar-pc-03-voxel.png">
-</div>
+<BeforeAfterSlider
+  before-src="/portfolio/data-lidar-pc-03-voxel.png"
+  after-src="/portfolio/data-lidar-pc-01.png"
+  before-alt="Raw LiDAR Point Cloud"
+  after-alt="Voxel Representation"
+  height="360px"
+  :initial="45"
+/>
 
 The reconstructed environment can also be converted into a voxel representation, which provides a grid-based spatial structure.
 
