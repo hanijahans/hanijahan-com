@@ -4,7 +4,7 @@ description:
 category: Geospatial
 order: 2
 tags: [Data, OSM]
-cover: "/portfolio/geo-data-osm-01.png"
+cover: "/portfolio/osm-pasadena-05.png"
 mediaPreview: "hover"
 videoEmbed: ""
 ---
