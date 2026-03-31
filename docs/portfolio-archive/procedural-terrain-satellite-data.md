@@ -7,6 +7,8 @@ category:
 order: 1
 tags: [Houdini, Procedural, Terrain]
 cover: "/portfolio/geo-data-terrain-mapping-mount-kilimanjaro-z12-02.png"
+coverBefore: "/portfolio/geo-data-terrain-mapping-mount-kilimanjaro-z12-01.png"
+coverAfter: "/portfolio/geo-data-terrain-mapping-mount-kilimanjaro-z12-02.png"
 mediaPreview: "hover"
 videoEmbed: ""
 ---

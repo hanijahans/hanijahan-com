@@ -7,6 +7,10 @@ category:
 order: 3
 tags: [LiDAR, Procedural, Terrain]
 cover: "/portfolio/data-lidar-pc-01.png"
+coverBefore: "/portfolio/data-lidar-pc-04-hf.png"
+coverAfter: "/portfolio/data-lidar-pc-01.png"
+mediaPreview: "hover"
+videoEmbed: ""
 ---
 
 # Procedural Processing of LiDAR Point Clouds

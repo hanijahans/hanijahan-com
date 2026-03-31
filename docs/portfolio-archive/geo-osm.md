@@ -5,6 +5,8 @@ category: Geospatial
 order: 2
 tags: [Data, OSM]
 cover: "/portfolio/osm-pasadena-05.png"
+coverBefore: "/portfolio/osm-pasadena-01.png"
+coverAfter: "/portfolio/osm-pasadena-05.png"
 mediaPreview: "hover"
 videoEmbed: ""
 ---
