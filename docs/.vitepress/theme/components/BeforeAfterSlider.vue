@@ -2,8 +2,9 @@
   <figure
     ref="sliderEl"
     class="before-after-slider"
+    :class="{ 'is-static': !isInteractive }"
     :style="frameStyle"
-    @pointerdown="onPointerDown"
+    @pointerdown="isInteractive ? onPointerDown : null"
   >
     <img
       class="slider-image"
@@ -26,6 +27,7 @@
     </div>
 
     <input
+      v-if="isInteractive"
       class="slider-range"
       type="range"
       min="0"
@@ -66,11 +68,20 @@ const props = defineProps({
   comparisonLabel: {
     type: String,
     default: 'Before and after image comparison'
+  },
+  interactive: {
+    type: Boolean,
+    default: true
+  },
+  static: {
+    type: Boolean,
+    default: false
   }
 })
 
 const sliderEl = ref(null)
 const value = ref(clamp(props.initial))
+const isInteractive = computed(() => props.interactive && !props.static)
 
 const reveal = computed(() => `${value.value}%`)
 const frameStyle = computed(() => ({ height: props.height }))
@@ -202,6 +213,10 @@ function onPointerDown(event) {
   cursor: ew-resize;
   z-index: 5;
   touch-action: pan-y;
+}
+
+.before-after-slider.is-static {
+  cursor: default;
 }
 
 .before-after-slider:focus-within {
