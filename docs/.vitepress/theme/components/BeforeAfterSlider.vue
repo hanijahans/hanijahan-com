@@ -219,6 +219,10 @@ function onPointerDown(event) {
   cursor: default;
 }
 
+.before-after-slider.is-static .handle {
+  display: none;
+}
+
 .before-after-slider:focus-within {
   box-shadow:
     0 0 0 3px color-mix(in srgb, var(--vp-c-brand-1) 45%, transparent),
