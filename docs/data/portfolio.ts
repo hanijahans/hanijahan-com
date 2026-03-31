@@ -9,6 +9,8 @@ export type PortfolioItem = {
   year?: string
   tags?: string[]
   cover: string
+  coverBefore?: string
+  coverAfter?: string
   video?: string
   videoEmbed?: string
   mediaPreview?: 'always' | 'hover'
@@ -22,6 +24,8 @@ type ArchiveDocMeta = {
   shortDescription?: string
   tags?: string[]
   cover?: string
+  coverBefore?: string
+  coverAfter?: string
   categories?: string[]
   order?: number
   video?: string
@@ -224,6 +228,8 @@ const parseArchiveDoc = (raw: string): ParsedArchiveDoc => {
     shortDescription: toStringOrUndefined(frontmatter.shortDescription),
     tags: toStringArrayOrUndefined(frontmatter.tags),
     cover: toStringOrUndefined(frontmatter.cover),
+    coverBefore: toStringOrUndefined(frontmatter.coverBefore),
+    coverAfter: toStringOrUndefined(frontmatter.coverAfter),
     categories,
     order: toNumberOrUndefined(frontmatter.order),
     video: toStringOrUndefined(frontmatter.video),
@@ -268,6 +274,8 @@ export const houdini: PortfolioItem[] = Object.entries(archiveDocs)
       order: data.order,
       tags,
       cover: data.cover || firstImage || fallbackCover,
+      coverBefore: data.coverBefore,
+      coverAfter: data.coverAfter,
       video: data.video,
       videoEmbed: data.videoEmbed,
       mediaPreview: toMediaPreviewMode(data.mediaPreview),

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import BeforeAfterSlider from './BeforeAfterSlider.vue'
 import { houdini, type PortfolioItem } from '../../../data/portfolio'
 
 const props = defineProps<{ items?: PortfolioItem[] }>()
@@ -54,6 +55,11 @@ function onCardLeave(index: number, item: PortfolioItem) {
   htmlVideos.value[index]?.pause()
 }
 
+
+function shouldShowStaticCover(item: PortfolioItem): boolean {
+  return Boolean(item.coverBefore && item.coverAfter)
+}
+
 function shouldShowMedia(index: number, item: PortfolioItem): boolean {
   if (!(item.videoEmbed || item.video)) return false
 
@@ -83,7 +89,16 @@ function shouldShowMedia(index: number, item: PortfolioItem): boolean {
       <span v-if="it.url" class="corner" aria-hidden="true">↗</span>
 
       <div v-if="it.videoEmbed || it.video" class="cover">
-        <div v-if="shouldShowMedia(i, it)" class="cover-media">
+        <BeforeAfterSlider
+          v-if="shouldShowStaticCover(it)"
+          class="cover-slider"
+          :before-src="it.coverBefore!"
+          :after-src="it.coverAfter!"
+          :before-alt="`${it.title} before`"
+          static
+          height="220px"
+        />
+        <div v-else-if="shouldShowMedia(i, it)" class="cover-media">
           <iframe
             v-if="it.videoEmbed"
             :ref="(el) => youtubeFrames[i] = el as HTMLIFrameElement | null"
@@ -111,7 +126,17 @@ function shouldShowMedia(index: number, item: PortfolioItem): boolean {
         />
       </div>
       <div v-else class="cover">
+        <BeforeAfterSlider
+          v-if="shouldShowStaticCover(it)"
+          class="cover-slider"
+          :before-src="it.coverBefore!"
+          :after-src="it.coverAfter!"
+          :before-alt="`${it.title} before`"
+          static
+          height="220px"
+        />
         <img
+          v-else
           :src="it.cover"
           :alt="it.title"
           loading="lazy"
@@ -193,6 +218,13 @@ function shouldShowMedia(index: number, item: PortfolioItem): boolean {
 
 .card:hover .corner {
   transform: translateY(-1px);
+}
+
+.cover :deep(.cover-slider.before-after-slider) {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .cover img {
