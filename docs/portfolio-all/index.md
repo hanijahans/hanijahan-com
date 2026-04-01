@@ -8,6 +8,7 @@ layout: page
 import { allPortfolioItems } from '/data/portfolio'
 
 const visibleItems = allPortfolioItems
+// const visibleItems = allPortfolioItems.filter((item) => !item.categories?.includes('Medical'))
 </script>
 
 <PortfolioPage
