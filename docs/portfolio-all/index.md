@@ -12,9 +12,9 @@ const visibleItems = houdini
 
 <PortfolioPage
   title="PORTFOLIO"
-  description="Scientific Visualization TD (Houdini)"
-  summary="I build procedural Houdini systems that convert scientific and spatial data into simulations, structures, and visual understanding for research, analysis, and communication."
-  skills="Procedural Systems • Tool and pipeline development"
+  description=""
+  summary=""
+  skills=""
   youtube-id=""
   :items="visibleItems"
 />

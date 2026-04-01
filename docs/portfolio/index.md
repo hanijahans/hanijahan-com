@@ -13,8 +13,8 @@ const visibleItems = getPortfolioByCategory(category)
 
 <PortfolioPage
   title="PORTFOLIO"
-  description="Scientific Visualization TD (Houdini)"
-  summary="I build procedural Houdini systems that convert scientific and spatial data into simulations, structures, and visual understanding for research, analysis, and communication."
+  description="Procedural Systems (Houdini)"
+  summary=""
   skills="Procedural Systems • Tool and pipeline development"
   youtube-id=""
   :items="visibleItems"

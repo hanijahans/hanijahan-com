@@ -13,7 +13,7 @@ const houdini = getPortfolioByCategory(category)
 
 <PortfolioPage
   title="PORTFOLIO"
-  description="Geospatial Data Visualization / Mapping / Analytics"
+  description="I build procedural Houdini systems that convert spatial data into simulations, structures, and visual understanding for research, analysis, and communication. Geospatial Data Visualization / Mapping / Analytics"
   youtube-id=""
   :items="houdini"
 />
