@@ -2,6 +2,7 @@
 title: Mapbox On-Demand Terrain Streaming
 description: Streams, assembles, and geo-aligns terrain tiles on demand for rapid world-building
 category:
+  - Portfolio
   - Terrain
   - Technical Art
 order: 4

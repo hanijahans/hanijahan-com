@@ -1,7 +1,9 @@
 ---
 title: Tool Development
 description: Tool Development
-category: Technical Art
+category: 
+  - Portfolio
+  - Technical Art
 order: 4
 tags: [Houdini, Tools]
 ---
