@@ -8,7 +8,7 @@ heroTextTone: 0.6
 head:
   - - meta
     - http-equiv: refresh
-      content: "0;url=/contact.html"
+      content: "0;url=/portfolio/"
 ---
 
 <!-- <div
@@ -53,5 +53,5 @@ const heroTextTone = computed(() => {
 </script> -->
 
 <noscript>
-  <meta http-equiv="refresh" content="0;url=/contact.html" />
+  <meta http-equiv="refresh" content="0;url=/portfolio/" />
 </noscript>
