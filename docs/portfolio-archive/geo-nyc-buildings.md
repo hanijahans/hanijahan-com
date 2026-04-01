@@ -4,6 +4,8 @@ description:
 category: Geospatial
 order: 4
 cover: "/portfolio/data-buildings-footprints-newyork-02.png"
+coverBefore: "/portfolio/data-buildings-footprints-newyork-03.png"
+coverAfter: "/portfolio/data-buildings-footprints-newyork-04.png"
 mediaPreview: "hover"
 videoEmbed: ""
 ---
@@ -39,6 +41,19 @@ Transforms GeoJSON building data into structured 3D geometry by handling coordin
 ### 2D footprint
 
 ![2D building footprint](/portfolio/data-building-footprint-newyork-01.png)
+
+### 3D Generated Buildings
+
+- **`heightroof` → extrusion height:** Procedural extrusion is driven by the `heightroof` attribute when available.
+
+<BeforeAfterSlider
+  before-src="/portfolio/data-buildings-footprints-newyork-03.png"
+  after-src="/portfolio/data-buildings-footprints-newyork-04.png"
+  before-alt="2D footprint"
+  after-alt="3D Generated Buildings"
+  height="420px"
+  :initial="50"
+/>
 
 ## Dataset reference
 
