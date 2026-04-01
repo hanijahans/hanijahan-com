@@ -1,14 +1,13 @@
 ---
-title: PORTFOLIO
+title: PORTFOLIO ALL
 description: PORTFOLIO description
 layout: page
 ---
 
 <script setup>
-import { getPortfolioByCategory } from '/data/portfolio'
+import { houdini } from '/data/portfolio'
 
-const category = 'Portfolio'
-const houdini = getPortfolioByCategory(category)
+const visibleItems = houdini.filter((item) => !item.categories?.includes('Medical'))
 </script>
 
 <PortfolioPage
