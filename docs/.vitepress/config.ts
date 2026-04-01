@@ -3,13 +3,12 @@ import { DefaultTheme, defineConfig } from 'vitepress'
 const navItems: DefaultTheme.NavItem[] = [
   // { text: 'Home', link: '/' },
   // { text: 'Blog', link: '/blog/' },
-  // { text: 'Portfolio', link: '/portfolio/' },
+   { text: 'Portfolio', link: '/portfolio/' },
   // {
   //   text: 'Products',
   //   items: [{ text: 'Unity Free Pack', link: '/products/unity/free-pack/' }]
   // },
   // { text: 'GameDev', link: '/worldlattice/' },
-  { text: 'GeoNode', link: '/geonode/' },
   { text: 'Contact', link: '/contact/' }
 ]
 
