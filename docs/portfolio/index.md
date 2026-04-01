@@ -8,7 +8,7 @@ layout: page
 import { getPortfolioByCategory } from '/data/portfolio'
 
 const category = 'Portfolio'
-const houdini = getPortfolioByCategory(category)
+const visibleItems = getPortfolioByCategory(category)
 </script>
 
 <PortfolioPage

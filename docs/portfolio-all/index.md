@@ -7,7 +7,7 @@ layout: page
 <script setup>
 import { houdini } from '/data/portfolio'
 
-const visibleItems = houdini.filter((item) => !item.categories?.includes('Medical'))
+const visibleItems = houdini
 </script>
 
 <PortfolioPage
