@@ -1,12 +1,13 @@
 export const CATEGORY_ORDER: Record<string, number> = {
-  Terrain: 1,
-  Geospatial: 2,
-  'Technical Art': 3,
-  'Data Visualization': 4,
-  Medical: 5,
-  Algorithmic: 6,
-  'Indie Game': 7,
-  Rest: 8
+  Portfolio: 1,
+  Terrain: 2,
+  Geospatial: 3,
+  'Technical Art': 4,
+  'Data Visualization': 5,
+  Medical: 6,
+  Algorithmic: 7,
+  'Indie Game': 8,
+  Rest: 9
 }
 
 export const getCategoryOrder = (categories?: string[]): number | undefined => {

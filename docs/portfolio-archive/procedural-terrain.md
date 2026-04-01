@@ -2,6 +2,7 @@
 title: Procedural Terrain System
 description: Node-based terrain generation with slope-aware masks, settlement flattening, and art-directable controls.
 category: 
+  - Portfolio
   - Terrain
   - Technical Art
 order: 1
