@@ -4,8 +4,6 @@ description:
 category: Geospatial
 order: 4
 cover: "/portfolio/data-buildings-footprints-newyork-02.png"
-coverBefore: "/portfolio/data-buildings-footprints-newyork-03.png"
-coverAfter: "/portfolio/data-buildings-footprints-newyork-04.png"
 mediaPreview: "hover"
 videoEmbed: ""
 ---
