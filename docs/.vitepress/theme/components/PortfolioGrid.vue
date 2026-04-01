@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import BeforeAfterSlider from './BeforeAfterSlider.vue'
-import { houdini, type PortfolioItem } from '../../../data/portfolio'
+import { allPortfolioItems, type PortfolioItem } from '../../../data/portfolio'
 
 const props = defineProps<{ items?: PortfolioItem[] }>()
-const gridItems = computed(() => props.items ?? houdini)
+const gridItems = computed(() => props.items ?? allPortfolioItems)
 
 const youtubeFrames = ref<Record<number, HTMLIFrameElement | null>>({})
 const htmlVideos = ref<Record<number, HTMLVideoElement | null>>({})

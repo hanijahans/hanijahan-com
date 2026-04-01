@@ -5,7 +5,7 @@ layout: page
 ---
 
 <script setup>
-import { houdini } from '/data/portfolio-gameart'
+import { allPortfolioItems } from '/data/portfolio-gameart'
 </script>
 
 <PortfolioPage
@@ -13,5 +13,5 @@ import { houdini } from '/data/portfolio-gameart'
   description="Game Artist"
   summary=""
   youtube-id=""
-  :items="houdini"
+  :items="allPortfolioItems"
 />

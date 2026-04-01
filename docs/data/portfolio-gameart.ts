@@ -11,7 +11,7 @@ export type PortfolioItem = {
   description?: string
 };
 
-export const houdini: PortfolioItem[] = [
+export const allPortfolioItems: PortfolioItem[] = [
   {
     title: "Platformer Kit",
     subtitle: " ",

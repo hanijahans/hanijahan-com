@@ -253,7 +253,7 @@ const compareItems = (a: PortfolioItem, b: PortfolioItem): number => {
   )
 }
 
-export const houdini: PortfolioItem[] = Object.entries(archiveDocs)
+export const allPortfolioItems: PortfolioItem[] = Object.entries(archiveDocs)
   .map(([path, raw]) => {
     const slug = path.split('/').pop()?.replace('.md', '')
     if (!slug) return null
@@ -287,4 +287,4 @@ export const houdini: PortfolioItem[] = Object.entries(archiveDocs)
   .sort(compareItems)
 
 export const getPortfolioByCategory = (category: string): PortfolioItem[] =>
-  houdini.filter((item) => item.categories?.includes(category))
+  allPortfolioItems.filter((item) => item.categories?.includes(category))

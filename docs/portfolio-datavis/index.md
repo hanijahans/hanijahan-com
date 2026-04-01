@@ -8,12 +8,12 @@ layout: page
 import { getPortfolioByCategory } from '/data/portfolio'
 
 const category = 'Data Visualization'
-const houdini = getPortfolioByCategory(category)
+const categoryPortfolioItems = getPortfolioByCategory(category)
 </script>
 
 <PortfolioPage
   title="PORTFOLIO"
   description=""
   youtube-id=""
-  :items="houdini"
+  :items="categoryPortfolioItems"
 />

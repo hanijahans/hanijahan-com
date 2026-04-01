@@ -5,9 +5,9 @@ layout: page
 ---
 
 <script setup>
-import { houdini } from '/data/portfolio'
+import { allPortfolioItems } from '/data/portfolio'
 
-const visibleItems = houdini
+const visibleItems = allPortfolioItems
 </script>
 
 <PortfolioPage

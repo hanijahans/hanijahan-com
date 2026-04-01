@@ -8,12 +8,12 @@ layout: page
 import { getPortfolioByCategory } from '/data/portfolio'
 
 const category = 'Algorithmic'
-const houdini = getPortfolioByCategory(category)
+const categoryPortfolioItems = getPortfolioByCategory(category)
 </script>
 
 <PortfolioPage
   title="PORTFOLIO"
   description="Math / Algorithms"
   youtube-id=""
-  :items="houdini"
+  :items="categoryPortfolioItems"
 />
