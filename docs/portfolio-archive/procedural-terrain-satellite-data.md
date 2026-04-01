@@ -17,6 +17,15 @@ videoEmbed: ""
 
 A procedural system for reconstructing real-world terrain from geospatial data.
 Designed as a reusable pipeline applicable to any real-world terrain dataset.
+
+<BeforeAfterSlider
+  before-src="/portfolio/geo-data-terrain-mapping-mount-kilimanjaro-z12-01.png"
+  after-src="/portfolio/geo-data-terrain-mapping-mount-kilimanjaro-z12-02.png"
+  before-alt="Mount Kilimanjaro procedurally generated terrain with texture (zoom level 12)"
+  after-alt="Mount Kilimanjaro procedurally generated terrain without texture (zoom level 12)"
+  height="420px"
+  :initial="50"
+/>
 Transforms messy real-world data into production-ready terrain.
 
 ![Mount Kilimanjaro Render](/portfolio/geo-data-terrain-mapping-mount-kilimanjaro-z9-00.png)
@@ -62,6 +71,15 @@ This project is less about a single terrain output and more about the system beh
 <sub>elevation = heightfield</sub>  
 <sub>color = surface reference</sub>
 
+<BeforeAfterSlider
+  before-src="/portfolio/terrain-mapping-Mount_Kilimanjaro_z12_0_hf_top.png"
+  after-src="/portfolio/terrain-mapping-Mount_Kilimanjaro_z12_0_color_top.png"
+  before-alt="Mount Kilimanjaro procedurally generated terrain with texture (zoom level 12)"
+  after-alt="Mount Kilimanjaro procedurally generated terrain without texture (zoom level 12)"
+  height="420px"
+  :initial="50"
+/>
+
 ### 4. Procedural System (Houdini)
 
 ![Mount Kilimanjaro Houdini node network](/portfolio/geo-data-terrain-mount-kilimanjaro-houdini-network.png)
@@ -78,6 +96,7 @@ This project is less about a single terrain output and more about the system beh
   height="420px"
   :initial="50"
 />
+Zoom level 9
 
 <BeforeAfterSlider
   before-src="/portfolio/geo-data-terrain-mapping-mount-kilimanjaro-z12-01.png"
@@ -87,6 +106,7 @@ This project is less about a single terrain output and more about the system beh
   height="420px"
   :initial="50"
 />
+Zoom level 12
 
 *Final generated terrain inside the procedural system*
 
