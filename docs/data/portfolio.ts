@@ -205,8 +205,8 @@ const parseCategoryData = (
   const categories: string[] = []
   const categoryOrderByName: Record<string, number> = {}
 
-  for (const rawEntry of rawCategories) {
-    const entry = rawEntry.trim()
+  for (let i = 0; i < rawCategories.length; i++) {
+    const entry = rawCategories[i]?.trim() ?? ''
     if (!entry) continue
 
     const parts = entry.split(',').map((part) => part.trim()).filter(Boolean)
@@ -220,6 +220,17 @@ const parseCategoryData = (
       categoryOrderByName[categoryName] = maybeOrder
       continue
     }
+
+  const nextEntry = rawCategories[i + 1]?.trim() ?? '';
+  const nextOrder = Number(nextEntry);
+
+  // Ensure the next entry is a finite number and NOT an empty string
+  if (nextEntry !== '' && Number.isFinite(nextOrder)) {
+    categories.push(entry);
+    categoryOrderByName[entry] = nextOrder;
+    i++; // Skip the next index since we consumed it as an order
+    continue;
+  }
 
     categories.push(entry)
     if (typeof fallbackOrder === 'number') {
