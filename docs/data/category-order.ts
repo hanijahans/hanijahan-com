@@ -10,6 +10,13 @@ export const CATEGORY_ORDER: Record<string, number> = {
   Rest: 9
 }
 
+export const getPrimaryCategory = (categories?: string[]): string | undefined => {
+  if (!categories?.length) return undefined
+
+  const firstNonPortfolioCategory = categories.find((category) => category !== 'Portfolio')
+  return firstNonPortfolioCategory ?? categories[0]
+}
+
 export const getCategoryOrder = (categories?: string[]): number | undefined => {
   const primaryCategory = categories?.[0]
   if (!primaryCategory) return undefined
