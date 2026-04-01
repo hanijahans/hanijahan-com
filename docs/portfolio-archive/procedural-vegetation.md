@@ -1,12 +1,11 @@
 ---
 title: Procedural Vegetation
 description: Procedural vegetation toolkit for stylized environments with controllable grass, vines, and path-aware asset scattering.
-category: 
-  - Portfolio
-  - Technical Art
-order: 3
 tags: [Houdini, Procedural, Vegetation]
 cover: "/portfolio/procedural-vegetation.png"
+category:
+  - Portfolio, 3
+  - Technical Art, 3
 mediaPreview: "hover"
 videoEmbed: "https://www.youtube.com/embed/53yyat49Ru4?autoplay=1&mute=1&loop=1&playlist=TkJvMCo8u10&rel=0"
 ---

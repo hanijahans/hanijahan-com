@@ -4,6 +4,7 @@ export type PortfolioItem = {
   title: string
   categories?: string[]
   order?: number
+  categoryOrderByName?: Record<string, number>
   subtitle?: string
   role?: string
   year?: string
@@ -28,6 +29,7 @@ type ArchiveDocMeta = {
   coverAfter?: string
   categories?: string[]
   order?: number
+  categoryOrderByName?: Record<string, number>
   video?: string
   videoEmbed?: string
   mediaPreview?: string
@@ -191,6 +193,46 @@ const toStringArrayOrUndefined = (value: unknown): string[] | undefined => {
   return [unwrapQuoted(trimmed)]
 }
 
+const parseCategoryData = (
+  value: unknown,
+  fallbackOrder?: number
+): Pick<ArchiveDocMeta, 'categories' | 'categoryOrderByName'> => {
+  const rawCategories = toStringArrayOrUndefined(value)
+  if (!rawCategories?.length) {
+    return {}
+  }
+
+  const categories: string[] = []
+  const categoryOrderByName: Record<string, number> = {}
+
+  for (const rawEntry of rawCategories) {
+    const entry = rawEntry.trim()
+    if (!entry) continue
+
+    const parts = entry.split(',').map((part) => part.trim()).filter(Boolean)
+    const maybeOrder = parts.length > 1 ? Number(parts[parts.length - 1]) : Number.NaN
+
+    if (parts.length > 1 && Number.isFinite(maybeOrder)) {
+      const categoryName = parts.slice(0, -1).join(', ').trim()
+      if (!categoryName) continue
+
+      categories.push(categoryName)
+      categoryOrderByName[categoryName] = maybeOrder
+      continue
+    }
+
+    categories.push(entry)
+    if (typeof fallbackOrder === 'number') {
+      categoryOrderByName[entry] = fallbackOrder
+    }
+  }
+
+  return {
+    categories: categories.length ? categories : undefined,
+    categoryOrderByName: Object.keys(categoryOrderByName).length ? categoryOrderByName : undefined
+  }
+}
+
 const extractFirstParagraph = (content: string): string | undefined => {
   const lines = content.split(/\r?\n/)
   const paragraphLines: string[] = []
@@ -220,7 +262,8 @@ const extractFirstParagraph = (content: string): string | undefined => {
 const parseArchiveDoc = (raw: string): ParsedArchiveDoc => {
   const { frontmatter, content } = parseFrontmatter(raw)
 
-  const categories = toStringArrayOrUndefined(frontmatter.category)
+  const order = toNumberOrUndefined(frontmatter.order)
+  const { categories, categoryOrderByName } = parseCategoryData(frontmatter.category, order)
 
   const data: ArchiveDocMeta = {
     title: toStringOrUndefined(frontmatter.title),
@@ -231,7 +274,8 @@ const parseArchiveDoc = (raw: string): ParsedArchiveDoc => {
     coverBefore: toStringOrUndefined(frontmatter.coverBefore),
     coverAfter: toStringOrUndefined(frontmatter.coverAfter),
     categories,
-    order: toNumberOrUndefined(frontmatter.order),
+    order,
+    categoryOrderByName,
     video: toStringOrUndefined(frontmatter.video),
     videoEmbed: toStringOrUndefined(frontmatter.videoEmbed),
     mediaPreview: toStringOrUndefined(frontmatter.mediaPreview)
@@ -272,6 +316,7 @@ export const allPortfolioItems: PortfolioItem[] = Object.entries(archiveDocs)
       title: data.title || toTitle(slug),
       categories: data.categories,
       order: data.order,
+      categoryOrderByName: data.categoryOrderByName,
       tags,
       cover: data.cover || firstImage || fallbackCover,
       coverBefore: data.coverBefore,
@@ -287,4 +332,11 @@ export const allPortfolioItems: PortfolioItem[] = Object.entries(archiveDocs)
   .sort(compareItems)
 
 export const getPortfolioByCategory = (category: string): PortfolioItem[] =>
-  allPortfolioItems.filter((item) => item.categories?.includes(category))
+  allPortfolioItems
+    .filter((item) => item.categories?.includes(category))
+    .sort(
+      (a, b) =>
+        (a.categoryOrderByName?.[category] ?? a.order ?? Number.POSITIVE_INFINITY) -
+          (b.categoryOrderByName?.[category] ?? b.order ?? Number.POSITIVE_INFINITY) ||
+        a.title.localeCompare(b.title)
+    )

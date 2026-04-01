@@ -2,8 +2,8 @@
 title: New York Subway
 description: 
 cover: /portfolio/data-newyork-subway-01.png
-category: Data Visualization
-order: 2
+category:
+  - Data Visualization, 2
 tags: [Houdini, Data]
 ---
 

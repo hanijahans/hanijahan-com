@@ -1,13 +1,12 @@
 ---
 title: Mapbox On-Demand Terrain Streaming
 description: Streams, assembles, and geo-aligns terrain tiles on demand for rapid world-building
-category:
-  - Portfolio
-  - Terrain
-  - Technical Art
-order: 4
 tags: [Unity, Procedural, Terrain]
 cover: "/portfolio/geo-data-terrain-automated-houdini-unity-01.png"
+category:
+  - Portfolio, 4
+  - Terrain, 4
+  - Technical Art, 4
 mediaPreview: "hover"
 videoEmbed: "https://www.youtube.com/embed/Ez4Oh8gTc3U?autoplay=1&mute=1&loop=1&playlist=GBCFRYMkSrY&rel=0"
 ---

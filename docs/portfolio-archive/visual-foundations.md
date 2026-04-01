@@ -1,8 +1,8 @@
 ---
 title: Visual Foundations
 description: 
-category: Rest
-order: 2
+category:
+  - Rest, 2
 tags: [Concept Art, Photoshop]
 ---
 

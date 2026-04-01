@@ -1,8 +1,8 @@
 ---
 title: Superformula
 description: Structural exploration of emergent form using Johan Gielis’ superformula.
-category: Algorithmic
-order: 1
+category:
+  - Algorithmic, 1
 tags: [Houdini, Algorithmic Design]
 ---
 

@@ -1,8 +1,8 @@
 ---
 title: DNA
 description: 
-category: Medical
-order: 1
+category:
+  - Medical, 1
 tags: [Houdini, Data]
 ---
 

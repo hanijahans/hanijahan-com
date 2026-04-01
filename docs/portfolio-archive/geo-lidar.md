@@ -1,12 +1,11 @@
 ---
 title: LiDAR (Point Cloud) Processing
 description: 
-category:
-  - Terrain
-  - Geospatial
-order: 3
 tags: [LiDAR, Procedural, Terrain]
 cover: "/portfolio/data-lidar-pc-01.png"
+category:
+  - Terrain, 3
+  - Geospatial, 3
 coverBefore: "/portfolio/data-lidar-pc-04-hf.png"
 coverAfter: "/portfolio/data-lidar-pc-01.png"
 mediaPreview: "hover"

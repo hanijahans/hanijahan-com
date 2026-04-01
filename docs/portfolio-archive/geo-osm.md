@@ -1,12 +1,11 @@
 ---
 title: Open Street Map (OSM)
 description: 
-category: 
-  - Terrain
-  - Geospatial
-order: 3
 tags: [Data, OSM]
 cover: "/portfolio/osm-pasadena-05.png"
+category:
+  - Terrain, 3
+  - Geospatial, 3
 coverBefore: "/portfolio/osm-pasadena-01.png"
 coverAfter: "/portfolio/osm-pasadena-05.png"
 mediaPreview: "hover"

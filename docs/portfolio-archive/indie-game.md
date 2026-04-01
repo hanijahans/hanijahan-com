@@ -1,10 +1,10 @@
 ---
 title: Indie Games
 description:
-category: Indie Game
-order: 1
 tags: [Game Dev, Unity, WFC]
 cover: "/portfolio/gamedev-worldlattice-01.png"
+category:
+  - Indie Game, 1
 mediaPreview: "hover"
 videoEmbed: "https://www.youtube.com/embed/n2kaECKiSeA?autoplay=1&mute=1&loop=1&playlist=GBCFRYMkSrY&rel=0"
 ---

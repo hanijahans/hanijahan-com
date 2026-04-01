@@ -1,8 +1,8 @@
 ---
 title: Dental
 description: 
-category: Medical
-order: 2
+category:
+  - Medical, 2
 tags: [Houdini, Data]
 ---
 

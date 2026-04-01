@@ -1,12 +1,11 @@
 ---
 title: From Satellite Data to Procedural Terrain
 description: Converting satellite imagery and elevation data into structured procedural 3D terrain.
-category:
-  - Terrain
-  - Geospatial
-order: 1
 tags: [Houdini, Procedural, Terrain]
 cover: "/portfolio/geo-data-terrain-mapping-mount-kilimanjaro-z12-02.png"
+category:
+  - Terrain, 1
+  - Geospatial, 1
 coverBefore: "/portfolio/geo-data-terrain-mapping-mount-kilimanjaro-z12-01.png"
 coverAfter: "/portfolio/geo-data-terrain-mapping-mount-kilimanjaro-z12-02.png"
 mediaPreview: "hover"
