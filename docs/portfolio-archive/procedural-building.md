@@ -2,7 +2,7 @@
 title: Procedural Modular Building System
 description: A procedural building generator that can run fully procedural or blend with modular wall, window, and facade assets.
 category: Technical Art
-order: 3
+order: 2
 tags: [Houdini, Procedural]
 cover: "/portfolio/modular-building.png"
 mediaPreview: "hover"
