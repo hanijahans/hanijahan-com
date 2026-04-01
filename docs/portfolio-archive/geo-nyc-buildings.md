@@ -8,17 +8,19 @@ mediaPreview: "hover"
 videoEmbed: ""
 ---
 
-# Houdini Geojson Tool: Convert data to 3D models
+# Houdini GeoJSON Tool: `From GIS footprints to 3D city blocks`
 
 Custom GeoJSON pipeline built in Houdini (Python), including reprojection logic, attribute handling, and geometry reconstruction.
 
-![Preview](/portfolio/data-buildings-footprints-newyork-02.png)
+![Generated NYC buildings preview](/portfolio/data-buildings-footprints-newyork-02.png)
 
 Transforms GeoJSON building data into structured 3D geometry by handling coordinate reprojection, attribute mapping, and geometry reconstruction inside Houdini.
 
-[Raw GeoJSON snippet] → [2D footprint view] → [3D generated buildings]
+## Data flow
 
-### Raw Data (GeoJSON)
+`Raw GeoJSON` → `2D footprint reconstruction` → `attribute-driven 3D extrusion`
+
+## Example source feature (GeoJSON)
 
 ```json
 {
@@ -35,8 +37,9 @@ Transforms GeoJSON building data into structured 3D geometry by handling coordin
 ```
 
 ### 2D footprint
-![Preview](/portfolio/data-building-footprint-newyork-01.png)
 
+![2D building footprint](/portfolio/data-building-footprint-newyork-01.png)
 
-Data building footprint  
-https://github.com/microsoft/USBuildingFootprints?tab=readme-ov-file
+## Dataset reference
+
+- Microsoft US Building Footprints: https://github.com/microsoft/USBuildingFootprints?tab=readme-ov-file
