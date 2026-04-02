@@ -4,6 +4,7 @@ description:
 tags: [Data, OSM]
 cover: "/portfolio/osm-pasadena-05.png"
 category:
+  - Portfolio, 5
   - Terrain, 3
   - Geospatial, 3
 coverBefore: "/portfolio/osm-pasadena-01.png"
