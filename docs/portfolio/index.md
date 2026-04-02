@@ -13,9 +13,9 @@ const visibleItems = getPortfolioByCategory(category)
 
 <PortfolioPage
   title="PORTFOLIO"
-  description="Procedural Systems (Houdini)"
+  description="Procedural Systems (Houdini) & Procedural Content Generation (PCG) for World-Building. Building algorithmic and data-driven systems to automate the creation of game environments, assets, and details rather than placing every element manually - "
   summary=""
-  skills="Procedural Systems • Tool and pipeline development"
+  skills="Houdini | VEX | Python | Unreal & Unity | Procedural Content Generation (PCG) | Tool and pipeline development | Data-Driven Generation"
   youtube-id=""
   :items="visibleItems"
 />

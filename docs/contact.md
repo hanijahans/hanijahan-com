@@ -14,6 +14,19 @@ I’m Hani Jahan — a technical designer creating tools and systems that turn i
 ---
 
 ✉ **Email**: [hani.jahan.design@gmail.com](mailto:hani.jahan.design@gmail.com)  
+
+<!--
+## Tool and pipeline focus
+
+- **Scalable World-Building**: Designing systems that enable teams to create high-quality, large-scale environments while meeting production requirements.
+- **Houdini-Geme Engine Pipeline**: Designing and implementing procedural pipelines using Houdini integrated into Unreal/Unity.
+- **Data-Driven Generation**: Developing systems that generate environmental variations, points of interest, and fine details at scale.
+- **Performance & Stability**: Ensuring all generated content meets technical constraints, such as memory budgets, streaming, collisions, and navigation.
+- **Tool Ownership**: Taking end-to-end responsibility for these tools, including their usability, documentation, and long-term maintenance.
+-->
+
+---
+
 <!--
 ## Let’s work together
 
