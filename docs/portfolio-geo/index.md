@@ -12,7 +12,7 @@ const categoryPortfolioItems = getPortfolioByCategory(category)
 </script>
 
 <PortfolioPage
-  title="PORTFOLIO"
+  title="Geospatial Data Portfolio"
   description="I build procedural Houdini systems that convert spatial data into simulations, structures, and visual understanding for research, analysis, and communication. Geospatial Data Visualization / Mapping / Analytics"
   youtube-id=""
   :items="categoryPortfolioItems"

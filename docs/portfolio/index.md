@@ -13,10 +13,10 @@ const visibleItems = getPortfolioByCategory(category)
 
 <PortfolioPage
   title="Hani Jahan Portfolio"
-  description="Procedural Content Generation (PCG) for scalable world-building, focused on algorithmic and data-driven systems to automate the creation of game environments, assets, and details rather than placing every element manually."
-  summary="Technical Artist specialized in Procedural Content Generation (PCG) with Houdini, VEX, and Python. I build data-driven generation systems, author Houdini-to-Unreal/Unity workflows, and ship tools with strong usability, documentation, and long-term maintainability."
-  skills="Houdini | VEX | Python | Unreal & Unity | Procedural Content Generation (PCG) | Data-Driven Generation | Pipeline & Tool Ownership | Performance & Stability"
+  description="Technical Artist focused on Procedural Content Generation (PCG). I build Houdini-integrated pipelines for Unreal and Unity, creating data-driven systems that bridge the gap between complex algorithms and artist-friendly tools, with a strong emphasis on performance, documentation, and long-term maintainability."
+  summary=""
+  skills="Houdini (VEX/Python) | Unreal & Unity | Procedural Content Generation (PCG) | Data-Driven Systems | Pipeline Ownership | Performance Optimization"
   youtube-id=""
   :items="visibleItems"
 />
-
+Houdini (VEX/Python) | Unreal Engine | Procedural Content Generation (PCG) | Data-Driven Systems | Pipeline Ownership | Performance Optimization

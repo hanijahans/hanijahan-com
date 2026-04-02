@@ -18,8 +18,8 @@ const terrainSummary = [
 
 <PortfolioPage
   title="Terrain Artist Portfolio"
-  description="Terrain as a System"
-  :summary=""
+  description="I design terrain through multiple approaches — from procedural generation to real-world data extraction and engine integration. Each project explores a different aspect of how terrain can be defined, analyzed, and deployed."
+  summary=""
   youtube-id=""
   :items="categoryPortfolioItems"
 />
