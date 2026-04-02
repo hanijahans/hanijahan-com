@@ -53,11 +53,6 @@ const skillsText = computed(() =>
   flex-direction: column;
   gap: 12px;
 }
-.hero-description,
-.hero-summary,
-.hero-skills {
-  max-inline-size: min(100%, clamp(68ch, 82vw, 96ch));
-}
 .hero-description {
   opacity: 0.85;
 }
