@@ -11,6 +11,10 @@ mediaPreview: "hover"
 videoEmbed: "https://www.youtube.com/embed/Ez4Oh8gTc3U?autoplay=1&mute=1&loop=1&playlist=GBCFRYMkSrY&rel=0"
 ---
 
+<script setup>
+import ProceduralTerrainSatelliteData from './procedural-terrain-satellite-data.md'
+</script>
+
 # Mapbox On-Demand Terrain Streaming
 
 I built this workflow to turn real-world map data into terrain sectors in Unity, with a focus on speed, geospatial accuracy, and iterative world-building.
@@ -65,3 +69,8 @@ This reduced world-building setup from a manual multi-tool process to a repeatab
 - Consistent geo-referenced outputs between map selection and generated terrain.
 - Better iteration speed for simulation terrain prototyping.
 - A reusable workflow that can scale from single-tile tests to multi-sector world expansion.
+
+
+## Shared Reference: Houdini Side Workflow
+
+<ProceduralTerrainSatelliteData />
