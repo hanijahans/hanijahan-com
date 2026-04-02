@@ -13,7 +13,7 @@ mediaPreview: "hover"
 videoEmbed: ""
 ---
 
-# Open Street Map (OSM) to 3D model
+# Open Street Map (OSM) to 3D Model
 
 A procedural system that converts OpenStreetMap (OSM) data and elevation data into structured 3D environments.
 
@@ -25,10 +25,12 @@ A procedural system that converts OpenStreetMap (OSM) data and elevation data in
   height="360px"
   :initial="45"
 />
+Pasadena California
 
-## Central Park, Manhattan, New York 
+## Workflow 
 
 ![UI](/portfolio/osm-manhattan-00.png)
+Central Park, Manhattan, New York 
 
 This example shows how raw OSM data is transformed into structured geometry and integrated with real-world terrain.
 
@@ -54,13 +56,3 @@ This example shows how raw OSM data is transformed into structured geometry and 
   :initial="45"
 />
 
-## Pasadena California
-
-<BeforeAfterSlider
-  before-src="/portfolio/osm-pasadena-01.png"
-  after-src="/portfolio/osm-pasadena-02.png"
-  before-alt=""
-  after-alt=""
-  height="360px"
-  :initial="45"
-/>
