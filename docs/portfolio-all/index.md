@@ -12,9 +12,9 @@ const visibleItems = allPortfolioItems
 </script>
 
 <PortfolioPage
-  title="PORTFOLIO"
-  description=""
-  summary=""
+  title="PORTFOLIO ALL"
+  description="A cross-disciplinary collection of procedural, technical art, geospatial, and visualization projects."
+  summary="Work centered on Procedural Content Generation (PCG), scalable world-building, data-driven automation, and end-to-end tool/pipeline ownership."
   skills=""
   youtube-id=""
   :items="visibleItems"

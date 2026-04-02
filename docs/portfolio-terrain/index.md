@@ -17,9 +17,9 @@ const terrainSummary = [
 </script>
 
 <PortfolioPage
-  title="PORTFOLIO"
+  title="Terrain Artist Portfolio"
   description="Terrain as a System"
-  :summary="terrainSummary"
+  :summary=""
   youtube-id=""
   :items="categoryPortfolioItems"
 />

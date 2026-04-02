@@ -12,7 +12,7 @@ const categoryPortfolioItems = getPortfolioByCategory(category)
 </script>
 
 <PortfolioPage
-  title="PORTFOLIO"
+  title="Data Visualization Portfolio"
   description=""
   youtube-id=""
   :items="categoryPortfolioItems"

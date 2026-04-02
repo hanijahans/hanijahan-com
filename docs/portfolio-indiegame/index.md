@@ -9,8 +9,8 @@ import { allPortfolioItems } from '/data/portfolio-indiegame'
 </script>
 
 <PortfolioPage
-  title="PORTFOLIO"
-  description="Indie Game Dev"
+  title="Indie Game Portfolio"
+  description=""
   summary=""
   youtube-id=""
   :items="allPortfolioItems"

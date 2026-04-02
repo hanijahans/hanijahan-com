@@ -2,12 +2,12 @@
 title: Contact
 ---
 
-I’m Hani Jahan — a technical designer creating tools and systems that turn ideas into worlds. My work focuses on **worldbuilding systems**, **procedural generation**, and highly reusable **modular content** — helping teams and solo creators bring ambitious ideas to life faster.
+I’m Hani Jahan — a technical artist building **procedural content generation (PCG) systems** for scalable world-building. My work focuses on **data-driven environment generation**, and **production-ready tool development** that helps teams create more with less manual placement.
 
 <div class="contact-values">
   <strong>Core values</strong>
   <span>System Thinking</span>
-  <span>Functionality</span>
+  <span>Scalability</span>
   <span>Modularity</span>
 </div>
 
