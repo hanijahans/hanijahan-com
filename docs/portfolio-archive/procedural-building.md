@@ -34,14 +34,37 @@ The system supports two workflows:
 - **Fully procedural** for fast exploration and high-volume variation.
 - **Hybrid modular** that snaps and distributes artist-created walls, windows, doors, and facade pieces for art-directed results.
 
-![Preview](/portfolio/modular-building.png)
+![Modular Buildings](/portfolio/modular-building.png)
 
 The output is game-ready geometry suitable for import into real-time pipelines.
 
+### Desert / Middle Eastern Architecture
+![desert](/portfolio/building-desert-01.png)
+
+### Modern Architecture
+![modern](/portfolio/building-modern-01.png)
+
+### Urban Architecture
+![urban](/portfolio/building-urban-01.png)
+
+This procedural building tool balances technical modularity with simple artist controls. Developed as a Houdini Digital Asset (HDA), it automates the creation of residential rows while allowing for quick, high-level art direction.
+
+<div class="image-row2">
+  <img src="/portfolio/building-urban-ui-01.png" alt="">
+  <img src="/portfolio/building-urban-nodes-01.png" alt="">
+</div>
+
+Key Features
+- HDA Interface: Control seeds, lot dimensions, and slope offsets.
+- Modular Logic: Automatic assembly of wall segments and floor heights.
+- Variation: Rule-based randomization for unique building profiles.
+- Clean Data: Organized node network for easy debugging and scaling.
+
+### 
+
 ## Tools
 - Houdini
-- Python
-- Unreal Engine
+- VEX/Python
 
 ## Result
 - Significantly faster building creation compared with manual workflows
