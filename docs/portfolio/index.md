@@ -19,4 +19,3 @@ const visibleItems = getPortfolioByCategory(category)
   youtube-id=""
   :items="visibleItems"
 />
-Houdini (VEX/Python) | Unreal Engine | Procedural Content Generation (PCG) | Data-Driven Systems | Pipeline Ownership | Performance Optimization

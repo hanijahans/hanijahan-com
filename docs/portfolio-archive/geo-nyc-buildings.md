@@ -3,6 +3,7 @@ title: New York Buildings
 description: 
 cover: "/portfolio/data-buildings-footprints-newyork-02.png"
 category:
+  - Portfolio, 5
   - Terrain, 4
   - Geospatial, 4
 mediaPreview: "hover"

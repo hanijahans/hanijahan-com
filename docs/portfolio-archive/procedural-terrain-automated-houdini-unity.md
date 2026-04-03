@@ -4,7 +4,7 @@ description: Streams, assembles, and geo-aligns terrain tiles on demand for rapi
 tags: [Unity, Procedural, Terrain]
 cover: "/portfolio/geo-data-terrain-automated-houdini-unity-01.png"
 category:
-  - Portfolio, 5
+  - Portfolio, 4
   - Terrain, 4
   - Technical Art, 4
 mediaPreview: "hover"
