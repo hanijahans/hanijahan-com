@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 import BeforeAfterSlider from './BeforeAfterSlider.vue'
 import { allPortfolioItems, type PortfolioItem } from '../../../data/portfolio'
 
-const props = defineProps<{ items?: PortfolioItem[] }>()
+const props = defineProps<{ items?: PortfolioItem[]; columns?: number }>()
 const gridItems = computed(() => props.items ?? allPortfolioItems)
 
 const youtubeFrames = ref<Record<number, HTMLIFrameElement | null>>({})
@@ -74,7 +74,7 @@ function shouldShowMedia(index: number, item: PortfolioItem): boolean {
 </script>
 
 <template>
-  <div class="portfolio-grid">
+  <div class="portfolio-grid" :class="{ 'single-column': props.columns === 1 }">
     <component
       v-for="(it, i) in gridItems"
       :key="i"
@@ -167,6 +167,10 @@ function shouldShowMedia(index: number, item: PortfolioItem): boolean {
   /* grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); */
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
+}
+
+.portfolio-grid.single-column {
+  grid-template-columns: minmax(0, 1fr);
 }
 @media (max-width: 960px) {
   .portfolio-grid {

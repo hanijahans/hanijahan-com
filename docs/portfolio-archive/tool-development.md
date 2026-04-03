@@ -32,11 +32,11 @@ A quick look at smaller procedural tools, grouped the same way as before, but no
 
 ### Assets
 
-<PortfolioGrid :items="assetTools" />
+<PortfolioGrid :items="assetTools" :columns="1" />
 
 ### Terrain and geospatial based
 
-<PortfolioGrid :items="terrainAndGeoTools" />
+<PortfolioGrid :items="terrainAndGeoTools" :columns="1" />
 
 ## Tools & Tech
 - Houdini
