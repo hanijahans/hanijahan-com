@@ -9,23 +9,35 @@ mediaPreview: ""
 videoEmbed: ""
 ---
 
-## list all the tools
+<script setup>
+import { allPortfolioItems } from '../data/portfolio'
+
+const assetToolSlugs = [
+  '/portfolio-archive/procedural-building',
+  '/portfolio-archive/procedural-vegetation'
+]
+
+const terrainAndGeoToolSlugs = [
+  '/portfolio-archive/procedural-terrain-automated-houdini-unity',
+  '/portfolio-archive/geo-lidar'
+]
+
+const assetTools = allPortfolioItems.filter((item) => assetToolSlugs.includes(item.url ?? ''))
+const terrainAndGeoTools = allPortfolioItems.filter((item) => terrainAndGeoToolSlugs.includes(item.url ?? ''))
+</script>
+
+## Tool Portfolio
+
+A quick look at smaller procedural tools, grouped the same way as before, but now shown as portfolio cards.
 
 ### Assets
-procedural-building.md
 
-procedural-vegetation.md
+<PortfolioGrid :items="assetTools" />
 
 ### Terrain and geospatial based
-procedural-terrain-automated-houdini-unity.md
 
-geo-lidar.md
+<PortfolioGrid :items="terrainAndGeoTools" />
 
 ## Tools & Tech
 - Houdini
 - Procedural workflows
-
-
-
-
-
