@@ -4,7 +4,7 @@ description:
 tags: [Houdini, Procedural]
 cover: ""
 category:
-  - Portfolio, 4
+  - Technical Art, 4
 mediaPreview: ""
 videoEmbed: ""
 ---

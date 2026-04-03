@@ -4,8 +4,7 @@ description:
 tags: [Houdini, Procedural]
 cover: "/portfolio/artist-friendly-toolset.png"
 category:
-  - Portfolio, 4
-  - Technical Art, 2
+  - Technical Art, 5
 mediaPreview: ""
 videoEmbed: ""
 ---
