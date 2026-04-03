@@ -1,5 +1,5 @@
 ---
-title: Smaller Tools
+title: Procedural Utility Tools
 description:
 tags: [Houdini, Procedural]
 cover: "/portfolio/artist-friendly-toolset.png"
@@ -9,11 +9,8 @@ mediaPreview: ""
 videoEmbed: ""
 ---
 
-
-
-
-# Small Tools
-smaller tools to help artist
+# Procedural Utility Tools
+A set of tools to ensure procedural systems stay within constraints and remain production-safe.
 ![measurement tool](/portfolio/artist-friendly-toolset.png)
 
 ### measurement
