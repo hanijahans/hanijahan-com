@@ -12,7 +12,10 @@ videoEmbed: "https://www.youtube.com/embed/Ez4Oh8gTc3U?autoplay=1&mute=1&loop=1&
 ---
 
 <script setup>
-import ProceduralTerrainSatelliteData from './procedural-terrain-satellite-data.md'
+import { allPortfolioItems } from '../data/portfolio'
+
+const relatedWorkflowSlugs = ['/portfolio-archive/procedural-terrain-satellite-data']
+const relatedWorkflows = allPortfolioItems.filter((item) => relatedWorkflowSlugs.includes(item.url ?? ''))
 </script>
 
 # Mapbox On-Demand Terrain Streaming
@@ -73,4 +76,4 @@ This reduced world-building setup from a manual multi-tool process to a repeatab
 
 ## Shared Reference: Houdini Side Workflow
 
-<ProceduralTerrainSatelliteData />
+<PortfolioGrid :items="relatedWorkflows" :columns="1" />
