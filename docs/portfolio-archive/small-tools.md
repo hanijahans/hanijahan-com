@@ -1,6 +1,7 @@
 ---
 title: Procedural Utility Tools
 description:
+tags: [Houdini]
 cover: "/portfolio/artist-friendly-toolset.png"
 category:
   - Technical Art, 5

@@ -1,7 +1,7 @@
 ---
 title: Procedural Modular Building System
 description: A Houdini building generator supporting both fully procedural and modular kit workflows, with attribute-driven variation and procedural UVs.
-tags: [Houdini, Procedural]
+tags: [Houdini, Procedural, Modular]
 cover: "/portfolio/modular-building.png"
 category:
   - Portfolio, 2

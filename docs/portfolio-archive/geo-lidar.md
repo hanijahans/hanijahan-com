@@ -1,7 +1,7 @@
 ---
 title: LiDAR (Point Cloud) Processing
 description: 
-tags: [LiDAR, Procedural, Terrain]
+tags: [Houdini, Geospatial, LiDAR, Procedural, Terrain]
 cover: "/portfolio/data-lidar-pc-01.png"
 category:
   - Portfolio, 7
