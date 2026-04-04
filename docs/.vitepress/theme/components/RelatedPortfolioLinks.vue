@@ -11,6 +11,17 @@ const normalizePath = (value: string): string => {
   return value.endsWith('/') ? value.slice(0, -1) || '/' : value
 }
 
+const toNormalizedSet = (values?: string[]): Set<string> =>
+  new Set((values ?? []).map((value) => value.trim().toLowerCase()).filter(Boolean))
+
+const countOverlap = (left: Set<string>, right: Set<string>): number => {
+  let count = 0
+  for (const value of left) {
+    if (right.has(value)) count++
+  }
+  return count
+}
+
 const currentPath = computed(() => normalizePath(route.path))
 
 const currentItem = computed(() =>
@@ -22,44 +33,23 @@ const relatedItems = computed<PortfolioItem[]>(() => {
   if (!current?.url) return []
 
   const currentUrl = normalizePath(current.url)
-  const currentCategories = current.categories ?? []
-  const currentTags = (current.tags ?? []).map((tag) => tag.toLowerCase())
+  const currentCategories = toNormalizedSet(current.categories)
+  const currentTags = toNormalizedSet(current.tags)
 
-  const candidates = allPortfolioItems.filter((item) => normalizePath(item.url ?? '') !== currentUrl)
+  return allPortfolioItems
+    .filter((item) => item.url && normalizePath(item.url) !== currentUrl)
+    .map((item) => {
+      const categoryOverlap = countOverlap(currentCategories, toNormalizedSet(item.categories))
+      const tagOverlap = countOverlap(currentTags, toNormalizedSet(item.tags))
 
-  const scored = candidates.map((item) => {
-    const categories = item.categories ?? []
-    const tags = (item.tags ?? []).map((tag) => tag.toLowerCase())
-
-    const sharedCategoryCount = categories.filter((category) => currentCategories.includes(category)).length
-    const sharedTagCount = tags.filter((tag) => currentTags.includes(tag)).length
-
-    return {
-      item,
-      score: sharedCategoryCount * 10 + sharedTagCount
-    }
-  })
-
-  const withCategoryOrTagOverlap = scored
-    .filter((entry) => entry.score > 0)
+      return {
+        item,
+        score: categoryOverlap * 10 + tagOverlap
+      }
+    })
     .sort((a, b) => b.score - a.score || a.item.title.localeCompare(b.item.title))
+    .slice(0, 3)
     .map((entry) => entry.item)
-
-  const unique = new Map<string, PortfolioItem>()
-
-  for (const item of withCategoryOrTagOverlap) {
-    unique.set(item.url ?? item.title, item)
-    if (unique.size >= 3) break
-  }
-
-  if (unique.size < 2) {
-    for (const fallback of candidates) {
-      unique.set(fallback.url ?? fallback.title, fallback)
-      if (unique.size >= 3) break
-    }
-  }
-
-  return Array.from(unique.values()).slice(0, 3)
 })
 </script>
 
