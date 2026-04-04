@@ -48,6 +48,29 @@ Use authored pieces when you need stronger art direction:
 - **Data-Oriented Output**: Clean attribute schema for export to game engines and material pipelines.
 - **Scalable Controls**: Seed, footprint, floor count, floor height, and window spacing exposed through an artist-friendly HDA interface.
 
+## Ureal implementation
+
+<iframe
+  style="width: 100%; aspect-ratio: 16 / 9; height: auto;"
+  src="https://www.youtube.com/embed/2yyLws0-2CE"
+  title="Unreal Integration Using Houdini Engine"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+Tower
+<iframe
+  style="width: 100%; aspect-ratio: 16 / 9; height: auto;"
+  src="https://www.youtube.com/embed/RoD0syPQCtM"
+  title="Unreal Integration Using Houdini Engine"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
 ## Style Presets
 ### Desert / Middle Eastern Architecture
 ![desert](/portfolio/building-desert-01.png)
