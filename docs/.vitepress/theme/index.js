@@ -5,6 +5,7 @@ import PortfolioGrid from './components/PortfolioGrid.vue'
 import PortfolioPage from './components/PortfolioPage.vue'
 import YouTube from './components/YouTube.vue' // Ensure this file exists
 import BeforeAfterSlider from './components/BeforeAfterSlider.vue'
+import RelatedPortfolioLinks from './components/RelatedPortfolioLinks.vue'
 import './custom.css'
 
 // Your helper component
@@ -49,9 +50,19 @@ export default {
     // Return Layout with slots
     return h(DefaultTheme.Layout, null, {
       'doc-after': () => {
-        if (frontmatter.value?.comments === false) return null
-        if (!route.path.startsWith('/blog/')) return null
-        return h(DiscordCTA)
+        const blocks = []
+
+        // Add Related Projects for portfolio pages
+        if (route.path.startsWith('/portfolio-archive/')) {
+          blocks.push(h(RelatedPortfolioLinks))
+        }
+
+        // Add Discord CTA for blog pages
+        if (frontmatter.value?.comments !== false && route.path.startsWith('/blog/')) {
+          blocks.push(h(DiscordCTA))
+        }
+
+        return blocks.length ? h('div', { class: 'doc-after-wrapper' }, blocks) : null
       }
     })
   },
