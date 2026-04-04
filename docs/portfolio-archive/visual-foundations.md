@@ -1,9 +1,9 @@
 ---
 title: Visual Foundations
 description: 
+tags: [Concept Art, Digital Painting, Photoshop, Visual Design]
 category:
   - Rest, 2
-tags: [Concept Art, Photoshop]
 ---
 
 # Visual Foundations

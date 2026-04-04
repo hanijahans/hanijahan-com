@@ -1,7 +1,7 @@
 ---
 title: Smaller Tools
 description:
-tags: [Houdini, Procedural]
+tags: []
 cover: ""
 category:
   - Technical Art, 4

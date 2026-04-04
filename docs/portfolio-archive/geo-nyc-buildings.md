@@ -1,6 +1,7 @@
 ---
 title: New York Buildings
 description: 
+tags: [Houdini, Geospatial, GIS, GeoJSON, Procedural]
 cover: "/portfolio/data-buildings-footprints-newyork-02.png"
 category:
   - Portfolio, 5

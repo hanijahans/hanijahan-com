@@ -3,7 +3,6 @@ title: DNA
 description: 
 category:
   - Medical, 1
-tags: [Houdini, Data]
 ---
 
 # DNA

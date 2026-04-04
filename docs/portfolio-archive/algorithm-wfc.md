@@ -1,7 +1,7 @@
 ---
 title: Wave Function Collapse
 description: 
-tags: [Houdini, Algorithmic Design]
+tags: [Houdini, Algorithmic, WFC, Procedural]
 cover: "/portfolio/wfc-01.png"
 category:
   - Algorithmic, 3

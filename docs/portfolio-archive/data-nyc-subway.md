@@ -1,10 +1,10 @@
 ---
 title: New York Subway
 description: 
+tags: [Houdini, Data Visualization, Transit, Network, NYC]
 cover: /portfolio/data-newyork-subway-01.png
 category:
   - Data Visualization, 2
-tags: [Houdini, Data]
 ---
 
 # New York Subway
