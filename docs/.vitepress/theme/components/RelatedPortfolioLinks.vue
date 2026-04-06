@@ -56,8 +56,8 @@ const relatedItems = computed<PortfolioItem[]>(() => {
 <template>
   <section v-if="relatedItems.length" class="related-projects">
     <div class="related-projects__header">
-      <h2>Explore More</h2>
       <a class="related-projects__back-link" href="/portfolio/">Back to Portfolio</a>
+      <h2>Explore More</h2>
     </div>
     <PortfolioGrid :items="relatedItems" :columns="2" />
   </section>
@@ -76,10 +76,9 @@ const relatedItems = computed<PortfolioItem[]>(() => {
 
 .related-projects__header {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
   margin-bottom: 1rem;
 }
 
