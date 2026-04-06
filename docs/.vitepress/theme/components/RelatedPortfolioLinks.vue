@@ -48,16 +48,18 @@ const relatedItems = computed<PortfolioItem[]>(() => {
       }
     })
     .sort((a, b) => b.score - a.score || a.item.title.localeCompare(b.item.title))
-    .slice(0, 3)
+    .slice(0, 2)
     .map((entry) => entry.item)
 })
 </script>
 
 <template>
   <section v-if="relatedItems.length" class="related-projects">
-    <h2>Related Projects</h2>
-    <p>Explore 2–3 more projects from this portfolio.</p>
-    <PortfolioGrid :items="relatedItems" :columns="1" />
+    <div class="related-projects__header">
+      <h2>Explore More</h2>
+      <a class="related-projects__back-link" href="/portfolio/">Back to Portfolio</a>
+    </div>
+    <PortfolioGrid :items="relatedItems" :columns="2" />
   </section>
 </template>
 
@@ -69,11 +71,24 @@ const relatedItems = computed<PortfolioItem[]>(() => {
 }
 
 .related-projects h2 {
-  margin: 0 0 0.35rem;
+  margin: 0;
 }
 
-.related-projects p {
-  margin: 0 0 1rem;
-  color: var(--vp-c-text-2);
+.related-projects__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.related-projects__back-link {
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.related-projects__back-link:hover {
+  text-decoration: underline;
 }
 </style>
