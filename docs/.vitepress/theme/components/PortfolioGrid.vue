@@ -96,7 +96,7 @@ function shouldShowMedia(index: number, item: PortfolioItem): boolean {
           :after-src="it.coverAfter!"
           :before-alt="`${it.title} before`"
           static
-          height="220px"
+          height="100%"
         />
         <div v-else-if="shouldShowMedia(i, it)" class="cover-media">
           <iframe
@@ -133,7 +133,7 @@ function shouldShowMedia(index: number, item: PortfolioItem): boolean {
           :after-src="it.coverAfter!"
           :before-alt="`${it.title} before`"
           static
-          height="220px"
+          height="100%"
         />
         <img
           v-else
@@ -167,6 +167,7 @@ function shouldShowMedia(index: number, item: PortfolioItem): boolean {
   /* grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); */
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
+  align-items: stretch;
 }
 
 .portfolio-grid.single-column {
@@ -193,6 +194,7 @@ function shouldShowMedia(index: number, item: PortfolioItem): boolean {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 .card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.08); }
 
@@ -224,6 +226,13 @@ function shouldShowMedia(index: number, item: PortfolioItem): boolean {
   transform: translateY(-1px);
 }
 
+.cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--vp-c-bg-soft);
+}
+
 .cover :deep(.cover-slider.before-after-slider) {
   margin: 0;
   border: 0;
@@ -234,7 +243,8 @@ function shouldShowMedia(index: number, item: PortfolioItem): boolean {
 .cover img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
 .cover-media {
   width: 100%;
@@ -248,7 +258,7 @@ function shouldShowMedia(index: number, item: PortfolioItem): boolean {
   height: 100%;
   border: 0;
 }
-.body { padding: 12px 14px; }
+.body { padding: 12px 14px; display: flex; flex-direction: column; flex: 1; }
 .title { margin:0 0 4px; font-size: 1rem; line-height:1.2; }
 .subtitle { margin:0 0 6px; opacity:.8; }
 .desc { margin:0 0 8px; font-size:.92rem; opacity:.9; }
@@ -257,7 +267,8 @@ function shouldShowMedia(index: number, item: PortfolioItem): boolean {
 .tag { font-size:.75rem; padding:2px 8px; border-radius:999px; border:1px solid var(--vp-c-divider); }
 
 .cta {
-  margin-top: 12px;
+  margin-top: auto;
+  padding-top: 12px;
   font-size: .84rem;
   font-weight: 600;
   color: var(--vp-c-brand-1);
