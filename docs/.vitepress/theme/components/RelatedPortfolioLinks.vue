@@ -83,11 +83,13 @@ const relatedItems = computed<PortfolioItem[]>(() => {
 }
 
 .related-projects__back-link {
+  color: var(--vp-c-brand-1);
   font-weight: 500;
   text-decoration: none;
 }
 
 .related-projects__back-link:hover {
+  color: var(--vp-c-brand-2);
   text-decoration: underline;
 }
 </style>
