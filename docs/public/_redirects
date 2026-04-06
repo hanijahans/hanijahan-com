@@ -1,0 +1,5 @@
+https://www.hanijahan.com/* https://hanijahan.com/:splat 301!
+
+# Normalize duplicate URL variants to a single canonical format.
+/*/index.html /:splat 301!
+/*/ /:splat 301

@@ -18,6 +18,8 @@ export default defineConfig({
   description: 'Worldbuilding, Houdini, Unity, Unreal, GameDev, Coffee',
   appearance: 'dark',
 
+  cleanUrls: true,
+
   // Sitemap (top-level)
   sitemap: { hostname: 'https://hanijahan.com' },
 
@@ -44,6 +46,18 @@ export default defineConfig({
       { rel: 'stylesheet', href: 'https://assets.mailerlite.com/css/universal.css' }
     ]
   ],
+
+  transformHead: ({ pageData }) => {
+    const siteUrl = 'https://hanijahan.com'
+    const relativePath = pageData.filePath || pageData.relativePath
+
+    if (!relativePath) return
+
+    const canonicalPath = relativePath.replace(/index\.md$/i, '').replace(/\.md$/i, '')
+    const canonicalUrl = canonicalPath ? `${siteUrl}/${canonicalPath}` : `${siteUrl}/`
+
+    return [['link', { rel: 'canonical', href: canonicalUrl }]]
+  },
 
   themeConfig: {
     logo: '/hjd/hjd-logo.png',
