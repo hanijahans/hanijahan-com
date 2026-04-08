@@ -369,49 +369,6 @@ align-items: flex-start;
   justify-self: var(--image-align, center);
 }
 
-.image-modal-open {
-  overflow: hidden;
-}
-
-.image-modal {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.85);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-  z-index: 9999;
-}
-
-.image-modal.is-open {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.image-modal-content {
-  max-width: 96vw;
-  max-height: 96vh;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  display: block;
-}
-
-.image-modal-close {
-  position: absolute;
-  top: 18px;
-  right: 22px;
-  border: 0;
-  background: transparent;
-  color: #fff;
-  font-size: 2rem;
-  line-height: 1;
-  cursor: pointer;
-}
-
 @media (max-width: 960px) {
   .image-row3 {
     --image-cols: 2;
