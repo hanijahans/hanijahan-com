@@ -21,7 +21,17 @@ export default defineConfig({
   cleanUrls: true,
 
   // Sitemap (top-level)
-  sitemap: { hostname: 'https://hanijahan.com' },
+  sitemap: {
+    hostname: 'https://hanijahan.com',
+    transformItems: (items) =>
+      items.map((item) => ({
+        ...item,
+        url:
+          item.url.length > 1
+            ? item.url.replace(/\/+$/, '')
+            : item.url
+      }))
+  },
 
   // Inject MailerLite universal snippet and stylesheet into the <head> on every page.
   // The script loads MailerLite's universal JS and initialises the account.
@@ -53,8 +63,11 @@ export default defineConfig({
 
     if (!relativePath) return
 
-    const canonicalPath = relativePath.replace(/index\.md$/i, '').replace(/\.md$/i, '')
-    const canonicalUrl = canonicalPath ? `${siteUrl}/${canonicalPath}` : `${siteUrl}/`
+    const canonicalPath = relativePath
+      .replace(/index\.md$/i, '')
+      .replace(/\.md$/i, '')
+      .replace(/\/+$/, '')
+    const canonicalUrl = canonicalPath ? `${siteUrl}/${canonicalPath}` : `${siteUrl}`
 
     return [['link', { rel: 'canonical', href: canonicalUrl }]]
   },
