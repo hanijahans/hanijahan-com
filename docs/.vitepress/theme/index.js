@@ -1,5 +1,6 @@
 import DefaultTheme from 'vitepress/theme'
 import { h } from 'vue'
+import { onBeforeUnmount, onMounted } from 'vue'
 import { useData, useRoute } from 'vitepress'
 import PortfolioGrid from './components/PortfolioGrid.vue'
 import PortfolioPage from './components/PortfolioPage.vue'
@@ -41,6 +42,64 @@ export default {
     const route = useRoute()
     const isDraft = frontmatter.value?.draft
     const isBlogIndex = route.path === '/blog/'
+    let imageModal
+    let imageModalImg
+    let imageModalClose
+
+    const closeImageModal = () => {
+      if (!imageModal) return
+      imageModal.classList.remove('is-open')
+      imageModalImg.removeAttribute('src')
+      imageModalImg.removeAttribute('alt')
+      document.body.classList.remove('image-modal-open')
+    }
+
+    const openImageModal = (img) => {
+      if (!imageModal || !img?.src) return
+      imageModalImg.src = img.src
+      imageModalImg.alt = img.alt || 'Expanded image'
+      imageModal.classList.add('is-open')
+      document.body.classList.add('image-modal-open')
+    }
+
+    const onDocumentClick = (event) => {
+      const target = event.target
+      if (!(target instanceof Element)) return
+
+      const clickedContentImage = target.closest('.vp-doc img')
+      if (clickedContentImage) {
+        openImageModal(clickedContentImage)
+        return
+      }
+
+      if (!imageModal || !imageModal.classList.contains('is-open')) return
+
+      if (target === imageModal || target === imageModalClose) {
+        closeImageModal()
+      }
+    }
+
+    onMounted(() => {
+      imageModal = document.createElement('div')
+      imageModal.className = 'image-modal'
+      imageModal.innerHTML = `
+        <button type="button" class="image-modal-close" aria-label="Close image">×</button>
+        <img class="image-modal-content" src="" alt="" />
+      `
+
+      imageModalImg = imageModal.querySelector('.image-modal-content')
+      imageModalClose = imageModal.querySelector('.image-modal-close')
+      document.body.appendChild(imageModal)
+      document.addEventListener('click', onDocumentClick)
+    })
+
+    onBeforeUnmount(() => {
+      document.removeEventListener('click', onDocumentClick)
+      if (imageModal?.parentNode) {
+        imageModal.parentNode.removeChild(imageModal)
+      }
+      document.body.classList.remove('image-modal-open')
+    })
 
     // Handle Drafts
     if (isDraft && !isBlogIndex) {
