@@ -1,6 +1,8 @@
 https://www.hanijahan.com/* https://hanijahan.com/:splat 301!
 
 # Legacy URL redirects to current routes.
+/portfolio-archive/data-nyc-subway /portfolio-archive/new-york-city-subway-data-visualization 301!
+/portfolio-archive/data-nyc-subway/ /portfolio-archive/new-york-city-subway-data-visualization 301!
 /portfolio/artist-friendly-toolset /portfolio-archive/procedural-utility-tools-collection 301!
 /portfolio/artist-friendly-toolset/ /portfolio-archive/procedural-utility-tools-collection 301!
 /blog/devlog/01-worldlattice-a-world-building-tool /blog/wldevlog/01-worldlattice-a-world-building-tool 301!
