@@ -1,5 +1,19 @@
 https://www.hanijahan.com/* https://hanijahan.com/:splat 301!
 
+# Legacy URL redirects to current routes.
+/portfolio/artist-friendly-toolset /portfolio-archive/procedural-utility-tools-collection 301!
+/portfolio/artist-friendly-toolset/ /portfolio-archive/procedural-utility-tools-collection 301!
+/blog/devlog/01-worldlattice-a-world-building-tool /blog/wldevlog/01-worldlattice-a-world-building-tool 301!
+/blog/devlog/01-worldlattice-a-world-building-tool/ /blog/wldevlog/01-worldlattice-a-world-building-tool 301!
+/blog/devlog/02-worldlattice-tool-becomes-a-game /blog/wldevlog/02-worldlattice-tool-becomes-a-game 301!
+/blog/devlog/02-worldlattice-tool-becomes-a-game/ /blog/wldevlog/02-worldlattice-tool-becomes-a-game 301!
+/blog/devlog/03-worldlattice-ui-phase-preview-chaos /blog/wldevlog/03-worldlattice-ui-phase-preview-chaos 301!
+/blog/devlog/03-worldlattice-ui-phase-preview-chaos/ /blog/wldevlog/03-worldlattice-ui-phase-preview-chaos 301!
+/worldbuilding /worldlattice 301!
+/worldbuilding/ /worldlattice 301!
+/houdini /blog/houdini 301!
+/houdini/ /blog/houdini 301!
+
 # Normalize duplicate URL variants to a single canonical format.
 /*/index.html /:splat 301!
 /*/ /:splat 301
