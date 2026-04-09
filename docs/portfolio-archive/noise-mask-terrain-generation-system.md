@@ -1,5 +1,5 @@
 ---
-title: Procedural Terrain System
+title: Procedural Terrain System with Noise-Based Mask Blending
 description: Node-based terrain generation with slope-aware masks, settlement flattening, and art-directable controls.
 tags: [Houdini, Procedural, Terrain]
 cover: "/portfolio/procedural-land-02-8-final.png"
@@ -11,7 +11,7 @@ mediaPreview: "hover"
 videoEmbed: ""
 ---
 
-# Procedural Terrain System
+# Procedural Terrain System with Noise-Based Mask Blending
 
 A reusable terrain-authoring setup in Houdini for quickly building believable environments while keeping strong artistic control.
 
