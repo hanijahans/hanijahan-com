@@ -1,5 +1,5 @@
 ---
-title: Procedural Utility Tools
+title: Procedural Utility Tools Collection
 description:
 tags: [Houdini]
 cover: "/portfolio/artist-friendly-toolset.png"

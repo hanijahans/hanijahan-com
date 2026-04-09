@@ -1,5 +1,5 @@
 ---
-title: Open Street Map (OSM)
+title: OpenStreetMap (OSM) Geospatial Data
 description: 
 tags: [Houdini, Geospatial, OSM, GIS, Procedural, Terrain]
 cover: "/portfolio/osm-pasadena-05.png"

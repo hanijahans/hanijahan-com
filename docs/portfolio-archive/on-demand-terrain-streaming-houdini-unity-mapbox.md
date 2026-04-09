@@ -14,7 +14,7 @@ videoEmbed: "https://www.youtube.com/embed/Ez4Oh8gTc3U?autoplay=1&mute=1&loop=1&
 <script setup>
 import { allPortfolioItems } from '../data/portfolio'
 
-const relatedWorkflowSlugs = ['/portfolio-archive/procedural-terrain-satellite-data']
+const relatedWorkflowSlugs = ['/portfolio-archive/satellite-data-to-procedural-terrain-workflow']
 const relatedWorkflows = allPortfolioItems.filter((item) => relatedWorkflowSlugs.includes(item.url ?? ''))
 </script>
 

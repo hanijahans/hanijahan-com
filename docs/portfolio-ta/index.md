@@ -10,7 +10,7 @@ import { getPortfolioByCategory } from '/data/portfolio'
 const category = 'Technical Art'
 const technicalArtPortfolioItems = [
   ...getPortfolioByCategory(category),
-  ...getPortfolioByCategory('Geospatial').filter((item) => item.url === '/portfolio-archive/procedural-terrain-automated-houdini-unity')
+  ...getPortfolioByCategory('Geospatial').filter((item) => item.url === '/portfolio-archive/on-demand-terrain-streaming-houdini-unity-mapbox')
 ]
 </script>
 

@@ -1,5 +1,5 @@
 ---
-title: New York Buildings
+title: New York City Buildings Geospatial Analysis
 description: 
 tags: [Houdini, Geospatial, GIS, GeoJSON, Procedural]
 cover: "/portfolio/data-buildings-footprints-newyork-02.png"

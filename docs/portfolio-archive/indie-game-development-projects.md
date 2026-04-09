@@ -1,5 +1,5 @@
 ---
-title: Indie Games
+title: Indie Game Development Projects
 description:
 tags: [Unity, Game Development, Procedural, WFC]
 cover: "/portfolio/gamedev-worldlattice-01.png"

@@ -1,5 +1,5 @@
 ---
-title: Global Airport & Flight Route
+title: Global Airport & Flight Routes Data Visualization
 description: Visualization of global airports and flight routes using spatial network data.
 tags: [Houdini, Data Visualization, Network, Mobility]
 category:
