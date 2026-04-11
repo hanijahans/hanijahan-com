@@ -42,17 +42,33 @@ const optionalUrbanProjects = bySlug(optionalUrbanSlugs)
 
 I build procedural terrain systems driven by real-world geospatial data (satellite, LiDAR, OSM), designed for scalable generation and real-time integration.
 
-This page reframes individual experiments into one modular pipeline: **inputs → processing → generation → streaming**.
+This page reframes individual experiments into one modular pipeline: **data sources → processing → generation → output**.
 
 ## System Diagram
 
 ```text
-[Satellite]   [LiDAR]   [OSM]
-      ↓         ↓         ↓
-        → Data Processing →
-        → Procedural Generation →
-        → Terrain Output →
-        → Real-time Streaming (Unity / Mapbox)
+Data Sources
+[Satellite] [LiDAR] [OSM]
+
+        ↓
+
+Processing
+- Attribute extraction
+- Mask generation
+- Height / feature logic
+
+        ↓
+
+Generation
+- Terrain synthesis
+- Feature placement
+
+        ↓
+
+Output
+- Heightmaps / masks
+- Unity integration
+- Streaming (Mapbox)
 ```
 
 ## 1) Data Inputs (Foundation)
@@ -67,15 +83,19 @@ The system ingests multiple real-world data sources. Each dataset is processed i
 
 ## 2) Processing System (Core Logic)
 
-Noise and attribute masks are used to transform raw geospatial data into controllable terrain features (elevation, biome distribution, and variation).
+Processing converts raw geospatial layers into structured terrain controls through:
+
+- attribute extraction
+- mask generation
+- height and feature logic
 
 This is the system "brain" that turns heterogeneous sources into coherent, art-directable terrain behavior.
 
 <PortfolioGrid :items="processingProjects" :columns="1" />
 
-## 3) Terrain Generation (Output)
+## 3) Terrain Generation
 
-Generated outputs are evaluated as transformations through the same repeatable pattern:
+Generation synthesizes terrain and places derived features using repeatable procedural rules.
 
 **raw → structured → terrain**
 
@@ -83,9 +103,13 @@ This stage emphasizes reproducibility and parameter control, not one-off manual 
 
 <PortfolioGrid :items="outputProjects" :columns="1" />
 
-## 4) Real-time Integration (Production Value)
+## 4) Output + Integration (Production Value)
 
-Generated terrain can be streamed and updated in real-time environments using Unity and Mapbox.
+The system outputs production-ready artifacts and runtime connections:
+
+- heightmaps and masks for terrain assembly
+- Unity integration for interactive environments
+- Mapbox-based streaming for scalable delivery
 
 This is the deployment layer that makes the system practical for simulation, world-building, and scalable runtime workflows.
 
