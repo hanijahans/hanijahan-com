@@ -4,7 +4,6 @@ description:
 tags: [Houdini, Geospatial, LiDAR, Procedural, Terrain]
 cover: "/portfolio/data-lidar-pc-01.png"
 category:
-  - Portfolio, 7
   - Terrain, 3
   - Geospatial, 3
 coverBefore: "/portfolio/data-lidar-pc-04-hf.png"

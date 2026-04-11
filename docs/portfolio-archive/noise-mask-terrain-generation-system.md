@@ -4,7 +4,6 @@ description: Node-based terrain generation with slope-aware masks, settlement fl
 tags: [Houdini, Procedural, Terrain]
 cover: "/portfolio/procedural-land-02-8-final.png"
 category:
-  - Portfolio, 1
   - Terrain, 3
   - Technical Art, 1
 mediaPreview: "hover"

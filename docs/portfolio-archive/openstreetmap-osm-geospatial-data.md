@@ -4,7 +4,6 @@ description:
 tags: [Houdini, Geospatial, OSM, GIS, Procedural, Terrain]
 cover: "/portfolio/osm-pasadena-05.png"
 category:
-  - Portfolio, 6
   - Terrain, 3
   - Geospatial, 3
 coverBefore: "/portfolio/osm-pasadena-01.png"
