@@ -35,46 +35,64 @@ This is a **system-first** workflow, not one-off modeling:
 
 If the system logic is weak, the whole assembly collapses.
 
-## System Diagram
+## The "Modular Infrastructure" System Diagram
 
 ```text
-Core System
-[Parametric Controls]
-- Size / scale
-- Variations
-- Condition (clean → damaged)
+Input Layer (Curves & Points)
+- User-drawn paths
+- Point clouds defining network flow
 
         ↓
 
-Modular Components
+Logic Engine (The Brain)
+- Socket logic: automatic junction detection
+  - T-sections
+  - L-bends
+  - Crosses
+- Scale enforcement for modular fit
+  - Consistent piece sizing across variable lengths
+
+        ↓
+
+Parametric Controls (The Sliders)
+- Geometry
+  - Pipe diameter
+  - Wall thickness
+  - Flange frequency
+- Condition
+  - Procedural rust maps
+  - Dents
+  - Dust accumulation
+
+        ↓
+
+Output (Simulation Ready)
+- Optimized topology
+- Pre-set sockets for interoperability
+- Integrates with adjacent systems
+  - Utility poles
+  - Tanks
+```
+
+This framing defines the project as a logic-driven infrastructure pipeline, where inputs become simulation-ready assemblies through deterministic rules.
+
+## Core Modules
+
+The first modular target is the pipe/industrial kit:
+
 - Pipes
 - Valves
 - Junctions
 
-        ↓
-
-Connection Logic
-- Snap points
-- Socket rules
-- Orientation constraints
-
-        ↓
-
-Assembly
-- Interoperable parts
-- Scalable networks
-- Real-time ready output
-```
-
-This is the technical boundary between a reusable infrastructure framework and isolated asset production.
+The system then expands to adjacent utilities once the core rules are stable.
 
 ## Parametric System
 
 Each asset is driven by adjustable parameters, not static modeling.
 
-- radius and length controls
-- variation sliders for shape/profile
-- condition states (damage, rust, aging)
+- geometry controls for diameter, wall thickness, and flange frequency
+- condition controls for procedural weathering and wear
+- scale-safe behavior so every modular piece still fits after parametric edits
 
 Where possible, expose controls through clear Houdini HDA parameters for art direction and repeatability.
 
@@ -94,8 +112,8 @@ Assets are designed as interoperable building blocks.
 
 Components connect through consistent snapping and deterministic rules.
 
-- snap points and sockets
-- directional and orientation constraints
+- socket-aware junction detection (L, T, and cross intersections)
+- snap points and orientation constraints
 - standardized scale and compatibility classes
 
 This connection layer is the highest-value part of the system because it enables fast layout without manual rework.
@@ -104,9 +122,9 @@ This connection layer is the highest-value part of the system because it enables
 
 Systems are designed for real-time use and flexible assembly.
 
-- clean topology
-- game-engine-ready outputs
-- reusable assembly configurations
+- optimized, clean topology
+- simulation-ready output with pre-configured sockets
+- interoperability with surrounding infrastructure systems
 
 Optional: Unity-ready export presets if runtime integration is part of the production target.
 
