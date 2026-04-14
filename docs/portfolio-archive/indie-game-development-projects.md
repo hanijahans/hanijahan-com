@@ -4,6 +4,7 @@ description:
 tags: [Unity, Game Development, Procedural, WFC]
 cover: "/portfolio/gamedev-worldlattice-01.png"
 category:
+  - Portfolio, 4
   - Indie Game, 1
 mediaPreview: "hover"
 videoEmbed: "https://www.youtube.com/embed/n2kaECKiSeA?autoplay=1&mute=1&loop=1&playlist=GBCFRYMkSrY&rel=0"
@@ -11,7 +12,7 @@ videoEmbed: "https://www.youtube.com/embed/n2kaECKiSeA?autoplay=1&mute=1&loop=1&
 
 ## 1. World Lattice
 Paint something simple. Get a tiny world back.
-WorldLattice turns your doodles into small 3D structures with a single click.
+inspired by Wave Function Collapse (WFC) algorithm, WorldLattice turns your doodles into small 3D structures with a single click.
 https://hanijahan.com/worldlattice/
 
 <iframe
@@ -24,7 +25,9 @@ https://hanijahan.com/worldlattice/
   allowfullscreen
 ></iframe>
 
+<!--
 ## 2. Boat Explorer
 Your boat moves on its own. You steer by dragging toward resources or harbors. Get close, and everything is collected automatically—wood, metal, treasure—stored in a simple inventory. Return to harbor to sell and upgrade: move faster, carry more, reach farther. No micromanagement, just smooth progression—collect more, upgrade more, go further.
 
 <img src="/portfolio/gamedev-boat-01.jpg" style="width:30%; height:auto;" />
+-->
