@@ -12,8 +12,9 @@ videoEmbed: "https://www.youtube.com/embed/n2kaECKiSeA?autoplay=1&mute=1&loop=1&
 
 ## World Lattice
 Paint something simple. Get a tiny world back.
-inspired by Wave Function Collapse (WFC) algorithm, WorldLattice turns your doodles into small 3D structures with a single click.
-Available on: https://hanijahan.itch.io/worldlattice
+inspired by Wave Function Collapse (WFC) algorithm, WorldLattice turns your doodles into small 3D structures with a single click.  
+Available on: https://hanijahan.itch.io/worldlattice  
+Role: Develper  
 
 <iframe
   style="width: 100%; aspect-ratio: 16 / 9; height: auto;"
@@ -26,11 +27,13 @@ Available on: https://hanijahan.itch.io/worldlattice
 ></iframe>
 
 ## Sea Explorer
-Your boat moves on its own. You steer by dragging toward resources or harbors. Get close, and everything is collected automatically—wood, metal, treasure—stored in a simple inventory. Return to harbor to sell and upgrade: move faster, carry more, reach farther. No micromanagement, just smooth progression—collect more, upgrade more, go further.
+Your boat moves on its own. Drag to steer, collect on contact, return to upgrade. Faster, bigger, farther—repeat.   
+Role: Develper
 
 <img src="/portfolio/gamedev-boat-02.png" style="width:100%; height:auto;" />
 
-Houdini map tool
+Houdini map tool  
+A procedural zoning tool for assigning and visualizing resource distribution based on design-driven rules. Built in Houdini to enable fast iteration over spatial layouts, allowing controlled variation and scalable map generation.  
 <BeforeAfterSlider
   before-src="/portfolio/gamedev-boat-map-01.png"
   after-src="/portfolio/gamedev-boat-map-02.png"
@@ -41,11 +44,9 @@ Houdini map tool
 />
 
 ## Mount Roller Dispatch
-
-as the Technical Artist (Houdini) I build the tool for city generation
-
-Available on: https://sarahno.itch.io/mount-roller-dispatch
-
+Deliver packages across two upside down cities.  
+Available on: https://sarahno.itch.io/mount-roller-dispatch  
+Role: Technical Artist  
 
 <iframe
   style="width: 100%; aspect-ratio: 16 / 9; height: auto;"
@@ -57,5 +58,6 @@ Available on: https://sarahno.itch.io/mount-roller-dispatch
   allowfullscreen
 ></iframe>
 
-Houdini city tool
+Houdini city tool  
+as the Technical Artist (Houdini) I build the tool for city generation
 <img src="/portfolio/game-dev-city-01.jpg" style="width:100%; height:auto;" />
