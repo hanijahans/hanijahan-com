@@ -60,4 +60,12 @@ Role: Technical Artist
 
 Houdini city tool  
 as the Technical Artist (Houdini) I build the tool for city generation
-<img src="/portfolio/game-dev-city-01.jpg" style="width:100%; height:auto;" />
+
+<img src="/portfolio/game-dev-city-montreal-07.png" style="width:100%; height:auto;" />
+
+<!--
+<div class="image-row2">
+  <img src="/portfolio/game-dev-city-montreal-07.png" alt="Subway lines map 02">
+  <img src="/portfolio/game-dev-city-montreal-08.png" alt="Subway lines map 03">
+</div>
+-->
