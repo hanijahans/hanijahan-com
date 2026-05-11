@@ -1,5 +1,8 @@
 https://www.hanijahan.com/* https://hanijahan.com/:splat 301!
 
+# Serve the site favicon directly before legacy redirects.
+/favicon.ico /favicon.ico 200
+
 # Legacy URL redirects to current routes.
 /portfolio-archive/data-nyc-subway /portfolio-archive/new-york-city-subway-data-visualization 301!
 /portfolio-archive/data-nyc-subway/ /portfolio-archive/new-york-city-subway-data-visualization 301!

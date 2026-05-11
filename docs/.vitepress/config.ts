@@ -37,6 +37,7 @@ export default defineConfig({
   // The script loads MailerLite's universal JS and initialises the account.
   // Without this, the embedded newsletter form won't render on your static pages.
   head: [
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
     [
       'script',
       {},
