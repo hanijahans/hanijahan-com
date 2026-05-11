@@ -5,12 +5,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  "docs:dev": "vitepress dev docs",
-  "docs:build": "vitepress build docs",
-  "docs:preview": "vitepress preview docs",
-  "build:worldlattice2d": "cd ../world-lattice-2d-web && npm install && npm run build",
-  "copy:worldlattice2d": "powershell -Command \"Remove-Item -Recurse -Force docs/public/worldlattice-2d/* -ErrorAction SilentlyContinue; Copy-Item -Recurse ../world-lattice-2d-web/dist/* docs/public/worldlattice-2d/\"",
-  "build:all": "npm run build:worldlattice2d && npm run copy:worldlattice2d && npm run docs:build"
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "build:worldlattice2d": "node scripts/build-worldlattice2d.mjs",
+    "build:all": "npm run build:worldlattice2d && npm run docs:build"
   },
   "repository": {
     "type": "git",

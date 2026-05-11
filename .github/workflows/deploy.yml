@@ -18,8 +18,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout website
         uses: actions/checkout@v4
+
+      - name: Checkout WorldLattice 2D
+        uses: actions/checkout@v4
+        with:
+          repository: hanijahans/world-lattice-2d-web
+          ref: main
+          path: .external/world-lattice-2d-web
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -29,8 +36,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build VitePress
-        run: npm run docs:build
+      - name: Build WorldLattice 2D and VitePress
+        run: npm run build:all
+        env:
+          WORLDLATTICE_2D_DIR: .external/world-lattice-2d-web
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

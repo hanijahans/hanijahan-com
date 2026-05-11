@@ -21,4 +21,7 @@ Thumbs.db
 .env.local
 .env.*.local
 
-
+# Build-time static output from hanijahans/world-lattice-2d-web
+.external/
+docs/public/worldlattice/2d/
+docs/public/worldlattice-2d/
