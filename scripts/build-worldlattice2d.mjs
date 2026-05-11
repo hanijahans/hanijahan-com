@@ -7,7 +7,7 @@ const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const appRepo = process.env.WORLDLATTICE_2D_REPO ?? 'https://github.com/hanijahans/world-lattice-2d-web.git'
 const appRef = process.env.WORLDLATTICE_2D_REF ?? 'main'
 const appDir = resolve(repoRoot, process.env.WORLDLATTICE_2D_DIR ?? '.external/world-lattice-2d-web')
-const outputDir = resolve(repoRoot, process.env.WORLDLATTICE_2D_OUTPUT ?? 'docs/public/worldlattice/2d')
+const outputDir = resolve(repoRoot, process.env.WORLDLATTICE_2D_OUTPUT ?? 'docs/public/worldlattice-2d')
 
 function run(command, args, options = {}) {
   const result = spawnSync(command, args, {
