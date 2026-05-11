@@ -11,9 +11,9 @@ https://www.hanijahan.com/* https://hanijahan.com/:splat 301!
 /blog/devlog/02-worldlattice-tool-becomes-a-game/ /blog/wldevlog/02-worldlattice-tool-becomes-a-game 301!
 /blog/devlog/03-worldlattice-ui-phase-preview-chaos /blog/wldevlog/03-worldlattice-ui-phase-preview-chaos 301!
 /blog/devlog/03-worldlattice-ui-phase-preview-chaos/ /blog/wldevlog/03-worldlattice-ui-phase-preview-chaos 301!
-/worldlattice/2d /worldlattice-2d 301!
-/worldlattice/2d/ /worldlattice-2d 301!
-/worldlattice-2d/index.html /worldlattice-2d 301!
+/worldlattice/2d /worldlattice-2d/ 301!
+/worldlattice/2d/ /worldlattice-2d/ 301!
+/worldlattice-2d/index.html /worldlattice-2d/ 301!
 /worldbuilding /worldlattice 301!
 /worldbuilding/ /worldlattice 301!
 /houdini /blog/houdini 301!
