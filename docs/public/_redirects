@@ -23,7 +23,7 @@ https://www.hanijahan.com/* https://hanijahan.com/:splat 301!
 
 # Serve the built Vite app internally.
 /worldlattice-2d/ /worldlattice-2d/index.html 200
-/worldlattice-2d/* /worldlattice-2d/index.html 200
+<!-- /worldlattice-2d/* /worldlattice-2d/index.html 200 -->
 
 # Other legacy route redirects.
 /worldbuilding /worldlattice 301!
