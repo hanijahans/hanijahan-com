@@ -22,7 +22,6 @@ https://www.hanijahan.com/* https://hanijahan.com/:splat 301!
 # conflict with clean-URL index redirects and create a redirect loop.
 /worldlattice/2d /worldlattice-2d/ 301!
 /worldlattice/2d/ /worldlattice-2d/ 301!
-/worldlattice-2d /worldlattice-2d/ 301!
 
 # Other legacy route redirects.
 /worldbuilding /worldlattice 301!
