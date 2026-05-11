@@ -23,12 +23,15 @@ function run(command, args, options = {}) {
 }
 
 function ensureAppSource() {
-  if (existsSync(resolve(appDir, 'package.json'))) {
+  if (!existsSync(resolve(appDir, '.git'))) {
+    rmSync(appDir, { recursive: true, force: true })
+    mkdirSync(dirname(appDir), { recursive: true })
+    run('git', ['clone', '--depth', '1', '--branch', appRef, appRepo, appDir])
     return
   }
 
-  mkdirSync(dirname(appDir), { recursive: true })
-  run('git', ['clone', '--depth', '1', '--branch', appRef, appRepo, appDir])
+  run('git', ['fetch', '--depth', '1', 'origin', appRef], { cwd: appDir })
+  run('git', ['checkout', 'FETCH_HEAD'], { cwd: appDir })
 }
 
 function installDependencies() {
