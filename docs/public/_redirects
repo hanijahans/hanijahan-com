@@ -15,11 +15,15 @@ https://www.hanijahan.com/* https://hanijahan.com/:splat 301!
 /blog/devlog/03-worldlattice-ui-phase-preview-chaos /blog/wldevlog/03-worldlattice-ui-phase-preview-chaos 301!
 /blog/devlog/03-worldlattice-ui-phase-preview-chaos/ /blog/wldevlog/03-worldlattice-ui-phase-preview-chaos 301!
 
-# WorldLattice 2D canonical route.
-# Keep this app as a plain static directory: /worldlattice-2d/ is served
-# directly from docs/public/worldlattice-2d/index.html by the host. Avoid
-# rewriting /worldlattice-2d/ to /worldlattice-2d/index.html because that can
-# conflict with clean-URL index redirects and create a redirect loop.
+# WorldLattice 2D route ownership.
+# /worldlattice-2d/ is the only canonical production route for the standalone
+# app. The generated static files are copied to docs/public/worldlattice-2d at
+# build time and then served directly by the host. Do not add rewrites from the
+# canonical route back to itself or to index.html; that can fight clean-URL
+# handling and create redirect loops.
+#
+# These two rules are legacy compatibility only. They point one-way from the old
+# nested URL shape to the canonical route.
 /worldlattice/2d /worldlattice-2d/ 301!
 /worldlattice/2d/ /worldlattice-2d/ 301!
 

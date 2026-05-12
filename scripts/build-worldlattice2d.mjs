@@ -1,15 +1,55 @@
-import { existsSync, mkdirSync, rmSync, cpSync } from 'node:fs'
+import { cpSync, existsSync, mkdirSync, readdirSync, rmSync, statSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { spawnSync } from 'node:child_process'
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
-const appRepo = process.env.WORLDLATTICE_2D_REPO ?? 'https://github.com/hanijahans/world-lattice-2d-web.git'
-const appRef = process.env.WORLDLATTICE_2D_REF ?? 'main'
+
+// Route ownership: the standalone WorldLattice 2D app is always published at
+// /worldlattice-2d/. The app repo must build with a matching Vite base path
+// (normally base: '/worldlattice-2d/') so its asset URLs keep working after the
+// dist directory is copied into VitePress public assets below.
+const canonicalRoute = '/worldlattice-2d/'
+
+// The website repo orchestrates deployment, but it does not own the app source.
+// GitHub Actions (or a local developer) must place the separate checkout here.
+// This script deliberately contains no git clone/fetch/checkout behavior so the
+// source revision is explicit and controlled by the caller.
 const appDir = resolve(repoRoot, process.env.WORLDLATTICE_2D_DIR ?? '.external/world-lattice-2d-web')
+
+// VitePress copies docs/public/* verbatim into docs/.vitepress/dist/*. This
+// generated directory is therefore the injection point for the already-built
+// standalone app. It must stay ignored by git because it contains build output.
 const outputDir = resolve(repoRoot, process.env.WORLDLATTICE_2D_OUTPUT ?? 'docs/public/worldlattice-2d')
+const distDir = resolve(appDir, 'dist')
+
+function fail(message) {
+  throw new Error(`WorldLattice 2D build failed: ${message}`)
+}
+
+function assertDirectory(path, label) {
+  if (!existsSync(path)) {
+    fail(`${label} is missing at ${path}`)
+  }
+
+  if (!statSync(path).isDirectory()) {
+    fail(`${label} exists but is not a directory: ${path}`)
+  }
+}
+
+function assertFile(path, label) {
+  if (!existsSync(path)) {
+    fail(`${label} is missing at ${path}`)
+  }
+
+  if (!statSync(path).isFile()) {
+    fail(`${label} exists but is not a file: ${path}`)
+  }
+}
 
 function run(command, args, options = {}) {
+  console.log(`\n> ${command} ${args.join(' ')}`)
+
   const result = spawnSync(command, args, {
     cwd: repoRoot,
     stdio: 'inherit',
@@ -17,21 +57,18 @@ function run(command, args, options = {}) {
     ...options,
   })
 
+  if (result.error) {
+    fail(`${command} ${args.join(' ')} could not start: ${result.error.message}`)
+  }
+
   if (result.status !== 0) {
-    throw new Error(`${command} ${args.join(' ')} failed with exit code ${result.status}`)
+    fail(`${command} ${args.join(' ')} exited with code ${result.status}`)
   }
 }
 
-function ensureAppSource() {
-  if (!existsSync(resolve(appDir, '.git'))) {
-    rmSync(appDir, { recursive: true, force: true })
-    mkdirSync(dirname(appDir), { recursive: true })
-    run('git', ['clone', '--depth', '1', '--branch', appRef, appRepo, appDir])
-    return
-  }
-
-  run('git', ['fetch', '--depth', '1', 'origin', appRef], { cwd: appDir })
-  run('git', ['checkout', 'FETCH_HEAD'], { cwd: appDir })
+function validateExternalCheckout() {
+  assertDirectory(appDir, 'External WorldLattice 2D checkout')
+  assertFile(resolve(appDir, 'package.json'), 'External WorldLattice 2D package.json')
 }
 
 function installDependencies() {
@@ -44,10 +81,12 @@ function buildApp() {
 }
 
 function copyDist() {
-  const distDir = resolve(appDir, 'dist')
+  assertDirectory(distDir, 'External WorldLattice 2D dist output')
+  assertFile(resolve(distDir, 'index.html'), 'External WorldLattice 2D dist/index.html')
 
-  if (!existsSync(distDir)) {
-    throw new Error(`Expected built WorldLattice 2D files at ${distDir}`)
+  const distEntries = readdirSync(distDir)
+  if (distEntries.length === 0) {
+    fail(`External WorldLattice 2D dist output is empty: ${distDir}`)
   }
 
   rmSync(outputDir, { recursive: true, force: true })
@@ -55,11 +94,15 @@ function copyDist() {
   cpSync(distDir, outputDir, { recursive: true })
 }
 
-console.log(`Preparing WorldLattice 2D from ${appRepo}#${appRef}`)
-console.log(`Source directory: ${appDir}`)
-console.log(`Static output: ${outputDir}`)
+console.log('Building standalone WorldLattice 2D app for VitePress static hosting')
+console.log(`Canonical route: ${canonicalRoute}`)
+console.log(`External checkout: ${appDir}`)
+console.log(`Expected dist output: ${distDir}`)
+console.log(`VitePress public output: ${outputDir}`)
 
-ensureAppSource()
+validateExternalCheckout()
 installDependencies()
 buildApp()
 copyDist()
+
+console.log(`\nWorldLattice 2D static files copied to ${outputDir}`)

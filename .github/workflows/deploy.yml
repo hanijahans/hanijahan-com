@@ -1,9 +1,9 @@
-name: Deploy Docs
+name: Deploy Hani Jahan Website
 
 on:
   push:
-    branches: [ main ]   # 🚀 runs automatically when you push to main
-  workflow_dispatch:     # optional, lets you trigger manually too
+    branches: [ main ]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -11,49 +11,63 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: github-pages
   cancel-in-progress: true
 
 jobs:
-  build:
+  build-site-and-static-apps:
+    name: Build VitePress site with standalone app assets
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout website
+      - name: Checkout website orchestrator repo
         uses: actions/checkout@v4
 
-      - name: Checkout WorldLattice 2D
+      # WorldLattice 2D intentionally remains a separate standalone repository.
+      # Actions owns checkout/version selection; scripts/build-worldlattice2d.mjs
+      # only installs, builds, and copies the already-checked-out app.
+      - name: Checkout WorldLattice 2D standalone app repo
         uses: actions/checkout@v4
         with:
           repository: hanijahans/world-lattice-2d-web
           ref: main
           path: .external/world-lattice-2d-web
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Install dependencies
+      - name: Install website dependencies
         run: npm ci
 
-      - name: Build WorldLattice 2D and VitePress
-        run: npm run build:all
+      # Static app injection flow:
+      # 1. Build the independent app from .external/world-lattice-2d-web.
+      # 2. Copy its dist output to docs/public/worldlattice-2d.
+      # 3. Let VitePress copy docs/public/* verbatim into docs/.vitepress/dist.
+      # The generated docs/public/worldlattice-2d directory exists only at build
+      # time and is ignored by git so generated dist files are never committed.
+      - name: Build WorldLattice 2D static app
+        run: npm run build:worldlattice2d
         env:
           WORLDLATTICE_2D_DIR: .external/world-lattice-2d-web
 
-      - name: Upload artifact
+      - name: Build VitePress website
+        run: npm run docs:build
+
+      - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs/.vitepress/dist
           name: github-pages
 
-  deploy:
-    needs: build
+  deploy-github-pages:
+    name: Deploy GitHub Pages
+    needs: build-site-and-static-apps
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy website to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
