@@ -1,5 +1,38 @@
 import { DefaultTheme, defineConfig } from 'vitepress'
 
+const siteUrl = 'https://hanijahan.com'
+const worldLattice2dCanonicalUrl = `${siteUrl}/worldlattice-2d/`
+
+const sitemapExcludedPaths = new Set([
+  '/api-examples',
+  '/markdown-examples',
+  '/public',
+  '/worldlattice/worldlattice-2d-manual-update',
+])
+
+const standaloneSitemapUrls = [worldLattice2dCanonicalUrl]
+
+function normalizeSitemapUrl(url: string) {
+  if (url === `${siteUrl}/`) return url
+  if (standaloneSitemapUrls.includes(url)) return url
+
+  return url.length > 1 ? url.replace(/\/+$/, '') : url
+}
+
+function sitemapUrlPath(url: string) {
+  const path = url.startsWith(siteUrl) ? url.slice(siteUrl.length) || '/' : url
+  const withoutExtension = path
+    .replace(/index\.html$/i, '')
+    .replace(/\.html$/i, '')
+    .replace(/\/+$/, '')
+
+  if (!withoutExtension || withoutExtension === '/') return '/'
+
+  return withoutExtension.startsWith('/')
+    ? withoutExtension
+    : `/${withoutExtension}`
+}
+
 const navItems: DefaultTheme.NavItem[] = [
   // { text: 'Home', link: '/' },
   // { text: 'Blog', link: '/blog/' },
@@ -22,15 +55,23 @@ export default defineConfig({
 
   // Sitemap (top-level)
   sitemap: {
-    hostname: 'https://hanijahan.com',
-    transformItems: (items) =>
-      items.map((item) => ({
-        ...item,
-        url:
-          item.url.length > 1
-            ? item.url.replace(/\/+$/, '')
-            : item.url
-      }))
+    hostname: siteUrl,
+    transformItems: (items) => {
+      const canonicalItems = items
+        .map((item) => ({
+          ...item,
+          url: normalizeSitemapUrl(item.url),
+        }))
+        .filter((item) => !sitemapExcludedPaths.has(sitemapUrlPath(item.url)))
+
+      for (const url of standaloneSitemapUrls) {
+        canonicalItems.push({ url })
+      }
+
+      return Array.from(
+        new Map(canonicalItems.map((item) => [item.url, item])).values(),
+      )
+    },
   },
 
   // Inject MailerLite universal snippet and stylesheet into the <head> on every page.
@@ -59,7 +100,6 @@ export default defineConfig({
   // ],
 
   transformHead: ({ pageData }) => {
-    const siteUrl = 'https://hanijahan.com'
     const relativePath = pageData.filePath || pageData.relativePath
 
     if (!relativePath) return
@@ -68,7 +108,17 @@ export default defineConfig({
       .replace(/index\.md$/i, '')
       .replace(/\.md$/i, '')
       .replace(/\/+$/, '')
-    const canonicalUrl = canonicalPath ? `${siteUrl}/${canonicalPath}` : `${siteUrl}`
+
+    if (sitemapExcludedPaths.has(`/${canonicalPath}`)) {
+      return [['meta', { name: 'robots', content: 'noindex,nofollow' }]]
+    }
+
+    const canonicalUrl =
+      canonicalPath === 'worldlattice-2d'
+        ? worldLattice2dCanonicalUrl
+        : canonicalPath
+          ? `${siteUrl}/${canonicalPath}`
+          : `${siteUrl}/`
 
     return [['link', { rel: 'canonical', href: canonicalUrl }]]
   },
