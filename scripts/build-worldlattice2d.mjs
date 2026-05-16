@@ -1,4 +1,4 @@
-import { cpSync, existsSync, mkdirSync, readdirSync, rmSync, statSync } from 'node:fs'
+import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { spawnSync } from 'node:child_process'
@@ -10,6 +10,7 @@ const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 // (normally base: '/worldlattice-2d/') so its asset URLs keep working after the
 // dist directory is copied into VitePress public assets below.
 const canonicalRoute = '/worldlattice-2d/'
+const canonicalUrl = 'https://hanijahan.com/worldlattice-2d/'
 
 // The website repo orchestrates deployment, but it does not own the app source.
 // GitHub Actions (or a local developer) must place the separate checkout here.
@@ -94,6 +95,29 @@ function copyDist() {
   cpSync(distDir, outputDir, { recursive: true })
 }
 
+function ensureCanonicalLink() {
+  const indexPath = resolve(outputDir, 'index.html')
+  assertFile(indexPath, 'Copied WorldLattice 2D index.html')
+
+  const html = readFileSync(indexPath, 'utf8')
+  const canonicalTag = `<link rel="canonical" href="${canonicalUrl}">`
+
+  let updatedHtml = html.replace(
+    /<link\s+rel=["']canonical["'][^>]*>/i,
+    canonicalTag,
+  )
+
+  if (updatedHtml === html) {
+    updatedHtml = html.replace(/<head>/i, `<head>\n    ${canonicalTag}`)
+  }
+
+  if (updatedHtml === html) {
+    fail('Copied WorldLattice 2D index.html does not contain a <head> element for canonical URL injection')
+  }
+
+  writeFileSync(indexPath, updatedHtml)
+}
+
 console.log('Building standalone WorldLattice 2D app for VitePress static hosting')
 console.log(`Canonical route: ${canonicalRoute}`)
 console.log(`External checkout: ${appDir}`)
@@ -104,5 +128,6 @@ validateExternalCheckout()
 installDependencies()
 buildApp()
 copyDist()
+ensureCanonicalLink()
 
 console.log(`\nWorldLattice 2D static files copied to ${outputDir}`)
