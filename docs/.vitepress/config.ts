@@ -3,7 +3,10 @@ import { DefaultTheme, defineConfig } from 'vitepress'
 const siteUrl = 'https://hanijahan.com'
 const worldLattice2dCanonicalUrl = `${siteUrl}/worldlattice-2d/`
 
-const sitemapExcludedPaths = new Set([
+// These paths are omitted from sitemap.xml and receive robots metadata while
+// remaining crawlable. Keep crawlers allowed to fetch excluded pages so they
+// can see the page-level directive.
+const sitemapExcludedPaths = new Set<string>([
   '/api-examples',
   '/markdown-examples',
   '/public',
@@ -11,12 +14,17 @@ const sitemapExcludedPaths = new Set([
 ])
 
 const standaloneSitemapUrls = [worldLattice2dCanonicalUrl]
+const excludedPathsRobotsDirective = 'noindex,nofollow'
 
 function normalizeSitemapUrl(url: string) {
   if (url === `${siteUrl}/`) return url
   if (standaloneSitemapUrls.includes(url)) return url
 
   return url.length > 1 ? url.replace(/\/+$/, '') : url
+}
+
+function isSitemapExcludedPath(path: string) {
+  return sitemapExcludedPaths.has(path)
 }
 
 function sitemapUrlPath(url: string) {
@@ -62,7 +70,7 @@ export default defineConfig({
           ...item,
           url: normalizeSitemapUrl(item.url),
         }))
-        .filter((item) => !sitemapExcludedPaths.has(sitemapUrlPath(item.url)))
+        .filter((item) => !isSitemapExcludedPath(sitemapUrlPath(item.url)))
 
       for (const url of standaloneSitemapUrls) {
         canonicalItems.push({ url })
@@ -109,8 +117,8 @@ export default defineConfig({
       .replace(/\.md$/i, '')
       .replace(/\/+$/, '')
 
-    if (sitemapExcludedPaths.has(`/${canonicalPath}`)) {
-      return [['meta', { name: 'robots', content: 'noindex,nofollow' }]]
+    if (isSitemapExcludedPath(`/${canonicalPath}`)) {
+      return [['meta', { name: 'robots', content: excludedPathsRobotsDirective }]]
     }
 
     const canonicalUrl =
