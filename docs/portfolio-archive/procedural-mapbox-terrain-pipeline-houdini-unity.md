@@ -50,7 +50,7 @@ I wanted to reduce that friction by separating:
 - **High-level intent:** Where and what region the artist wants.
 - **Low-level generation:** How terrain is reconstructed procedurally.
 
-This created a metadata-driven workflow where geographic selection becomes an abstract procedural input rather than a manual setup process.
+This created a metadata-driven workflow where geographic selection becomes an abstract procedural input rather than a manual setup process, reducing the friction between real-world data and procedural worldbuilding by turning a messy multi-step workflow into a repeatable pipeline that connects engine-side interaction with Houdini-side procedural generation.
 
 ## Solution
 
@@ -118,7 +118,9 @@ Without this file, your Houdini terrain generation becomes partially blind.
 }
 ```
 
-### How Zoom Level Changes Output
+### Technical Deep Dive
+
+#### How Zoom Level Changes Output
 
 Zoom level directly controls how much land each tile represents and how dense the resulting terrain detail will be.
 
@@ -133,7 +135,7 @@ It directly affects:
 
 This makes zoom one of the most important controls in the entire acquisition-to-reconstruction pipeline.
 
-### metersPerPixel in Practice
+#### metersPerPixel in Practice
 
 `metersPerPixel` converts downloaded image pixels into real-world scale.
 
@@ -143,15 +145,11 @@ If your image is **512 pixels** wide and `metersPerPixel = 193.3881`:
 
 That gives a terrain width of about **99 km**, which is then used by Houdini for physically meaningful terrain scale.
 
-### Tile Mapping and Neighbor Stitching
+#### Tile Mapping and Neighbor Stitching
 
 `tileX` / `tileY` identify the exact source tile and make reconstruction deterministic.
 
-Beyond single-tile generation, this also supports neighbor-aware workflows such as:
-
-- terrain streaming
-- loading adjacent sectors
-- neighbor tile stitching
+Beyond single-tile generation, this also supports neighbor-aware workflows like terrain streaming and brief neighbor tile stitching across adjacent sectors.
 
 #### Reconstruction layer (Houdini)
 
@@ -167,6 +165,19 @@ Using exported metadata:
 the HDA could reproducibly reconstruct terrain inside Houdini and prepare outputs for Unity/Unreal pipelines.
 
 This separated artist intent from technical reconstruction complexity.
+
+<img src="/portfolio/unity-terrain-houdini-01.png" style="width:50%; height:auto;">
+image: HDA parameters
+
+<img src="/portfolio/unity-terrain-houdini-02.png" style="width:50%; height:auto;">
+image: network
+
+<img src="/portfolio/unity-terrain-houdini-03.png" style="width:50%; height:auto;">
+
+image: attribute from houdini to Unity  
+unity_hf_terrainlayer_file  
+unity_hf_texture_diffuse  
+unity_hf_tile_size (from Python scale)  
 
 ### Python SOP Reference Snippet
 
@@ -200,7 +211,3 @@ else:
 - Improved reproducibility through metadata-driven workflows.
 - Faster iteration between acquisition and reconstruction.
 - Demonstrated procedural pipeline/tool development for real-time environments.
-
-## Why This Matters
-
-This project is about reducing the friction between real-world data and procedural worldbuilding. It turns a messy multi-step workflow into a repeatable pipeline that connects engine-side interaction with Houdini-side procedural generation.
