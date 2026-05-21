@@ -11,6 +11,7 @@ const sitemapExcludedPaths = new Set<string>([
   '/markdown-examples',
   '/public',
   '/worldlattice/worldlattice-2d-manual-update',
+  '/portfolio-sidefx',
 ])
 
 const standaloneSitemapUrls = [worldLattice2dCanonicalUrl]
