@@ -47,21 +47,22 @@ Most real-world terrain workflows are fragmented across map tools, manual downlo
 
 I wanted to reduce that friction by separating:
 
-High-level intent → Where and what region the artist wants
-Low-level generation → How terrain is reconstructed procedurally
+- **High-level intent:** Where and what region the artist wants.
+- **Low-level generation:** How terrain is reconstructed procedurally.
 
 This created a metadata-driven workflow where geographic selection becomes an abstract procedural input rather than a manual setup process.
 
 ## Solution
-System Design
-Acquisition Layer
 
-## Unity
+### System design
+
+#### Acquisition layer (Unity)
+
 A lightweight Unity editor tool was used for:
 
-real-world location selection
-imagery/elevation acquisition
-metadata standardization
+- Real-world location selection
+- Imagery/elevation acquisition
+- Metadata standardization
 
 The Unity side intentionally stayed minimal — its role was only to capture spatial intent and export deterministic terrain metadata.
 
@@ -116,17 +117,17 @@ Without this file, your Houdini terrain generation becomes partially blind.
   }
 }
 ```
-## Houdini
-Reconstruction Layer
+
+#### Reconstruction layer (Houdini)
 
 Houdini became the procedural reconstruction system.
 
 Using exported metadata:
 
-terrain scale
-geographic coordinates
-tile mapping
-elevation references
+- Terrain scale
+- Geographic coordinates
+- Tile mapping
+- Elevation references
 
 the HDA could reproducibly reconstruct terrain inside Houdini and prepare outputs for Unity/Unreal pipelines.
 
@@ -134,8 +135,7 @@ This separated artist intent from technical reconstruction complexity.
 
 ## Impact
 
-
-Reduced terrain setup friction
-Improved reproducibility through metadata-driven workflows
-Faster iteration between acquisition and reconstruction
-Demonstrated procedural pipeline/tool development for real-time environments
+- Reduced terrain setup friction.
+- Improved reproducibility through metadata-driven workflows.
+- Faster iteration between acquisition and reconstruction.
+- Demonstrated procedural pipeline/tool development for real-time environments.
