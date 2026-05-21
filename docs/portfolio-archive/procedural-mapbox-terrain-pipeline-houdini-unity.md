@@ -118,6 +118,41 @@ Without this file, your Houdini terrain generation becomes partially blind.
 }
 ```
 
+### How Zoom Level Changes Output
+
+Zoom level directly controls how much land each tile represents and how dense the resulting terrain detail will be.
+
+- **Higher zoom** → smaller area, more detail
+- **Lower zoom** → huge area, less detail
+
+It directly affects:
+
+- terrain resolution
+- meters-per-pixel
+- detail density
+
+This makes zoom one of the most important controls in the entire acquisition-to-reconstruction pipeline.
+
+### metersPerPixel in Practice
+
+`metersPerPixel` converts downloaded image pixels into real-world scale.
+
+If your image is **512 pixels** wide and `metersPerPixel = 193.3881`:
+
+`512 × 193.3881 ≈ 99014.7`
+
+That gives a terrain width of about **99 km**, which is then used by Houdini for physically meaningful terrain scale.
+
+### Tile Mapping and Neighbor Stitching
+
+`tileX` / `tileY` identify the exact source tile and make reconstruction deterministic.
+
+Beyond single-tile generation, this also supports neighbor-aware workflows such as:
+
+- terrain streaming
+- loading adjacent sectors
+- neighbor tile stitching
+
 #### Reconstruction layer (Houdini)
 
 Houdini became the procedural reconstruction system.
@@ -133,9 +168,39 @@ the HDA could reproducibly reconstruct terrain inside Houdini and prepare output
 
 This separated artist intent from technical reconstruction complexity.
 
+### Python SOP Reference Snippet
+
+The following pattern (parameter read + path expansion + safety checks) is useful when extending the HDA with metadata-driven logic:
+
+```python
+import json
+import os
+
+node = hou.pwd()
+geo = node.geometry()
+
+raw_path = node.evalParm("json_file")
+path = hou.text.expandString(raw_path)
+
+if os.path.exists(path) and os.path.isfile(path):
+    with open(path, "r") as f:
+        data = json.load(f)
+
+    dims = data.get("dimensions", {})
+
+    geo.addAttrib(hou.attribType.Global, "widthMeters", float(dims.get("widthMeters", 0)))
+    geo.addAttrib(hou.attribType.Global, "metersPerPixel", float(dims.get("metersPerPixel", 0)))
+else:
+    print(f"Warning: JSON file not found at {path}")
+```
+
 ## Impact
 
 - Reduced terrain setup friction.
 - Improved reproducibility through metadata-driven workflows.
 - Faster iteration between acquisition and reconstruction.
 - Demonstrated procedural pipeline/tool development for real-time environments.
+
+## Why This Matters
+
+This project is about reducing the friction between real-world data and procedural worldbuilding. It turns a messy multi-step workflow into a repeatable pipeline that connects engine-side interaction with Houdini-side procedural generation.
