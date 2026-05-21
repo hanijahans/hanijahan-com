@@ -5,8 +5,8 @@ tags: [Community, Teaching, Houdini, Unreal, Unity]
 cover: "/portfolio/gumroad-store-01.png"
 category:
   - 
-mediaPreview: "hover"
-videoEmbed: "https://www.youtube.com/embed/l2ek82nmMfE?autoplay=1&mute=1&loop=1&playlist=GBCFRYMkSrY&rel=0"
+mediaPreview: ""
+videoEmbed: ""
 ---
 
 ## Community & Teaching
