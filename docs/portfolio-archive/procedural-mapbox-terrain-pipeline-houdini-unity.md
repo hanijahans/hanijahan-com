@@ -8,6 +8,14 @@ mediaPreview: ""
 videoEmbed: ""
 ---
 
+<!-- 
+- Learn existing tools and workflows in Houdini (mapbox and heightfield)
+- A demonstrated passion for procedural processes and tools
+- Fluency in using Houdini for creating tools/HDAs
+- Experience using a game engine such as Unreal, Unity, or Godot
+- Basic knowledge of VEX and Python   
+-->
+
 # Houdini - Unity Terrain Streaming
 
 Procedural terrain workflow that separates designer-controlled geographic layout from automated terrain reconstruction using metadata-driven generation.
@@ -25,12 +33,6 @@ real-world map data → Unity editor UX → tile/color/elevation acquisition →
 ></iframe>
 
 ## 
-
-- Learn existing tools and workflows in Houdini (mapbox and heightfield)
-- A demonstrated passion for procedural processes and tools
-- Fluency in using Houdini for creating tools/HDAs
-- Experience using a game engine such as Unreal, Unity, or Godot
-- Basic knowledge of VEX and Python  
 
 Designed a Unity Editor map tool that captures tile data, geo metadata, and terrain scale inputs for Houdini-driven generation.
 - **Learn existing tools and workflows in Houdini:** I learned mapbox node (before beome discontinued) - the whole thing inspired by that node, heightfield nodes, HDA creation, Houdini engine
