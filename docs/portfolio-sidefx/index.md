@@ -10,6 +10,7 @@ import { allPortfolioItems } from '/data/portfolio'
 const sidefxSlugs = [
   '/portfolio-archive/procedural-geospatial-terrain-system',
   '/portfolio-archive/indie-game-development-projects'
+  '/portfolio-archive/community-teaching-procedural-tools-outreach',
   '/portfolio-archive/visual-arts-theory-color-composition-layout-game-art'
 ]
 
