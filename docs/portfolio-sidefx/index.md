@@ -21,7 +21,7 @@ const sidefxItems = sidefxSlugs
 
 <PortfolioPage
   title="SideFX Portfolio"
-  description="Selected projects for SideFX."
+  description="Selected procedural Houdini workflows for real-time environments"
   summary=""
   youtube-id=""
   :items="sidefxItems"
