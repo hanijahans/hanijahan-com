@@ -15,7 +15,9 @@ const sidefxSlugs = [
   '/portfolio-archive/visual-arts-theory-color-composition-layout-game-art'
 ]
 
-const sidefxItems = allPortfolioItems.filter((item) => sidefxSlugs.includes(item.url ?? ''))
+const sidefxItems = sidefxSlugs
+  .map((slug) => allPortfolioItems.find((item) => item.url === slug))
+  .filter(Boolean)
 </script>
 
 <PortfolioPage
