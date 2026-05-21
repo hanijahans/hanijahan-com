@@ -8,7 +8,6 @@ layout: page
 import { allPortfolioItems } from '/data/portfolio'
 
 const sidefxSlugs = [
-  '/portfolio-archive/procedural-geospatial-terrain-system',
   '/portfolio-archive/houdini-unity-mapbox-terrain-streaming',
   '/portfolio-archive/houdini-for-game-development',
   '/portfolio-archive/community-teaching-procedural-tools-outreach',
