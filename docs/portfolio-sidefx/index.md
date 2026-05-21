@@ -10,6 +10,7 @@ import { allPortfolioItems } from '/data/portfolio'
 const sidefxSlugs = [
   '/portfolio-archive/procedural-geospatial-terrain-system',
   '/portfolio-archive/indie-game-development-projects'
+  '/portfolio-archive/visual-arts-theory-color-composition-layout-game-art'
 ]
 
 const sidefxItems = allPortfolioItems.filter((item) => sidefxSlugs.includes(item.url ?? ''))
