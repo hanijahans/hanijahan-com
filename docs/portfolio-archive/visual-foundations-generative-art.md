@@ -2,8 +2,11 @@
 title: Visual Foundations for Generative Art
 description: 
 tags: [Concept Art, Digital Painting, Photoshop, Visual Design]
+cover: "/portfolio/visual-foundations-scifi.png"
 category:
   - Rest, 2
+mediaPreview: ""
+videoEmbed: ""
 ---
 
 # Visual Foundations for Generative Art
