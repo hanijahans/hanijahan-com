@@ -2,8 +2,9 @@
 title: Houdini Programming (VEX, Expressions, Python)
 description: Procedural programming examples in Houdini using VEX, expressions, and spatial geometry workflows.
 tags: [Houdini]
-cover: "/portfolio/houdini-expression-switch-condition-01.jpg"
+cover: "/portfolio/houdini-vex-00.png"
 category:
+  - Portfolio, 5
 mediaPreview: ""
 videoEmbed: ""
 ---
@@ -20,7 +21,7 @@ These examples focus on:
 - geometry queries
 - artist-friendly procedural control
 
----
+## Houdini Expressions
 
 **Attribute-Based Conditional Logic**  
 Using string matching to drive procedural branching and switch behavior based on attribute values.  
@@ -37,14 +38,14 @@ if(strmatch(chs("attrib_val"),"window"),1,0)
 details("../attribpromote_wall_/","wall")
 ```
 
----  
+## VEX
 
 **Procedural Floor Identification**   
 Projecting geometry positions onto a directional axis to identify building floors procedurally.  
 
 <img src="/portfolio/houdini-vex-identify-floors-01.png" style="width:30%; height:auto;">
 
-```
+```VEX
 vector dir = normalize(chv("direction")); // Example: {0,1,0}
 float height = chf("modular_height") - 0.01;
 
@@ -69,13 +70,13 @@ Extracting interpolated primitive center positions for procedural point generati
 
 <img src="/portfolio/houdini-vex-find-middle-pts-01.png" style="width:35%; height:auto;">
 
-```
+```VEX
 vector mid = primuv(0, "P", @primnum, set(0.5, 0.5, 0));
 addpoint(0, mid);
 removeprim(0, @primnum, 1);
 ```
 
-```
+```VEX
 vector uvw = set(0.5, 0.5, 0);
 vector mid = primuv(0, "P", @primnum, uvw);
 int pt = addpoint(0, mid);
@@ -101,7 +102,7 @@ Useful for:
 - visibility analysis
 - gameplay-aware generation
 
-```
+```VEX
 //Directional Dot Product
 
 // Get line position (center of input 1)
@@ -129,4 +130,55 @@ f@facing_score = facing_score;
 if(facing_score>0) @Cd = chv("color1");
 else if(facing_score<0) @Cd = chv("color2");
 else @Cd = chv("color3");
+```
+
+
+## Python
+
+**External Data → Procedural Geometry**  
+Using Python inside Houdini to fetch external weather data, convert geographic coordinates into procedural point geometry, and attach dynamic metadata as attributes.
+
+Useful for:
+- external API integration
+- metadata-driven workflows
+- geo-spatial visualization
+- procedural point generation
+- real-world data ingestion
+
+
+```python
+import hou
+import requests
+
+node = hou.pwd()
+geo = node.geometry()
+
+cities = [city.strip() for city in node.parm("city_list").eval().split(",")]
+
+def create_point(city, lon, lat, temperature):
+
+    pt = geo.createPoint()
+
+    x = (180 + lon) * ch("scale_x")
+    z = -(90 + lat) * ch("scale_z")
+
+    pt.setPosition((x, 0, z))
+
+    pt.setAttribValue("city", city)
+    pt.setAttribValue("temperature", temperature)
+
+def fetch_weather(city):
+
+    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
+
+    data = requests.get(url).json()
+
+    lon = data["coord"]["lon"]
+    lat = data["coord"]["lat"]
+    temp = data["main"]["temp"]
+
+    create_point(city, lon, lat, temp)
+
+for city in cities:
+    fetch_weather(city)
 ```
