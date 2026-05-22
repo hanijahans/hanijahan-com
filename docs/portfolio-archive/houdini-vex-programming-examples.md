@@ -23,24 +23,32 @@ These examples focus on:
 
 ## Houdini Expressions
 
-**Attribute-Based Conditional Logic**  
-Using string matching to drive procedural branching and switch behavior based on attribute values.  
+1. **Randomized Value**  
+a controlled, randomized value for every single primitive + remap it between 0.1 and 0.9 
+```
+fit01(rand(@primnum + ch("seed")), 0.1, 0.9)
+```
 
-switch if condition with string  
+2. **Attribute-Based Conditional Logics for Switch**  
+
+- Hiding a node when a specific group contains no points. Use in a Switch node's input selector  
+```
+npoints("../../foreach_begin/inside_group") == 0
+```
+
+- Using string matching to drive procedural branching and switch behavior based on attribute values.  
 
 <img src="/portfolio/houdini-expression-switch-condition-01.jpg" style="width:75%; height:auto;">
 
 ```
 if(strmatch(chs("attrib_val"),"window"),1,0)
-```
 
-```
 details("../attribpromote_wall_/","wall")
 ```
 
 ## VEX
 
-**Procedural Floor Identification**   
+1. **Procedural Floor Identification**   
 Projecting geometry positions onto a directional axis to identify building floors procedurally.  
 
 <img src="/portfolio/houdini-vex-identify-floors-01.png" style="width:30%; height:auto;">
@@ -68,7 +76,7 @@ setprimgroup(0, gname, @primnum, 1);
 
 ---
 
-**Extracting Center Point**  
+2. **Extracting Center Point**  
 Extracting primitive center positions for procedural point generation and downstream operations.  
 surface → point abstraction
 
@@ -101,7 +109,7 @@ removeprim(0, @primnum, 1);
 
 ---
 
-**Directional Surface Analysis**  
+3. **Directional Surface Analysis**  
 Measuring how much a surface is facing toward a target direction using vector dot products.  
 Where is this surface pointing?  
 
