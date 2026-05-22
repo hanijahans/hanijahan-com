@@ -47,10 +47,13 @@ Projecting geometry positions onto a directional axis to identify building floor
 
 ```VEX
 vector dir = normalize(chv("direction")); // Example: {0,1,0}
-float height = chf("modular_height") - 0.01;
+float height = chf("modular_height");
+
+float safe_epsilon = 0.01;
+float effective_height = height - safe_epsilon;
 
 // More stable than directly using world-space Y
-int floor_id = int(dot(@P, dir) / height);
+int floor_id = int(dot(@P, dir) / effective_height);
 
 // Save as integer attribute
 setprimattrib(0, "floor", @primnum, floor_id);
@@ -65,21 +68,34 @@ setprimgroup(0, gname, @primnum, 1);
 
 ---
 
-**Primitive Midpoint Extraction**  
-Extracting interpolated primitive center positions for procedural point generation and downstream operations.  
+**Extracting Center Point**  
+Extracting primitive center positions for procedural point generation and downstream operations.  
+surface → point abstraction
 
 <img src="/portfolio/houdini-vex-find-middle-pts-01.png" style="width:35%; height:auto;">
 
+- Using Primitive Intrinsics
 ```VEX
-vector mid = primuv(0, "P", @primnum, set(0.5, 0.5, 0));
-addpoint(0, mid);
+// Get the center position of the current primitive
+vector mid = primintrinsic(0, "center", @primnum);
+
+// Create a point at that center
+int pt = addpoint(0, mid);
+
+// Remove the original primitive and its unused points
 removeprim(0, @primnum, 1);
 ```
 
+- Using UV Sampling
 ```VEX
+// Sample primitive position at UV center
 vector uvw = set(0.5, 0.5, 0);
 vector mid = primuv(0, "P", @primnum, uvw);
+
+// Create point
 int pt = addpoint(0, mid);
+
+// Remove original primitive
 removeprim(0, @primnum, 1);
 ```
 
@@ -116,12 +132,12 @@ vector to_line = normalize(line_pos - prim_center);
 v@to_line = to_line; // this becomes the candidate for best_dir
 
 // Get the primitive’s facing direction (normal)
-vector n;
-if (hasprimattrib(0, "N")) {
-    n = prim(0, "N", @primnum);
-} else {
-    n = normalize(@N); // If normals exist
-}
+// Get primitive center in UV space
+vector uvw = {0.5, 0.5, 0.5};
+vector center_pos = primuv(0, "P", @primnum, uvw);
+
+// Sample point normal at closest point on primitive
+vector n = normalize(primuv(0, "N", @primnum, uvw));
 
 // Store how much this face is pointing toward the line
 float facing_score = dot(n, to_line);
@@ -152,6 +168,8 @@ import requests
 
 node = hou.pwd()
 geo = node.geometry()
+
+# API_KEY = "your_key_here"  # Omitted for security - get from openweathermap.org
 
 cities = [city.strip() for city in node.parm("city_list").eval().split(",")]
 
