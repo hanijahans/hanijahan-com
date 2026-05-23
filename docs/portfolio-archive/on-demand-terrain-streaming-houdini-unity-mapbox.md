@@ -68,9 +68,15 @@ A lightweight Unity editor tool was used for:
 - Imagery/elevation acquisition
 - Metadata standardization
 
-The Unity side intentionally stayed minimal — its role was only to capture spatial intent and export deterministic terrain metadata.
-
 **Unity map selector → imagery/elevation download → metadata export (`meta.json`) → Houdini HDA reconstruction → Unity/Unreal-ready terrain**
+
+```mermaid
+flowchart LR
+  A[Unity Map Selector] --> B[Imagery + Elevation Download]
+  B --> C[Metadata Export<br/>meta.json]
+  C --> D[Houdini HDA Reconstruction]
+  D --> E[Unity/Unreal-ready Terrain]
+```
 
 - **Interactive map navigation:** pan, zoom, and click to get precise latitude/longitude + tile IDs.
 - **Tile intelligence:** 3x3 neighbor lookup, cache management, and parent/child tile fallback while streaming.
@@ -154,7 +160,7 @@ That gives a terrain width of about **99 km**, which is then used by Houdini for
 
 `tileX` / `tileY` identify the exact source tile and make reconstruction deterministic.
 
-Beyond single-tile generation, this also supports neighbor-aware workflows like terrain streaming and brief neighbor-tile stitching across adjacent sectors.
+Beyond single-tile generation, this supports neighbor-aware workflows like terrain streaming and basic neighbor-tile stitching across adjacent sectors. In this project, 3x3 neighbor lookup and stitching prep are implemented in the acquisition layer, while full runtime world streaming is a future extension.
 
 #### Reconstruction layer (Houdini)
 
@@ -174,6 +180,8 @@ image: attribute from houdini to Unity
 unity_hf_terrainlayer_file  
 unity_hf_texture_diffuse  
 unity_hf_tile_size (from Python scale)  
+
+These attributes map directly to Unity Terrain/Houdini Engine import fields, so terrain layers, diffuse textures, and tile scale are applied automatically when the HDA cooks in Unity.
 
 ### Python SOP Reference Snippet
 
@@ -217,6 +225,6 @@ else:
 - Demonstrated procedural pipeline/tool development for real-time environments.
 
 
-## More about Using Satelight Data Workflow in Houdini
+## More about Using Satellite Data Workflow in Houdini
 
 <PortfolioGrid :items="relatedWorkflows" :columns="1" />
