@@ -1,5 +1,5 @@
 ---
-title: Mapbox On-Demand Terrain Streaming
+title: Houdini - Unity Terrain Streaming
 description: Built a Unity-to-Houdini terrain streaming workflow that captures geospatial data, packages metadata, and reconstructs terrain procedurally for real-time engines.
 tags: [Houdini, Unity, Procedural, Terrain, Mapbox]
 cover: "/portfolio/geo-data-terrain-automated-houdini-unity-01.png"
@@ -17,7 +17,7 @@ const relatedWorkflowSlugs = ['/portfolio-archive/satellite-data-to-procedural-t
 const relatedWorkflows = allPortfolioItems.filter((item) => relatedWorkflowSlugs.includes(item.url ?? ''))
 </script>
 
-# Mapbox On-Demand Terrain Streaming
+# Houdini - Unity Terrain Streaming
 
 Procedural terrain workflow that separates designer-controlled geographic layout from automated terrain reconstruction using metadata-driven generation.
 
@@ -37,6 +37,10 @@ real-world map data → Unity editor UX → tile/color/elevation acquisition →
 
 ## Problem
 
+I originally built a Mapbox-style terrain generation workflow similar to the Houdini Labs Mapbox tool, with location selection happening **inside Houdini**.
+
+That version worked technically, but it created adoption friction: Unity designers using Houdini Engine had to leave Unity, open Houdini, learn a separate UI, choose a location there, then return to Unity to continue. Because a critical step lived outside their day-to-day environment, the workflow felt disconnected and harder for non-Houdini users to trust.
+
 Most real-world terrain workflows are fragmented across map tools, manual downloads, coordinate conversion, and reconstruction steps.
 
 I wanted to reduce that friction by separating:
@@ -47,6 +51,12 @@ I wanted to reduce that friction by separating:
 This created a metadata-driven workflow where geographic selection becomes an abstract procedural input rather than a manual setup process.
 
 ## Solution
+
+I redesigned the workflow around the user instead of the tool.
+
+I built a custom Unity Editor interface that connects directly to the Mapbox API, so users can select a location and download color + DEM data **without leaving Unity**. The Houdini tool then reads that exported data to generate terrain procedurally via Houdini Engine.
+
+From the artist perspective, the process became simpler and more controllable: stay in Unity, click once to rebuild, and iterate quickly on new locations.
 
 ### System design
 
