@@ -11,8 +11,6 @@ videoEmbed: ""
 
 ## Community & Teaching
 
-This turns a technical portfolio into a community-ready portfolio — exactly what SideFX Labs needs.
-
 - **YouTube:** [Houdini Unreal Engine 5 | Complete Guide to Editable Curve Workflow | 2024](https://youtu.be/l2ek82nmMfE) *(free HDAs included)*.
 - **SideFX Forum:** Active participant ([posts by HaniJahan](https://www.sidefx.com/forum/search/?action=search&keywords=&author=HaniJahan&forum=0&search_in=all&sort_by=0&sort_dir=DESC&show_as=posts)).
 - **Gumroad:** Tools available at [hanijahan.gumroad.com](https://hanijahan.gumroad.com/).
@@ -24,6 +22,6 @@ This turns a technical portfolio into a community-ready portfolio — exactly wh
 
 ### Shipping with the community
 
-- **World Lattice:** ship playable things to the community.
-- **Mount Roller Dispatch:** ship and collaborate with others.
-- **Portfolio website:** public-facing and continuously updated.
+- **World Lattice:** shipped a demo on [itch.io](https://hanijahan.itch.io/worldlattice)
+- **Mount Roller Dispatch:** Partt of a devlopers of a shipped game on [itch.io](https://sarahno.itch.io/mount-roller-dispatch).
+- **Portfolio website:** this website with including workflows for selected projects I worked on
