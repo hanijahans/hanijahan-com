@@ -2,7 +2,7 @@
 title: Contact
 ---
 
-I’m Hani Jahan — a technical artist building **procedural content generation (PCG) systems** for scalable world-building. My work focuses on **data-driven environment generation**, and **production-ready tool development** that helps teams create more with less manual placement.
+I’m Hani Jahan — a Technical Artist focused on Procedural Content Generation. I build Houdini-integrated pipelines for Unreal and Unity, creating data-driven systems that make hidden procedural logic visible and controllable for artists, with a strong emphasis on clarity, documentation, and long-term maintainability.
 
 <div class="contact-values">
   <strong>Core values</strong>
