@@ -104,10 +104,24 @@ export default defineConfig({
   }
 })
 
-// Helper function needed for sitemap (you had this but it was incomplete)
-function sitemapUrlPath(url) {
-  const path = url.startsWith(siteUrl) ? url.slice(siteUrl.length) || '/' : url
-  return path.replace(/\/+$/, '').replace(/\.html$/, '') || '/'
+// Helper function for sitemap path normalization
+function sitemapUrlPath(url: string) {
+  // Normalize URL first to ensure consistent format
+  const normalizedUrl = normalizeSitemapUrl(url)
+  const path = normalizedUrl.startsWith(siteUrl)
+    ? normalizedUrl.slice(siteUrl.length) || '/'
+    : normalizedUrl
+
+  const withoutExtension = path
+    .replace(/index\.html$/i, '')
+    .replace(/\.html$/i, '')
+    .replace(/\/+$/, '')
+
+  if (!withoutExtension || withoutExtension === '/') return '/'
+
+  return withoutExtension.startsWith('/')
+    ? withoutExtension
+    : `/${withoutExtension}`
 }
 
 const standaloneSitemapUrls = [worldLattice2dCanonicalUrl]
