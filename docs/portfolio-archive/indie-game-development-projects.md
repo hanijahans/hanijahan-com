@@ -45,7 +45,7 @@ Sea Explorer is a small resource-based game where the player explores islands, c
 
 <iframe
   style="width: 100%; aspect-ratio: 16 / 9; height: auto;"
-  src="https://www.youtube.com/embed/uhYbogT0Vto"
+  src="https://www.youtube.com/embed/uhYbogT0Vto?autoplay=1&mute=1&loop=1&playlist=uhYbogT0Vto&rel=0"
   title="Modular Procedural Building"
   frameborder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
