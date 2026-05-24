@@ -15,7 +15,7 @@ videoEmbed: "https://www.youtube.com/embed/n2kaECKiSeA?autoplay=1&mute=1&loop=1&
 I build indie game projects as both a **game developer** and a **technical artist**.
 Across these projects, I use **Houdini wherever possible** to separate design intent from low-level implementation and to build tools that are fast to iterate.
 
-## World Lattice
+## World Lattice (Procedural Worldbuilding)
 
 **Role:** Developer  
 **Engine:** Unity
@@ -41,7 +41,17 @@ Available on: https://hanijahan.itch.io/worldlattice
 
 Sea Explorer is a small resource-based game where the player explores islands, collects materials, and returns to upgrade their boat.  
 
-<img src="/portfolio/gamedev-boat-02.png" style="width:100%; height:auto;" />
+<!-- <img src="/portfolio/gamedev-boat-02.png" style="width:100%; height:auto;" /> -->
+
+<iframe
+  style="width: 100%; aspect-ratio: 16 / 9; height: auto;"
+  src="https://www.youtube.com/embed/uhYbogT0Vto"
+  title="Modular Procedural Building"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
 
 ### Houdini Workflow
 
@@ -62,26 +72,88 @@ Instead of manually placing every resource in the engine, this tool allows a des
 
 <img src="/portfolio/gamedev-boat-houdini-01.png" style="width:100%; height:auto;">
 
-```VEX
-string resource_data = chs("resource_data");  
-// Example: "fish:2;wood:1;rock:0;gold:0"
+<details>
+<summary>📦 <b>Resource Distribution Algorithm</b> (VEX) - click to view</summary>
 
+```VEX
+// PARAMETERS
+int total_prims = nprimitives(0);
+string resource_data = chs("resource_data");  // Simplified input: "fish:2;wood:3;rock:2;gold:1"
+float seed = chf("seed");
+
+// Colors for each resource (vector parameters)
+vector fish_color = chv("fish_color");
+vector wood_color = chv("wood_color");
+vector rock_color = chv("rock_color");
+vector gold_color = chv("gold_color");
+
+// Split the resources into individual definitions
 string resources[] = split(resource_data, ";");
 
+// Initialize a list of available primitives (to ensure no overlaps)
+int available_prims[] = {};
+for (int i = 0; i < total_prims; i++) {
+    append(available_prims, i);
+}
+
+// Fisher-Yates Shuffle Function
+void shuffle_array(int array[]; float shuffle_seed) {
+    for (int j = len(array) - 1; j > 0; j--) {
+        int swap_index = int(fit01(rand(shuffle_seed + j), 0, j));
+        int temp = array[j];
+        array[j] = array[swap_index];
+        array[swap_index] = temp;
+    }
+}
+
+// Shuffle the available primitives to ensure randomness
+shuffle_array(available_prims, seed);
+
+// Function to get the color for a resource
+vector get_resource_color(string resource_name; vector fish_color, wood_color, rock_color, gold_color) {
+    if (resource_name == "fish") return fish_color;
+    if (resource_name == "wood") return wood_color;
+    if (resource_name == "rock") return rock_color;
+    if (resource_name == "gold") return gold_color;
+    return {1,1,1};  // Default color (white) if resource not recognized
+}
+
+// Process each resource and assign primitives
 foreach (string res; resources) {
     string res_components[] = split(res, ":");
-    string resource_name = res_components[0];
-    int amount = atoi(res_components[1]);
-
-    for (int i = 0; i < amount; i++) {
-        int selected_prim = available_prims[i];
-        setprimgroup(0, "resource_" + resource_name, selected_prim, 1, "set");
+    if (len(res_components) != 2) {
+        warning("Invalid resource format. Each resource must have a name and amount.");
+        continue;
     }
 
+    string resource_name = res_components[0];  // Resource name
+    int amount = atoi(res_components[1]);      // Amount to select
+
+    // Ensure we don't exceed available primitives
+    amount = min(amount, len(available_prims));
+    vector color = get_resource_color(resource_name, fish_color, wood_color, rock_color, gold_color);
+
+
+    // Select unique primitives for this resource
+    for (int i = 0; i < amount; i++) {
+        int selected_prim = available_prims[i];  // Take shuffled primitive
+        setprimgroup(0, "resource_" + resource_name, selected_prim, 1, "set");
+
+        if (@primnum == selected_prim) {
+            @Cd = color;
+        }
+    }
+
+    // Remove the used primitives from the available list
     available_prims = slice(available_prims, amount, len(available_prims));
 }
-```
 
+// Assign all remaining primitives to the "sea" group
+foreach (int prim; available_prims) {
+    setprimgroup(0, "sea", prim, 1, "set");
+}
+```
+</details>
 
 ## Mount Roller Dispatch
 
