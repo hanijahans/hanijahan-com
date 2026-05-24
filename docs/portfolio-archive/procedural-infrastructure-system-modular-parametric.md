@@ -7,6 +7,10 @@ cover: "/portfolio/artist-friendly-toolset.png"
 category:
 mediaPreview: "hover"
 videoEmbed: ""
+head:
+  - - meta
+    - name: robots
+      content: noindex, nofollow
 ---
 
 <script setup>

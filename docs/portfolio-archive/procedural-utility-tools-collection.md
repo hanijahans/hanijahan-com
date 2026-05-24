@@ -7,6 +7,10 @@ category:
   - Technical Art, 5
 mediaPreview: ""
 videoEmbed: ""
+head:
+  - - meta
+    - name: robots
+      content: noindex, nofollow
 ---
 
 # Procedural Utility Tools
@@ -32,7 +36,6 @@ Measures surface slope across the geometry and visualizes it as a mask (e.g., re
 ## Tools & Tech
 - Houdini
 - Procedural workflows
-
 
 
 

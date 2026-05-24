@@ -7,6 +7,10 @@ category:
   - 
 mediaPreview: ""
 videoEmbed: ""
+head:
+  - - meta
+    - name: robots
+      content: noindex, nofollow
 ---
 
 ## Community & Teaching

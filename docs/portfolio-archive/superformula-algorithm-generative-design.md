@@ -4,6 +4,10 @@ description: Structural exploration of emergent form using Johan Gielis’ super
 tags: [Houdini, Algorithmic, Generative, Math]
 category:
   - Algorithmic, 1
+head:
+  - - meta
+    - name: robots
+      content: noindex, nofollow
 ---
 
 # Superformula
