@@ -72,10 +72,30 @@ Instead of manually placing every resource in the engine, this tool allows a des
 
 <img src="/portfolio/gamedev-boat-houdini-01.png" style="width:100%; height:auto;">
 
-<details>
-<summary>📦 <b>Resource Distribution Algorithm</b> (VEX) - click to view</summary>
+### Resource Distribution Algorithm (VEX)
+
+High-level designer input controlling procedural resource zoning:
 
 ```VEX
+string resource_data = chs("resource_data");
+// Example: "fish:2;wood:1;rock:0;gold:0"
+
+string resources[] = split(resource_data, ";");
+
+foreach (string res; resources) {
+    string parts[] = split(res, ":");
+    string resource_name = parts[0];
+    int amount = atoi(parts[1]);
+
+    setprimgroup(0, "resource_" + resource_name, ...);
+}
+```
+
+<details>
+<summary>Show full implementation</summary>
+
+```VEX
+// Full implementation here
 // PARAMETERS
 int total_prims = nprimitives(0);
 string resource_data = chs("resource_data");  // Simplified input: "fish:2;wood:3;rock:2;gold:1"
@@ -154,6 +174,8 @@ foreach (int prim; available_prims) {
 }
 ```
 </details>
+
+Output: Creates primitive groups (resource_fish, resource_wood, etc.), colors @Cd, and groups unassigned tiles as "sea"
 
 ## Mount Roller Dispatch
 
