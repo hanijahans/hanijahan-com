@@ -4,7 +4,7 @@ title: GeoNode
 
 # GeoNode
 
-GeoNode is a Houdini-inspired data visualization and node-based app for experimenting with procedural data workflows, visual networks, and geospatial thinking. This page stays in the website repo as the landing page and project writeup while the interactive app build is hosted separately as static files.
+GeoNode is an interactive node-based lab for experimenting with procedural data workflows, visual networks, and geospatial thinking.
 
 [Launch GeoNode](/apps/geonode/){.hero-button .primary}
 
