@@ -23,8 +23,6 @@ https://www.hanijahan.com/* https://hanijahan.com/:splat 301!
 
 
 # Interactive app route compatibility.
-/apps/genomo /apps/genomo-map/ 301!
-/apps/genomo/ /apps/genomo-map/ 301!
 /worldlattice-2d/app /apps/worldlattice-2d/ 301!
 /worldlattice-2d/app/ /apps/worldlattice-2d/ 301!
 
