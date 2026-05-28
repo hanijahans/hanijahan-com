@@ -45,6 +45,26 @@ hanijahans/world-lattice-2d-web    # React/Vite app
 
 This website may host the finished static output of those apps, but it should not contain their full source trees, development dependencies, generated caches, or heavy build artifacts.
 
+## Shell contract for standalone apps
+
+Use this website as the stable public shell and keep each app responsible for only its own interactive runtime. The shell should provide:
+
+- A clear landing page with the project premise, status, screenshots or design notes, and a launch button.
+- One canonical `/apps/<project-name>/` URL for the copied static build.
+- Small placeholders when a production build has not been copied yet, so links never feel broken during development.
+- Shared navigation that frames Genomo, GeoNode, and WorldLattice 2D as related labs without merging their codebases.
+- Documentation pages that explain the project design, data model, publishing path, and ownership boundary.
+
+The standalone app repository should provide:
+
+- The actual app source, tests, package scripts, and build pipeline.
+- A production build configured with the matching base path.
+- Optimized assets, especially for image-heavy projects such as Genomo.
+- A predictable `dist/` folder that can be copied into this repository's `docs/public/apps/<project-name>/` directory.
+
+This boundary lets the website act as a portfolio launcher and public archive while each app remains free to use the best framework, renderer, save system, or deployment cadence for its own needs.
+
+
 ## Hosted app paths
 
 Production builds should be copied into these public directories:
