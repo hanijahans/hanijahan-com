@@ -4,7 +4,7 @@ This repository is the main VitePress website for `hanijahan.com`. It is the por
 
 ## Interactive app hosting architecture
 
-The website should act as the museum / launcher / exhibition building for Genomo, GeoNode, and WorldLattice 2D. Their larger app source code should stay in independent repositories; this repo owns the landing pages and copied production builds.
+The website should act as the museum / launcher / exhibition building for selected projects. Their larger app source code should stay in independent repositories; this repo owns the landing pages and copied production builds.
 
 | Project | Source repo strategy | Landing page | Hosted app path |
 | --- | --- | --- | --- |
@@ -35,16 +35,14 @@ The separate-repo approach keeps responsibilities clear:
 
 ## Recommended local workflow
 
-### Website-only development
+### Production-like verification
 
-Use this for normal VitePress content and theme work:
+`docs:dev` is not a true production simulation. Assets can behave differently in dev than they do in the built site, so the real local test is:
 
 ```bash
-npm run docs:dev
+npm run docs:build
+npm run docs:preview
 ```
-
-`docs:dev` starts the VitePress development server directly from source. It is fast and ideal for website pages, but it does **not** automatically build the separate WorldLattice 2D repository. Static copied assets only appear if the relevant `docs/public/apps/<project-name>` directory already exists from a previous build.
-
 
 ## Build scripts
 
