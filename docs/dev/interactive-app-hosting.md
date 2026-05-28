@@ -30,11 +30,11 @@ Production builds should be copied into these public directories:
 
 | Project | Hosted URL | Static build directory | Required app base path |
 | --- | --- | --- | --- |
-| Genomo map | `/apps/genomo-map/` | `docs/public/apps/genomo-map/` | `/apps/genomo-map/` |
+| Genomo | `/apps/genomo/` | `docs/public/apps/genomo/` | `/apps/genomo/` |
 | GeoNode | `/apps/geonode/` | `docs/public/apps/geonode/` | `/apps/geonode/` |
 | WorldLattice 2D | `/apps/worldlattice-2d/` | `docs/public/apps/worldlattice-2d/` | `/apps/worldlattice-2d/` |
 
-Each app's Vite `base` value, router basename, asset paths, and service worker scope should match its hosted path. For example, the Genomo map app should build with `/apps/genomo-map/` as its base path.
+Each app's Vite `base` value, router basename, asset paths, and service worker scope should match its hosted path. For example, the Genomo app should build with `/apps/genomo/` as its base path.
 
 ## Publishing workflow
 
