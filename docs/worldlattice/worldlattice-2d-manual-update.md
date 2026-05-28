@@ -100,8 +100,8 @@ https://hanijahan.com/apps/worldlattice-2d/
 Example local setup:
 
 ```txt
-D:/2508_PuGit_HaniJahanWebsite/HaniJahanWebsite/
-D:/2508_PuGit_WorldLattice/world-lattice-2d-web/
+D:/path/to/HaniJahanWebsite/
+D:/path/to/world-lattice-2d-web/
 ```
 
 The exact parent folders do not matter, but both repos should exist locally.
@@ -119,7 +119,7 @@ cd path/to/world-lattice-2d-web
 Example:
 
 ```bash
-cd D:/2508_PuGit_WorldLattice/world-lattice-2d-web
+cd D:/path/to/world-lattice-2d-web
 ```
 
 ---
@@ -182,7 +182,7 @@ cd path/to/HaniJahanWebsite
 Example:
 
 ```bash
-cd D:/2508_PuGit_HaniJahanWebsite/HaniJahanWebsite
+cd D:/path/to/HaniJahanWebsite
 ```
 
 ---
