@@ -2,133 +2,145 @@
 title: Interactive App Hosting Architecture
 ---
 
-# Interactive App Hosting Architecture
+# Interactive App Hosting
 
-This website repo is the central shell for project presentation, writing, and lightweight static hosting. Treat it as the museum, launcher, and exhibition building for polished projects, not the messy workshop where every large app is built.
+This website repo is the public shell for portfolio pages, project writeups, docs, and hosted static app builds.
 
-## Recommended project split
+Keep interactive app source code in separate repositories. Copy only the finished static build into this website repo.
 
-| Project | Recommended source repo strategy | Hosted under this website? | Landing page | Static app URL |
-| --- | --- | --- | --- | --- |
-| Genomo interactive map | Separate app repo once it becomes complex | Yes | `/genomo/` | `/apps/genomo/` |
-| GeoNode | Definitely separate app repo | Yes | `/geonode/` | `/apps/geonode/` |
-| WorldLattice 2D | Separate app repo | Yes | `/worldlattice-2d/` | `/apps/worldlattice-2d/` |
-| HaniJahanWebsite | Portfolio shell, docs, landing pages | Yes | `/` | n/a |
+## Project structure
 
-The umbrella identity is intentional: procedural worlds, narrative systems, and interactive tools. The website makes the projects feel connected while separate app repositories keep each engine maintainable.
+| Project          | Source repo              | Landing page        | App URL                  |
+| ---------------- | ------------------------ | ------------------- | ------------------------ |
+| Genomo           | Separate app repo        | `/genomo/`          | `/apps/genomo/`          |
+| GeoNode          | Separate app repo        | `/geonode/`         | `/apps/geonode/`         |
+| WorldLattice 2D  | Separate app repo        | `/worldlattice-2d/` | `/apps/worldlattice-2d/` |
+| HaniJahanWebsite | Website, docs, portfolio | `/`                 | n/a                      |
 
-## What belongs in HaniJahanWebsite
+## What belongs here
 
-Keep these materials in this repository:
+Keep this in `HaniJahanWebsite`:
 
-- VitePress website configuration, theme files, and navigation.
-- Portfolio pages, project writeups, documentation, and normal website pages.
-- Blog posts and devlogs.
-- Lightweight landing pages for interactive projects.
-- Copied production builds for hosted apps under `docs/public/apps/<project-name>/`.
-- Small placeholder `index.html` files when an app build has not been copied yet.
+* Portfolio pages
+* Blog posts and devlogs
+* Project landing pages
+* VitePress config and theme files
+* Static app builds under `docs/public/apps/<project-name>/`
 
-Blog posts and portfolio documents should stay in HaniJahanWebsite so the website remains the canonical presentation layer for the work.
+Do **not** keep full app source code, Unity projects, large raw assets, generated caches, or development dependencies here.
 
-## What belongs in separate app repositories
+## App hosting paths
 
-Interactive app source code should live in separate repositories when the app grows beyond a small website page. Keep source projects such as Vite, React, Vue, Unity WebGL, or other app code out of this website repo unless there is a specific reason to keep a tiny demo inline.
-
-Recommended source repositories:
+Static app builds go here:
 
 ```text
-hanijahans/HaniJahanWebsite        # VitePress shell
-hanijahans/genomo                  # React/Vite or map app
-hanijahans/geonode                 # React/Vite/node graph app
-hanijahans/world-lattice-2d-web    # React/Vite app
+docs/public/apps/<project-name>/
 ```
 
-This website may host the finished static output of those apps, but it should not contain their full source trees, development dependencies, generated caches, or heavy build artifacts.
+Public URLs:
 
-## Shell contract for standalone apps
+```text
+/apps/genomo/
+/apps/geonode/
+/apps/worldlattice-2d/
+```
 
-Use this website as the stable public shell and keep each app responsible for only its own interactive runtime. The shell should provide:
+Each app must be built with the matching base path.
 
-- A clear landing page with the project premise, status, screenshots or design notes, and a launch button.
-- One canonical `/apps/<project-name>/` URL for the copied static build.
-- Small placeholders when a production build has not been copied yet, so links never feel broken during development.
-- Shared navigation that frames Genomo, GeoNode, and WorldLattice 2D as related labs without merging their codebases.
-- Documentation pages that explain the project design, data model, publishing path, and ownership boundary.
-
-The standalone app repository should provide:
-
-- The actual app source, tests, package scripts, and build pipeline.
-- A production build configured with the matching base path.
-- Optimized assets, especially for image-heavy projects such as Genomo.
-- A predictable `dist/` folder that can be copied into this repository's `docs/public/apps/<project-name>/` directory.
-
-This boundary lets the website act as a portfolio launcher and public archive while each app remains free to use the best framework, renderer, save system, or deployment cadence for its own needs.
-
-
-## Hosted app paths
-
-Production builds should be copied into these public directories:
-
-| Project | Static build directory | Required app base path | Public URL |
-| --- | --- | --- | --- |
-| Genomo | `docs/public/apps/genomo/` | `/apps/genomo/` | `https://hanijahan.com/apps/genomo/` |
-| GeoNode | `docs/public/apps/geonode/` | `/apps/geonode/` | `https://hanijahan.com/apps/geonode/` |
-| WorldLattice 2D | `docs/public/apps/worldlattice-2d/` | `/apps/worldlattice-2d/` | `https://hanijahan.com/apps/worldlattice-2d/` |
-
-Each app's Vite `base` value, router basename, asset paths, and service worker scope should match its hosted path.
+Example for WorldLattice 2D:
 
 ```ts
-// genomo/vite.config.ts
-export default defineConfig({
-  base: "/apps/genomo/",
-})
-
-// geonode/vite.config.ts
-export default defineConfig({
-  base: "/apps/geonode/",
-})
-
-// world-lattice-2d-web/vite.config.ts
 export default defineConfig({
   base: "/apps/worldlattice-2d/",
 })
 ```
 
-If the base path is wrong, the app can load as a blank page because scripts, CSS, image assets, or service worker files are requested from the wrong URL.
+If the base path is wrong, the app may load as a blank page because JavaScript, CSS, or image assets are requested from the wrong location.
 
-## Landing pages
+## Manual build process
 
-Use clean, human-readable VitePress landing pages for people and portfolio review:
+Use this when updating WorldLattice 2D manually on Windows.
 
-- `/genomo/`
-- `/geonode/`
-- `/worldlattice-2d/`
+```powershell
+cd ..._WorldLattice_2D\worldlattice-2d
+npm install
+npm run build
 
-Each page should explain the project in plain language and provide a prominent launch button to the static app path under `/apps/`.
+cd ..._PuGit_HaniJahanWebsite\HaniJahanWebsite
 
-## Publishing workflow
+Remove-Item -Recurse -Force docs/public/apps/worldlattice-2d
+New-Item -ItemType Directory -Force docs/public/apps/worldlattice-2d
+Copy-Item -Recurse ..._WorldLattice_2D\worldlattice-2d\dist\* docs/public/apps/worldlattice-2d
 
-1. Develop the interactive app in its own repository.
-2. Build the app for production with the correct hosted base path.
-3. Remove the previous copied build from `docs/public/apps/<project-name>/` only when replacing it with a new build.
-4. Copy the new static build output into `docs/public/apps/<project-name>/`.
-5. Keep the matching landing page in this website repo updated with project context, screenshots, documentation links, and launch links.
-6. Run the website build before publishing.
-
-Do not commit heavy source trees, Unity project folders, generated caches, or large binary development assets to this website repo. Only commit the lightweight website content and the static app output that must be served publicly.
-
-## Genomo image rules
-
-For Genomo especially, do not publish raw giant source images directly into the interactive map.
-
-- Convert most large artwork or map imagery to WebP or AVIF.
-- Use JPEG only when needed and PNG mainly for transparency or UI assets.
-- Resize large source images into practical web sizes, often around 1600–2400 px wide for detailed viewing.
-- Load thumbnails first and open full images only after the user clicks a node.
-- Use lazy image loading and async decoding in app UI.
-
-```html
-<img src="/path/to/image.webp" loading="lazy" decoding="async" alt="" />
+npm run docs:build
+npm run docs:preview
 ```
 
-This keeps the Genomo from becoming slow, memory-heavy, and painful to review.
+Then open:
+
+```text
+http://localhost:4173/apps/worldlattice-2d/
+```
+
+Do not use `/worldlattice-2d/` for the runnable app. That path is the landing page.
+
+## Automatic build process
+
+Use GitHub Actions when you want the website repo to build and copy the external app automatically.
+
+Basic workflow:
+
+1. Check out `HaniJahanWebsite`.
+2. Check out the app repo into `.external/<app-name>`.
+3. Install the app dependencies.
+4. Build the app with the correct base path.
+5. Copy the app `dist/` folder into `docs/public/apps/<project-name>/`.
+6. Build the VitePress website.
+7. Deploy the final website.
+
+Example target paths:
+
+```text
+.external/world-lattice-2d/
+docs/public/apps/worldlattice-2d/
+```
+
+The app repo owns the app source.
+The website repo owns the landing page and hosted static output.
+
+## Local testing
+
+For website pages:
+
+```bash
+npm run docs:dev
+```
+
+For the closest test to production:
+
+```bash
+npm run docs:build
+npm run docs:preview
+```
+
+Open the app at:
+
+```text
+/apps/worldlattice-2d/
+```
+
+If the page is blank, check DevTools → Network.
+
+Correct asset paths should look like:
+
+```text
+/apps/worldlattice-2d/assets/index-xxxxx.js
+```
+
+Wrong paths usually look like:
+
+```text
+/assets/index-xxxxx.js
+```
+
+That means the app was built with the wrong Vite `base`.
