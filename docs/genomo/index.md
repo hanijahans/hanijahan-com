@@ -4,10 +4,20 @@ title: Genomo
 
 # Genomo
 
-Genomo is an interactive map project for exploring spatial patterns, generated regions, and data-driven world layers. This website page is the public landing page and project writeup; the app itself is hosted as a copied static build.
+Genomo is the narrative storyworld side of this site: a public landing page for map-based exploration of characters, locations, permits, restricted transfers, and hidden archive data. The website keeps the human-readable project context here while the actual interactive map can be developed in a separate app repository.
 
-[Launch Genomo map](/apps/genomo-map/){.hero-button .primary}
+[Launch the Interactive Map](/apps/genomo/){.hero-button .primary}
 
 ## Hosting plan
 
-The source code for the interactive map should live in its own app repository. When the app is ready to publish, copy its production build output into `docs/public/apps/genomo-map/` so it is available at `/apps/genomo-map/`.
+The Genomo map source should live in `genomo` when it grows beyond a small page experiment. Build that app as static files, then copy its `dist/` output into `docs/public/apps/genomo/` so it is served from `/apps/genomo/`.
+
+For a Vite app, configure the production base path as:
+
+```ts
+export default defineConfig({
+  base: "/apps/genomo/",
+})
+```
+
+Keep large Genomo images optimized for the web: prefer WebP or AVIF, use thumbnails in the map, lazy-load archive images, and open full-size art only when the user asks for it.

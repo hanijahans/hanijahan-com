@@ -10,4 +10,12 @@ GeoNode is an interactive node-based lab for experimenting with procedural data 
 
 ## Hosting plan
 
-The GeoNode app source should live in its own repository. When a production build is ready, copy the static build output into `docs/public/apps/geonode/` so it is served from `/apps/geonode/`.
+The GeoNode source should live in a separate `geonode` app repository, especially if it gains complex state, graph serialization, save/load, WebGL, or backend needs. Build the app as static files and copy its `dist/` output into `docs/public/apps/geonode/` so it is served from `/apps/geonode/`.
+
+For a Vite app, configure the production base path as:
+
+```ts
+export default defineConfig({
+  base: "/apps/geonode/",
+})
+```

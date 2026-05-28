@@ -1,7 +1,7 @@
 # Manual WorldLattice 2D Update Reference
 
 **Purpose:**
-Use this when you update the `world-lattice-2d-web` repo and want to manually update the embedded version on `HaniJahanWebsite`.
+Use this when you update the `world-lattice-2d-web` repo and want to manually update the hosted app build on `HaniJahanWebsite`.
 
 This workflow is intentionally **manual**. No GitHub Actions, no deploy token, no automatic cross-repo update.
 
@@ -21,16 +21,16 @@ This is the website repo.
 
 It should only receive the built static output of WorldLattice 2D, not the full app source.
 
-The embedded app should live here:
+The hosted app should live here:
 
 ```txt
-HaniJahanWebsite/docs/public/worldlattice-2d/
+HaniJahanWebsite/docs/public/apps/worldlattice-2d/
 ```
 
 Final website URL:
 
 ```txt
-https://hanijahan.com/worldlattice-2d/
+https://hanijahan.com/apps/worldlattice-2d/
 ```
 
 ---
@@ -78,7 +78,7 @@ Only continue if the app works correctly.
 
 ---
 
-## 3. Build the embedded version
+## 3. Build the hosted app
 
 Run:
 
@@ -127,12 +127,12 @@ cd D:/2508_PuGit_HaniJahanWebsite/HaniJahanWebsite
 
 ---
 
-## 5. Delete the old embedded build
+## 5. Delete the old hosted app build
 
 Delete this folder:
 
 ```txt
-HaniJahanWebsite/docs/public/worldlattice-2d/
+HaniJahanWebsite/docs/public/apps/worldlattice-2d/
 ```
 
 You can delete it manually in File Explorer, or use a terminal command.
@@ -140,7 +140,7 @@ You can delete it manually in File Explorer, or use a terminal command.
 ### PowerShell
 
 ```powershell
-Remove-Item -Recurse -Force docs/public/worldlattice-2d
+Remove-Item -Recurse -Force docs/public/apps/worldlattice-2d
 ```
 
 If the folder does not exist yet, that is fine.
@@ -150,7 +150,7 @@ If the folder does not exist yet, that is fine.
 ## 6. Recreate the target folder
 
 ```powershell
-New-Item -ItemType Directory -Force docs/public/worldlattice-2d
+New-Item -ItemType Directory -Force docs/public/apps/worldlattice-2d
 ```
 
 ---
@@ -166,13 +166,13 @@ world-lattice-2d-web/dist/
 Into:
 
 ```txt
-HaniJahanWebsite/docs/public/worldlattice-2d/
+HaniJahanWebsite/docs/public/apps/worldlattice-2d/
 ```
 
 After copying, the website repo should look like this:
 
 ```txt
-HaniJahanWebsite/docs/public/worldlattice-2d/
+HaniJahanWebsite/docs/public/apps/worldlattice-2d/
   index.html
   assets/
     index-[hash].js
@@ -185,13 +185,13 @@ Important: do **not** copy the `dist` folder itself.
 Correct:
 
 ```txt
-HaniJahanWebsite/docs/public/worldlattice-2d/index.html
+HaniJahanWebsite/docs/public/apps/worldlattice-2d/index.html
 ```
 
 Wrong:
 
 ```txt
-HaniJahanWebsite/docs/public/worldlattice-2d/dist/index.html
+HaniJahanWebsite/docs/public/apps/worldlattice-2d/dist/index.html
 ```
 
 ---
@@ -239,11 +239,11 @@ Bad signs:
 
 If assets still point to `/worldlattice/2d/`, the app was built with the wrong base path.
 
-Go back to the WorldLattice 2D repo and rebuild with the `/worldlattice-2d/` base.
+Go back to the WorldLattice 2D repo and rebuild with the `/apps/worldlattice-2d/` base.
 
 ---
 
-## 10. Commit the updated embedded build in the website repo
+## 10. Commit the updated hosted app build in the website repo
 
 From `HaniJahanWebsite`:
 
@@ -254,14 +254,14 @@ git status
 You should see changed files under:
 
 ```txt
-docs/public/worldlattice-2d/
+docs/public/apps/worldlattice-2d/
 ```
 
 Then commit:
 
 ```bash
-git add docs/public/worldlattice-2d
-git commit -m "Update WorldLattice 2D embedded build"
+git add docs/public/apps/worldlattice-2d
+git commit -m "Update WorldLattice 2D hosted app build"
 git push
 ```
 
@@ -274,7 +274,7 @@ Netlify should redeploy the website after the push.
 After Netlify finishes deploying, open:
 
 ```txt
-https://hanijahan.com/worldlattice-2d/
+https://hanijahan.com/apps/worldlattice-2d/
 ```
 
 Check:
@@ -301,9 +301,9 @@ Projects/
 From inside `HaniJahanWebsite`:
 
 ```powershell
-Remove-Item -Recurse -Force docs/public/worldlattice-2d -ErrorAction SilentlyContinue
-New-Item -ItemType Directory -Force docs/public/worldlattice-2d
-Copy-Item -Recurse -Force ../world-lattice-2d-web/dist/* docs/public/worldlattice-2d/
+Remove-Item -Recurse -Force docs/public/apps/worldlattice-2d -ErrorAction SilentlyContinue
+New-Item -ItemType Directory -Force docs/public/apps/worldlattice-2d
+Copy-Item -Recurse -Force ../world-lattice-2d-web/dist/* docs/public/apps/worldlattice-2d/
 ```
 
 This copies the contents of `dist/`, not the `dist/` folder itself.
@@ -317,14 +317,14 @@ This copies the contents of `dist/`, not the `dist/` folder itself.
 npm run build:embedded
 
 # In HaniJahanWebsite
-# Delete docs/public/worldlattice-2d
-# Copy world-lattice-2d-web/dist/* into docs/public/worldlattice-2d/
+# Delete docs/public/apps/worldlattice-2d
+# Copy world-lattice-2d-web/dist/* into docs/public/apps/worldlattice-2d/
 
 npm run docs:build
 npm run docs:preview
 
-git add docs/public/worldlattice-2d
-git commit -m "Update WorldLattice 2D embedded build"
+git add docs/public/apps/worldlattice-2d
+git commit -m "Update WorldLattice 2D hosted app build"
 git push
 ```
 
@@ -337,13 +337,13 @@ git push
 Wrong:
 
 ```txt
-docs/public/worldlattice-2d/dist/index.html
+docs/public/apps/worldlattice-2d/dist/index.html
 ```
 
 Correct:
 
 ```txt
-docs/public/worldlattice-2d/index.html
+docs/public/apps/worldlattice-2d/index.html
 ```
 
 ---
@@ -374,7 +374,7 @@ That is why the old folder should be deleted before copying the new build.
 
 ## Mistake 4: Expecting `docs:dev` to behave exactly like production
 
-For embedded static apps inside `docs/public`, `docs:preview` is usually a better production-like test than `docs:dev`.
+For hosted static apps inside `docs/public`, `docs:preview` is usually a better production-like test than `docs:dev`.
 
 Use:
 
@@ -396,7 +396,7 @@ world-lattice-2d-web
 Built static output goes into:
 
 ```txt
-HaniJahanWebsite/docs/public/worldlattice-2d
+HaniJahanWebsite/docs/public/apps/worldlattice-2d
 ```
 
 The website repo should not become a second source-code home for WorldLattice 2D.

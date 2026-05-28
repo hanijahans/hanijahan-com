@@ -10,6 +10,14 @@ WorldLattice 2D is the browser-hosted 2D version of the WorldLattice worldbuildi
 
 ## Hosting plan
 
-The interactive app source should remain in a separate app repository. When the app is ready to publish, copy its production build output into `docs/public/apps/worldlattice-2d/` so it is available at `/apps/worldlattice-2d/`.
+The interactive app source should remain in the separate `world-lattice-2d-web` repository. When the app is ready to publish, copy its production `dist/` output into `docs/public/apps/worldlattice-2d/` so it is available at `/apps/worldlattice-2d/`.
+
+For a Vite app, configure the production base path as:
+
+```ts
+export default defineConfig({
+  base: "/apps/worldlattice-2d/",
+})
+```
 
 For broader WorldLattice notes, see the [main WorldLattice page](/worldlattice/).

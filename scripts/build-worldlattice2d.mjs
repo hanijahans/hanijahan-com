@@ -6,11 +6,11 @@ import { spawnSync } from 'node:child_process'
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 
 // Route ownership: the standalone WorldLattice 2D app is always published at
-// /worldlattice-2d/. The app repo must build with a matching Vite base path
-// (normally base: '/worldlattice-2d/') so its asset URLs keep working after the
-// dist directory is copied into VitePress public assets below.
-const canonicalRoute = '/worldlattice-2d/'
-const canonicalUrl = 'https://hanijahan.com/worldlattice-2d/'
+// /apps/worldlattice-2d/. The app repo must build with a matching Vite base path
+// (normally base: '/apps/worldlattice-2d/') so its asset URLs keep working after
+// the dist directory is copied into VitePress public assets below.
+const canonicalRoute = '/apps/worldlattice-2d/'
+const canonicalUrl = 'https://hanijahan.com/apps/worldlattice-2d/'
 
 // The website repo orchestrates deployment, but it does not own the app source.
 // GitHub Actions (or a local developer) must place the separate checkout here.
@@ -19,9 +19,9 @@ const canonicalUrl = 'https://hanijahan.com/worldlattice-2d/'
 const appDir = resolve(repoRoot, process.env.WORLDLATTICE_2D_DIR ?? '.external/world-lattice-2d-web')
 
 // VitePress copies docs/public/* verbatim into docs/.vitepress/dist/*. This
-// generated directory is therefore the injection point for the already-built
-// standalone app. It must stay ignored by git because it contains build output.
-const outputDir = resolve(repoRoot, process.env.WORLDLATTICE_2D_OUTPUT ?? 'docs/public/worldlattice-2d')
+// directory is therefore the injection point for the already-built standalone
+// app under the shared /apps/ hosting shell.
+const outputDir = resolve(repoRoot, process.env.WORLDLATTICE_2D_OUTPUT ?? 'docs/public/apps/worldlattice-2d')
 const distDir = resolve(appDir, 'dist')
 
 function fail(message) {

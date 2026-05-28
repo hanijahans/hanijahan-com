@@ -1,7 +1,6 @@
 import { DefaultTheme, defineConfig } from 'vitepress'
 
 const siteUrl = 'https://hanijahan.com'
-const worldLattice2dCanonicalUrl = `${siteUrl}/worldlattice-2d` // Remove trailing slash for consistency
 
 // These paths are omitted from sitemap.xml
 const sitemapExcludedPaths = new Set([
@@ -75,9 +74,7 @@ export default defineConfig({
 
     // Generate canonical URL without trailing slashes (except root)
     let canonicalUrl
-    if (canonicalPath === 'worldlattice-2d') {
-      canonicalUrl = worldLattice2dCanonicalUrl
-    } else if (canonicalPath === '') {
+    if (canonicalPath === '') {
       canonicalUrl = `${siteUrl}/`
     } else {
       canonicalUrl = `${siteUrl}/${canonicalPath}`
@@ -124,8 +121,21 @@ function sitemapUrlPath(url: string) {
     : `/${withoutExtension}`
 }
 
-const standaloneSitemapUrls = [worldLattice2dCanonicalUrl]
+const standaloneSitemapUrls = [
+  `${siteUrl}/apps/genomo`,
+  `${siteUrl}/apps/geonode`,
+  `${siteUrl}/apps/worldlattice-2d`,
+]
+
 const navItems = [
   { text: 'Portfolio', link: '/portfolio/' },
-  { text: 'Contact', link: '/contact/' }
+  {
+    text: 'Labs',
+    items: [
+      { text: 'Genomo', link: '/genomo/' },
+      { text: 'GeoNode', link: '/geonode/' },
+      { text: 'WorldLattice 2D', link: '/worldlattice-2d/' },
+    ],
+  },
+  { text: 'Contact', link: '/contact/' },
 ]
