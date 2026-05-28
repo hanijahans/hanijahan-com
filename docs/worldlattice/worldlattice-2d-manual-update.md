@@ -7,6 +7,66 @@ This workflow is intentionally **manual**. No GitHub Actions, no deploy token, n
 
 ---
 
+## Quick Future Reference
+
+Use this checklist when you already have a new WorldLattice 2D build and only need to refresh the website-hosted copy.
+
+### Recommended automated refresh
+
+From `HaniJahanWebsite`, point the website build script at your local `world-lattice-2d-web` checkout:
+
+```bash
+WORLDLATTICE_2D_DIR=/path/to/world-lattice-2d-web npm run build:worldlattice2d
+```
+
+PowerShell example:
+
+```powershell
+$env:WORLDLATTICE_2D_DIR="D:/path/to/world-lattice-2d-web"
+npm run build:worldlattice2d
+```
+
+The app build must use this Vite base path so deployed asset URLs resolve correctly:
+
+```txt
+/apps/worldlattice-2d/
+```
+
+### Manual refresh from an existing `dist/` folder
+
+If the new app build already exists, replace the hosted static output with the **contents** of `dist/`:
+
+```bash
+rm -rf docs/public/apps/worldlattice-2d
+mkdir -p docs/public/apps/worldlattice-2d
+cp -R /path/to/world-lattice-2d-web/dist/. docs/public/apps/worldlattice-2d/
+```
+
+Do not copy the `dist` folder itself. The final shape should be:
+
+```txt
+docs/public/apps/worldlattice-2d/index.html
+docs/public/apps/worldlattice-2d/assets/...
+```
+
+Then test and commit:
+
+```bash
+npm run docs:build
+npm run docs:preview
+git add docs/public/apps/worldlattice-2d
+git commit -m "Update WorldLattice 2D hosted app build"
+git push
+```
+
+After Netlify deploys, verify:
+
+```txt
+https://hanijahan.com/apps/worldlattice-2d/
+```
+
+---
+
 ## Repository Roles
 
 ### `world-lattice-2d-web`
@@ -89,7 +149,7 @@ npm run build:embedded
 The important requirement is that this build must use this base path:
 
 ```txt
-/worldlattice-2d/
+/apps/worldlattice-2d/
 ```
 
 The generated output should go into the `dist/` folder:
@@ -210,7 +270,7 @@ npm run docs:preview
 Then open:
 
 ```txt
-http://localhost:4173/worldlattice-2d/
+http://localhost:4173/apps/worldlattice-2d/
 ```
 
 If your preview port is different, use that port.
@@ -225,13 +285,13 @@ Good signs:
 
 * The page loads.
 * The canvas appears.
-* Assets load from `/worldlattice-2d/assets/...`.
+* Assets load from `/apps/worldlattice-2d/assets/...`.
 * No 404 errors for the WorldLattice files.
 * No redirect loop errors.
 
 Bad signs:
 
-* `404 /worldlattice-2d/`
+* `404 /apps/worldlattice-2d/`
 * `ERR_TOO_MANY_REDIRECTS`
 * Assets loading from `/worldlattice/2d/`
 * Assets loading from the wrong base path
@@ -359,7 +419,7 @@ Wrong old path:
 Correct path:
 
 ```txt
-/worldlattice-2d/
+/apps/worldlattice-2d/
 ```
 
 ---
