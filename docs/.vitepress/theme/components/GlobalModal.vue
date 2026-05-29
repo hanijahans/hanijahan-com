@@ -12,7 +12,7 @@ const open = (event) => {
 
   if (!target.closest('.vp-doc')) return
 
-  imgSrc.value = target.currentSrc || target.src
+  imgSrc.value = target.dataset.originalSrc || target.getAttribute('src') || target.src
   imgAlt.value = target.alt || 'Expanded view'
   isOpen.value = true
   document.body.style.overflow = 'hidden'

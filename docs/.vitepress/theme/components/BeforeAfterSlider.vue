@@ -12,6 +12,7 @@
       <img
         class="slider-image"
         :src="beforeSources.fallback"
+        :data-original-src="props.beforeSrc"
         :alt="beforeAlt || 'Before image'"
         draggable="false"
         loading="lazy"
@@ -26,6 +27,7 @@
         <img
           class="slider-image"
           :src="afterSources.fallback"
+          :data-original-src="props.afterSrc"
           alt=""
           draggable="false"
           loading="lazy"

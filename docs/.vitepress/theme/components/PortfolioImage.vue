@@ -18,6 +18,7 @@ const sources = computed(() => getOptimizedImageSources(props.src))
     <source v-if="sources.webp" :srcset="sources.webp" type="image/webp" />
     <img
       :src="sources.fallback"
+      :data-original-src="props.src"
       :alt="props.alt || ''"
       :loading="props.loading || 'lazy'"
       :decoding="props.decoding || 'async'"

@@ -143,6 +143,7 @@ function shouldShowMedia(index: number, item: PortfolioItem): boolean {
           <source v-if="coverWebpSrc(it)" :srcset="coverWebpSrc(it)" type="image/webp" />
           <img
             :src="coverImageSrc(it)"
+            :data-original-src="it.cover"
             :alt="it.title"
             loading="lazy"
             decoding="async"
@@ -164,6 +165,7 @@ function shouldShowMedia(index: number, item: PortfolioItem): boolean {
           <source v-if="coverWebpSrc(it)" :srcset="coverWebpSrc(it)" type="image/webp" />
           <img
             :src="coverImageSrc(it)"
+            :data-original-src="it.cover"
             :alt="it.title"
             loading="lazy"
             decoding="async"
