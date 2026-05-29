@@ -354,6 +354,32 @@ align-items: flex-start;
   --image-cols: 3;
 }
 
+
+.portfolio-optimized-picture {
+  display: inline-block;
+  max-width: 100%;
+}
+
+.portfolio-optimized-picture img {
+  max-width: 100%;
+}
+
+.image-row .portfolio-optimized-picture,
+.image-row1 .portfolio-optimized-picture,
+.image-row2 .portfolio-optimized-picture,
+.image-row3 .portfolio-optimized-picture {
+  display: block;
+}
+
+.image-row1 .portfolio-optimized-picture {
+  width: min(100%, var(--image-max-width, 900px));
+  justify-self: var(--image-align, center);
+}
+
+.image-row1 .portfolio-optimized-picture img {
+  width: 100%;
+}
+
 .image-row img,
 .image-row1 img,
 .image-row2 img,

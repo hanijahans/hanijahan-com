@@ -25,8 +25,8 @@ function variantBaseFor(sourcePublicPath) {
   return parsed.replaceAll('/', '__')
 }
 
-function collectArchiveCovers() {
-  const covers = new Set()
+function collectArchiveImages() {
+  const images = new Set()
   for (const entry of readdirRecursive(archiveRoot).filter((file) => file.endsWith('.md'))) {
     const raw = readFileSync(entry, 'utf8')
 
@@ -34,14 +34,31 @@ function collectArchiveCovers() {
     const fmMatches = raw.matchAll(/^(?:cover|coverBefore|coverAfter):\s*["']?([^"'\n]+)["']?\s*$/gm)
     for (const m of fmMatches) {
       const cover = m[1]?.trim()
-      if (cover?.startsWith('/portfolio/')) covers.add(cover)
+      if (cover?.startsWith('/portfolio/')) images.add(cover)
     }
 
-    // Extract covers from markdown images
-    const firstImage = raw.match(/!\[[^\]]*\]\(([^)]+)\)/)?.[1]?.trim()
-    if (firstImage?.startsWith('/portfolio/')) covers.add(firstImage)
+    // Extract all markdown images used on detail pages.
+    const markdownImageMatches = raw.matchAll(/!\[[^\]]*\]\(([^)]+)\)/g)
+    for (const m of markdownImageMatches) {
+      const image = m[1]?.trim()
+      if (image?.startsWith('/portfolio/')) images.add(image)
+    }
+
+    // Extract raw HTML images embedded in markdown detail pages.
+    const htmlImageMatches = raw.matchAll(/<img\s+[^>]*src=["']([^"']+)["'][^>]*>/gi)
+    for (const m of htmlImageMatches) {
+      const image = m[1]?.trim()
+      if (image?.startsWith('/portfolio/')) images.add(image)
+    }
+
+    // Extract image props used by archive-page Vue components such as BeforeAfterSlider.
+    const vueImagePropMatches = raw.matchAll(/(?:before-src|after-src|src)=["']([^"']+)["']/gi)
+    for (const m of vueImagePropMatches) {
+      const image = m[1]?.trim()
+      if (image?.startsWith('/portfolio/')) images.add(image)
+    }
   }
-  return covers
+  return images
 }
 
 function readdirRecursive(root) {
@@ -58,7 +75,7 @@ function readdirRecursive(root) {
 mkdirSync(thumbnailRoot, { recursive: true })
 mkdirSync(optimizedRoot, { recursive: true })
 
-const covers = collectArchiveCovers()
+const archiveImages = collectArchiveImages()
 const largePngs = new Set(
   readdirRecursive(portfolioRoot)
     .filter((file) => extname(file).toLowerCase() === '.png')
@@ -67,7 +84,7 @@ const largePngs = new Set(
     .map(publicPath)
 )
 
-const sources = new Set([...covers, ...largePngs])
+const sources = new Set([...archiveImages, ...largePngs])
 const manifest = {}
 const allGeneratedFiles = new Set()
 let processed = 0
@@ -104,7 +121,7 @@ for (const sourcePublicPath of [...sources].sort()) {
   entry.thumbnailWebp = publicPath(thumbWebpFile)
   entry.thumbnailAvif = publicPath(thumbAvifFile)
 
-  if (largePngs.has(sourcePublicPath)) {
+  if (largePngs.has(sourcePublicPath) || archiveImages.has(sourcePublicPath)) {
     if (!existsSync(fullWebpFile)) {
       await sharp(sourceBuffer).resize({ width: FULL_MAX_WIDTH, withoutEnlargement: true }).webp({ quality: 82 }).toFile(fullWebpFile)
     }

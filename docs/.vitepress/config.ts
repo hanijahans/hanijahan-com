@@ -1,6 +1,84 @@
+import { readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
+import { dirname, resolve } from 'node:path'
 import { DefaultTheme, defineConfig } from 'vitepress'
 
 const siteUrl = 'https://hanijahan.com'
+const configDir = dirname(fileURLToPath(import.meta.url))
+const portfolioImageVariants = loadPortfolioImageVariants()
+
+
+function loadPortfolioImageVariants() {
+  const manifestPath = resolve(configDir, '../data/portfolio-image-variants.ts')
+  const manifestSource = readFileSync(manifestPath, 'utf8')
+  const match = manifestSource.match(/portfolioImageVariants:\s*Record<string, PortfolioImageVariant>\s*=\s*([\s\S]*)\n$/)
+
+  if (!match) return {}
+
+  try {
+    return JSON.parse(match[1]) as Record<string, { webp?: string; avif?: string }>
+  } catch {
+    return {}
+  }
+}
+
+function escapeHtmlAttribute(value: string) {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+}
+
+function parseHtmlAttributes(attrs: string) {
+  const parsed: Record<string, string> = {}
+  const attrPattern = /([:@\w-]+)(?:\s*=\s*("[^"]*"|'[^']*'|[^\s"'=<>`]+))?/g
+  let match: RegExpExecArray | null
+
+  while ((match = attrPattern.exec(attrs)) !== null) {
+    const [, name, rawValue] = match
+    if (!name) continue
+
+    if (rawValue === undefined) {
+      parsed[name] = ''
+      continue
+    }
+
+    parsed[name] = rawValue.replace(/^(["'])([\s\S]*)\1$/, '$2')
+  }
+
+  return parsed
+}
+
+function serializeHtmlAttributes(attrs: Record<string, string>) {
+  return Object.entries(attrs)
+    .map(([name, value]) => value === '' ? name : `${name}="${escapeHtmlAttribute(value)}"`)
+    .join(' ')
+}
+
+function renderOptimizedPortfolioPicture(src: string, attrs: Record<string, string>) {
+  const variant = portfolioImageVariants[src]
+  if (!variant?.avif && !variant?.webp) return null
+
+  const imgAttrs = {
+    ...attrs,
+    src,
+    loading: attrs.loading || 'lazy',
+    decoding: attrs.decoding || 'async',
+  }
+  const serializedAttrs = serializeHtmlAttributes(imgAttrs)
+
+  return `<picture class="portfolio-optimized-picture">${variant.avif ? `<source srcset="${escapeHtmlAttribute(variant.avif)}" type="image/avif">` : ''}${variant.webp ? `<source srcset="${escapeHtmlAttribute(variant.webp)}" type="image/webp">` : ''}<img ${serializedAttrs}></picture>`
+}
+
+function transformPortfolioHtmlImages(html: string) {
+  return html.replace(/<img\s+([^>]*?)\s*\/?\s*>/gi, (match, rawAttrs) => {
+    const attrs = parseHtmlAttributes(rawAttrs)
+    if (!attrs.src) return match
+
+    return renderOptimizedPortfolioPicture(attrs.src, attrs) || match
+  })
+}
 
 // These paths are omitted from sitemap.xml
 const sitemapExcludedPaths = new Set([
@@ -81,6 +159,40 @@ export default defineConfig({
     }
 
     return [['link', { rel: 'canonical', href: canonicalUrl }]]
+  },
+
+
+  markdown: {
+    config(md) {
+      const defaultImageRenderer = md.renderer.rules.image
+      md.renderer.rules.image = (tokens, idx, options, env, self) => {
+        const token = tokens[idx]
+        const src = token.attrGet('src')
+
+        if (src) {
+          const attrs: Record<string, string> = {}
+          for (const [name, value] of token.attrs || []) {
+            attrs[name] = value || ''
+          }
+          attrs.alt = self.renderInlineAsText(token.children || [], options, env)
+
+          const optimizedPicture = renderOptimizedPortfolioPicture(src, attrs)
+          if (optimizedPicture) return optimizedPicture
+        }
+
+        return defaultImageRenderer
+          ? defaultImageRenderer(tokens, idx, options, env, self)
+          : self.renderToken(tokens, idx, options)
+      }
+
+      md.core.ruler.after('inline', 'portfolio_image_html_variants', (state) => {
+        for (const token of state.tokens) {
+          if (token.type === 'html_block' || token.type === 'html_inline') {
+            token.content = transformPortfolioHtmlImages(token.content)
+          }
+        }
+      })
+    },
   },
 
   themeConfig: {

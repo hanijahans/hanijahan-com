@@ -7,6 +7,7 @@ import YouTube from './components/YouTube.vue' // Ensure this file exists
 import BeforeAfterSlider from './components/BeforeAfterSlider.vue'
 import RelatedPortfolioLinks from './components/RelatedPortfolioLinks.vue'
 import GlobalModal from './components/GlobalModal.vue'
+import PortfolioImage from './components/PortfolioImage.vue'
 import './custom.css'
 
 // Your helper component
@@ -85,5 +86,8 @@ export default {
 
     // 5. Register reusable before/after slider
     app.component('BeforeAfterSlider', BeforeAfterSlider)
+
+    // 6. Register variant-aware portfolio image component
+    app.component('PortfolioImage', PortfolioImage)
   }
 }

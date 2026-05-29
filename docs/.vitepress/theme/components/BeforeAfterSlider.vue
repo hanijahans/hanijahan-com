@@ -6,20 +6,32 @@
     :style="frameStyle"
     @pointerdown="isInteractive ? onPointerDown : null"
   >
-    <img
-      class="slider-image"
-      :src="beforeSrc"
-      :alt="beforeAlt || 'Before image'"
-      draggable="false"
-    />
-
-    <div class="after-layer" :style="afterLayerStyle" aria-hidden="true">
+    <picture class="slider-picture">
+      <source v-if="beforeSources.avif" :srcset="beforeSources.avif" type="image/avif" />
+      <source v-if="beforeSources.webp" :srcset="beforeSources.webp" type="image/webp" />
       <img
         class="slider-image"
-        :src="afterSrc"
-        alt=""
+        :src="beforeSources.fallback"
+        :alt="beforeAlt || 'Before image'"
         draggable="false"
+        loading="lazy"
+        decoding="async"
       />
+    </picture>
+
+    <div class="after-layer" :style="afterLayerStyle" aria-hidden="true">
+      <picture class="slider-picture">
+        <source v-if="afterSources.avif" :srcset="afterSources.avif" type="image/avif" />
+        <source v-if="afterSources.webp" :srcset="afterSources.webp" type="image/webp" />
+        <img
+          class="slider-image"
+          :src="afterSources.fallback"
+          alt=""
+          draggable="false"
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
     </div>
 
     <div class="divider" :style="dividerStyle" aria-hidden="true">
@@ -42,6 +54,7 @@
 
 <script setup>
 import { computed, ref } from 'vue'
+import { getOptimizedImageSources } from '../imageVariants'
 
 const props = defineProps({
   beforeSrc: {
@@ -82,6 +95,8 @@ const props = defineProps({
 const sliderEl = ref(null)
 const value = ref(clamp(props.initial))
 const isInteractive = computed(() => props.interactive && !props.static)
+const beforeSources = computed(() => getOptimizedImageSources(props.beforeSrc))
+const afterSources = computed(() => getOptimizedImageSources(props.afterSrc))
 
 const reveal = computed(() => `${value.value}%`)
 const frameStyle = computed(() => ({ height: props.height }))
@@ -141,11 +156,15 @@ function onPointerDown(event) {
   background: var(--vp-c-bg-soft);
 }
 
+.slider-picture,
 .slider-image {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+}
+
+.slider-image {
   object-fit: cover;
   pointer-events: none;
   user-select: none;
