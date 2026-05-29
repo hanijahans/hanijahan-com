@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import BeforeAfterSlider from './BeforeAfterSlider.vue'
 import { allPortfolioItems, type PortfolioItem } from '../../../data/portfolio'
+import { portfolioImageVariants } from '../../../data/portfolio-image-variants'
 
 const props = defineProps<{ items?: PortfolioItem[]; columns?: number }>()
 const gridItems = computed(() => props.items ?? allPortfolioItems)
@@ -9,6 +10,25 @@ const gridItems = computed(() => props.items ?? allPortfolioItems)
 const youtubeFrames = ref<Record<number, HTMLIFrameElement | null>>({})
 const htmlVideos = ref<Record<number, HTMLVideoElement | null>>({})
 const hoveredCards = ref<Record<number, boolean>>({})
+
+
+function getCoverVariant(item: PortfolioItem) {
+  return portfolioImageVariants[item.cover]
+}
+
+function coverImageSrc(item: PortfolioItem): string {
+  return getCoverVariant(item)?.thumbnail || item.cover
+}
+
+function coverAvifSrc(item: PortfolioItem): string | undefined {
+  const variant = getCoverVariant(item)
+  return variant?.thumbnailAvif || variant?.avif
+}
+
+function coverWebpSrc(item: PortfolioItem): string | undefined {
+  const variant = getCoverVariant(item)
+  return variant?.thumbnailWebp || variant?.webp
+}
 
 function withJsApiAndLoop(url: string) {
   const result = new URL(url)
@@ -112,18 +132,22 @@ function shouldShowMedia(index: number, item: PortfolioItem): boolean {
             v-else
             :ref="(el) => htmlVideos[i] = el as HTMLVideoElement | null"
             :src="it.video"
-            :poster="it.cover"
+            :poster="coverImageSrc(it)"
             muted
             playsinline
             loop
           />
         </div>
-        <img
-          v-else
-          :src="it.cover"
-          :alt="it.title"
-          loading="lazy"
-        />
+        <picture v-else>
+          <source v-if="coverAvifSrc(it)" :srcset="coverAvifSrc(it)" type="image/avif" />
+          <source v-if="coverWebpSrc(it)" :srcset="coverWebpSrc(it)" type="image/webp" />
+          <img
+            :src="coverImageSrc(it)"
+            :alt="it.title"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
       </div>
       <div v-else class="cover">
         <BeforeAfterSlider
@@ -135,12 +159,16 @@ function shouldShowMedia(index: number, item: PortfolioItem): boolean {
           static
           height="100%"
         />
-        <img
-          v-else
-          :src="it.cover"
-          :alt="it.title"
-          loading="lazy"
-        />
+        <picture v-else>
+          <source v-if="coverAvifSrc(it)" :srcset="coverAvifSrc(it)" type="image/avif" />
+          <source v-if="coverWebpSrc(it)" :srcset="coverWebpSrc(it)" type="image/webp" />
+          <img
+            :src="coverImageSrc(it)"
+            :alt="it.title"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
       </div>
       <div class="body">
         <h3 class="title">{{ it.title }}</h3>
@@ -240,10 +268,14 @@ function shouldShowMedia(index: number, item: PortfolioItem): boolean {
   box-shadow: none;
 }
 
+.cover picture,
 .cover img {
   display: block;
   width: 100%;
   height: 100%;
+}
+
+.cover img {
   object-fit: cover;
 }
 .cover-media {
