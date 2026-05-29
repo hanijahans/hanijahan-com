@@ -77,3 +77,11 @@ npm run build:all
 ```
 
 Builds WorldLattice 2D, then builds the website.
+
+## License
+
+Website source code in this repository is licensed under the MIT License.
+
+Unless otherwise stated, portfolio content, blog posts, project descriptions, images, videos, artwork, screenshots, generated media, maps, static project assets, and other non-code materials are © Hani Jahan. All rights reserved.
+
+See `LICENSE` and `CONTENT-LICENSE.md` for details.
