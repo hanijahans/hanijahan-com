@@ -10,7 +10,8 @@
     "docs:preview": "vitepress preview docs",
     "build:worldlattice2d": "node scripts/build-worldlattice2d.mjs",
     "build:all": "npm run build:worldlattice2d && npm run docs:build",
-    "optimize:portfolio-images": "node scripts/optimize-portfolio-images.mjs"
+    "optimize:portfolio-images": "node scripts/optimize-portfolio-images.mjs",
+    "audit:frontmatter": "node scripts/audit-frontmatter.mjs"
   },
   "repository": {
     "type": "git",
