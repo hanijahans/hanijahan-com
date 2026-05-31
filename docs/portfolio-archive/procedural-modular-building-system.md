@@ -56,7 +56,8 @@ The HDA is based on a custom attribute-driven variation workflow. Artists can de
 <img src="/portfolio/attribute-driven-values-01.png" style="width:50%; height:auto;">
 Artist friendly attribute naming
 
-```VEX
+```
+// VEX
 // creates detail attributes dynamically based on user-defined attribute names
 for(int i = 1; i <= chi('attributes'); i++){
     string num = itoa(i);
@@ -70,7 +71,8 @@ for(int i = 1; i <= chi('attributes'); i++){
 <img src="/portfolio/attribute-driven-values-02.png" style="width:50%; height:auto;">
 set a range for each
 
-```VEX
+```
+// VEX
 // assigns a random but deterministic value within a specified range
 // ch("iteration") references the current iteration index of the main loop.
 // using the iteration index to ensure per-building uniqueness.

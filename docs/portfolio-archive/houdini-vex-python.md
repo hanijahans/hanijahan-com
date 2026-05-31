@@ -53,7 +53,8 @@ Projecting geometry positions onto a directional axis to identify building floor
 
 <img src="/portfolio/houdini-vex-identify-floors-01.png" style="width:30%; height:auto;">
 
-```VEX
+```
+// VEX
 vector dir = normalize(chv("direction")); // Example: {0,1,0}
 float height = chf("modular_height");
 
@@ -83,7 +84,8 @@ surface → point abstraction
 <img src="/portfolio/houdini-vex-find-middle-pts-01.png" style="width:35%; height:auto;">
 
 - Using Primitive Intrinsics
-```VEX
+```
+// VEX
 // Get the center position of the current primitive
 vector mid = primintrinsic(0, "center", @primnum);
 
@@ -95,7 +97,8 @@ removeprim(0, @primnum, 1);
 ```
 
 - Using UV Sampling
-```VEX
+```
+// VEX
 // Sample primitive position at UV center
 vector uvw = set(0.5, 0.5, 0);
 vector mid = primuv(0, "P", @primnum, uvw);
@@ -126,7 +129,8 @@ Useful for:
 - visibility analysis
 - gameplay-aware generation
 
-```VEX
+```
+// VEX
 //Directional Dot Product
 
 // Get line position (center of input 1)

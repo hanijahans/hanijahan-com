@@ -76,7 +76,8 @@ Instead of manually placing every resource in the engine, this tool allows a des
 
 High-level designer input controlling procedural resource zoning:
 
-```VEX
+```
+// VEX
 string resource_data = chs("resource_data");
 // Example: "fish:2;wood:1;rock:0;gold:0"
 
@@ -94,7 +95,8 @@ foreach (string res; resources) {
 <details>
 <summary>Show full implementation</summary>
 
-```VEX
+```
+// VEX
 // Full implementation here
 // PARAMETERS
 int total_prims = nprimitives(0);
