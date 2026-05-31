@@ -60,7 +60,7 @@ align-items: flex-start;
 }
 
 .home-hero-image::before {
-  background-image: url('/hero/home2.png');
+  background-image: var(--home-hero-image, none);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
