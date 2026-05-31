@@ -2,7 +2,7 @@
   "name": "hanijahanwebsite",
   "version": "1.0.0",
   "type": "module",
-  "description": "",
+  "description": "Source for Hani Jahan's personal portfolio and blog at hanijahan.com.",
   "main": "index.js",
   "scripts": {
     "docs:dev": "vitepress dev docs",
@@ -16,8 +16,14 @@
     "type": "git",
     "url": "git+https://github.com/hanijahans/HaniJahanWebsite.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "hani-jahan",
+    "portfolio",
+    "technical-art",
+    "game-development",
+    "data-visualization"
+  ],
+  "author": "Hani Jahan",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/hanijahans/HaniJahanWebsite/issues"
