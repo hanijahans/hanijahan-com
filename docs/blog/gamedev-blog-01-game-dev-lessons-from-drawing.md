@@ -1,21 +1,17 @@
 ---
 # Layout: doc allows for the sidebar/outline. 'page' is for landing pages.
 layout: doc
-
 # Page Metadata
 title: "Game Dev Blog 01 - Game Dev Lessons From Drawing: The 3-Step Structure"
 date: 2025-12-28
 author: Hani Jahan
 description: "Game development mirrors drawing: prototype fast, rebuild structure ruthlessly, then polish only after clarity emerges."
-
 # VitePress Sidebar/Outline control
 outline: [2, 3] # Shows h2 and h3 in the sidebar
 lastUpdated: true
 editLink: false # usually false for personal blog posts
-
 # Custom Taxonomy (good for custom theme logic)
 series: Hani Jahan Blog
-status: Published
 tags:
   - gamedev
   - indiegame

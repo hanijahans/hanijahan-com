@@ -1,7 +1,6 @@
 ---
 series: WorldLattice Devlog
 title: WorldLattice Devlog 01 — Building a World-Building Tool
-status: draft
 tags:
   - worldbuilding
   - devlog

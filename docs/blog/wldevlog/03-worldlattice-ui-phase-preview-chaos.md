@@ -1,7 +1,6 @@
 ---
 series: WorldLattice Devlog
 title: WorldLattice Devlog 03 - I Deleted Most of the UI… and the Game Got Better
-status: Published
 tags:
   - worldlattice
   - devlog

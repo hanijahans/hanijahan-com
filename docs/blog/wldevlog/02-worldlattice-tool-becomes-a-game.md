@@ -1,7 +1,6 @@
 ---
 series: WorldLattice Devlog
 title: WorldLattice Devlog 02 — When a Tool Decides It Wants to Be a Game
-status: Published
 tags:
   - worldbuilding
   - worldlattice

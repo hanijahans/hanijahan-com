@@ -2,7 +2,6 @@
 title: >-
   How I Stopped Abandoning Houdini Projects The Finalization Checklist Tool
 date: 2025-08-14
-draft: true
 tags: [Houdini, Pipeline, Workflow, Python, PySide2, Tools, Productivity]
 description: >-
   Turning “finalizing” from an emotional decision into a mechanical ritual—with a Houdini shelf tool that makes finishing and sharing automatic.
