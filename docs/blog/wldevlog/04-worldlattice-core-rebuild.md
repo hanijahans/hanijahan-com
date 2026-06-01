@@ -2,12 +2,11 @@
 series: WorldLattice Devlog
 title: WorldLattice Devlog 04 - Restarting WorldLattice — The Necessary Rebuild
 description: "A WorldLattice devlog covering a core rebuild that made the project more stable, understandable, and ready to grow."
+date: 2025-12-31
 tags:
   - worldlattice
   - devlog
   - procedural-generation
-summary: Rebuilding WorldLattice from zero to fix the missing core and finally create a clean, stable foundation.
-date: 2025-12-31
 ---
 
 Starting the year by rebuilding the core.

@@ -2,12 +2,11 @@
 series: WorldLattice Devlog
 title: WorldLattice Devlog 03 - I Deleted Most of the UI… and the Game Got Better
 description: "A WorldLattice devlog about cutting back the UI, improving playability, and taming a chaotic Phase Preview feature."
+date: 2025-11-26
 tags:
   - worldlattice
   - devlog
   - procedural-generation
-summary: A deep UI cleanup flipped WorldLattice from cluttered to playable. I removed almost everything, rebuilt only what the game truly needed, and added a tiny “Phase Preview” feature that caused total chaos before finally working. Not a UX revolution, but a helpful step—and the project now feels ready to share small clips and updates.
-date: 2025-11-26
 ---
 
 # I Deleted Most of the UI… and the Game Got Better.

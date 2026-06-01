@@ -2,6 +2,7 @@
 series: WorldLattice Devlog
 title: WorldLattice Devlog 01 — Building a World-Building Tool
 description: "How WorldLattice began as a modular, constraint-based world generation tool for faster Unity worldbuilding."
+date: 2025-10-16
 tags:
   - worldbuilding
   - devlog
@@ -9,8 +10,6 @@ tags:
   - unity
   - procedural-generation
   - game-dev
-summary: How WorldLattice started — from the pain of manual tilemaps to building a modular, constraint-based world generation tool for indie game devs.
-date: 2025-10-16
 ---
 
 

@@ -2,6 +2,7 @@
 series: WorldLattice Devlog
 title: WorldLattice Devlog 02 — When a Tool Decides It Wants to Be a Game
 description: "A WorldLattice devlog about the project evolving from a clean developer tool into a more playful game-like experiment."
+date: 2025-11-14
 tags:
   - worldbuilding
   - worldlattice
@@ -9,9 +10,7 @@ tags:
   - procedural-generation
   - indie-dev
   - gamedev
-  - devlog  
-summary: How WorldLattice drifted from a clean developer tool into a strange little game-creature — and why letting it wander made it more alive.
-date: 2025-11-14
+  - devlog
 ---
 
 
