@@ -88,6 +88,7 @@ const sitemapExcludedPaths = new Set([
   '/markdown-examples',
   '/public',
   '/portfolio-sidefx',
+  '/dev/frontmatter-standards',
   '/portfolio-archive/community',
   '/worldlattice/worldlattice-2d-manual-update',
   '/portfolio-archive/procedural-utility-tools-collection',
