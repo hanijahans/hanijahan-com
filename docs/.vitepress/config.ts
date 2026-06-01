@@ -4,6 +4,7 @@ import { dirname, resolve } from 'node:path'
 import { DefaultTheme, defineConfig } from 'vitepress'
 
 const siteUrl = 'https://hanijahan.com'
+const socialPreviewImage = `${siteUrl}/hjd/social-preview.jpg`
 const configDir = dirname(fileURLToPath(import.meta.url))
 const portfolioImageVariants = loadPortfolioImageVariants()
 
@@ -141,6 +142,19 @@ export default defineConfig({
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: '/hjd/favicon-32.png' }],
     ['link', { rel: 'apple-touch-icon', href: '/hjd/apple-touch-icon.png' }],
+
+    ['meta', { property: 'og:title', content: 'Hani Jahan Portfolio | Hani Jahan Design' }],
+    ['meta', { property: 'og:description', content: 'Technical Artist focused on procedural systems, Houdini tools, geospatial workflows, and real-time environments.' }],
+    ['meta', { property: 'og:image', content: socialPreviewImage }],
+    ['meta', { property: 'og:image:width', content: '1200' }],
+    ['meta', { property: 'og:image:height', content: '630' }],
+    ['meta', { property: 'og:url', content: `${siteUrl}/` }],
+    ['meta', { property: 'og:type', content: 'website' }],
+
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:title', content: 'Hani Jahan Portfolio | Hani Jahan Design' }],
+    ['meta', { name: 'twitter:description', content: 'Technical Artist focused on procedural systems, Houdini tools, geospatial workflows, and real-time environments.' }],
+    ['meta', { name: 'twitter:image', content: socialPreviewImage }],
   ],
 
   // Fixed sitemap configuration
