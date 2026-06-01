@@ -81,12 +81,20 @@ function transformPortfolioHtmlImages(html: string) {
 }
 
 // These paths are omitted from sitemap.xml
+// These paths stay published on the site but are hidden from search indexing.
+// They are omitted from sitemap.xml and get a robots noindex meta tag.
 const sitemapExcludedPaths = new Set([
   '/api-examples',
-  '/markdown-examples', 
+  '/markdown-examples',
   '/public',
-  '/worldlattice/worldlattice-2d-manual-update',
   '/portfolio-sidefx',
+  '/portfolio-archive/community',
+  '/worldlattice/worldlattice-2d-manual-update',
+  '/portfolio-archive/procedural-utility-tools-collection',
+  '/portfolio-archive/space-colonization-algorithm',
+  '/portfolio-archive/superformula-algorithm-generative-design',
+  '/portfolio-archive/wave-function-collapse-algorithm',
+  '/portfolio-archive/procedural-infrastructure-system-modular-parametric',
 ])
 
 const excludedPathsRobotsDirective = 'noindex,nofollow'
