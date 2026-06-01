@@ -1,6 +1,18 @@
+/portfolio-all
+  X-Robots-Tag: noindex, nofollow
+/portfolio-all/*
+  X-Robots-Tag: noindex, nofollow
 /portfolio-medical
   X-Robots-Tag: noindex, nofollow
 /portfolio-medical/*
+  X-Robots-Tag: noindex, nofollow
+/portfolio-archive/portfolio-algorithmic
+  X-Robots-Tag: noindex, nofollow
+/portfolio-archive/portfolio-algorithmic/*
+  X-Robots-Tag: noindex, nofollow
+/worldlattice/documentation
+  X-Robots-Tag: noindex, nofollow
+/worldlattice/documentation/*
   X-Robots-Tag: noindex, nofollow
 /apps/genomo
   X-Robots-Tag: noindex, nofollow

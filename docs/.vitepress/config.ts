@@ -110,6 +110,7 @@ const sitemapExcludedPaths = new Set([
   '/apps/genomo',
   '/apps/geonode',
   '/worldlattice/worldlattice-2d-manual-update',
+  '/worldlattice/documentation',
 ])
 
 const excludedPathsRobotsDirective = 'noindex,nofollow'
