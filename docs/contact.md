@@ -1,5 +1,6 @@
 ---
 title: Contact
+description: "Contact information and links for reaching Hani Jahan about technical art, procedural systems, and portfolio work."
 ---
 
 I’m Hani Jahan — a Technical Artist focused on procedural systems design. I build Houdini-integrated pipelines for Unreal and Unity, creating data-driven systems that make hidden procedural logic visible and controllable for artists, with a strong emphasis on clarity, documentation, and long-term maintainability.

@@ -1,6 +1,6 @@
 ---
 title: PORTFOLIO ALL
-description: PORTFOLIO description
+description: "A complete cross-disciplinary portfolio of procedural, technical art, geospatial, visualization, and game development projects."
 layout: page
 ---
 

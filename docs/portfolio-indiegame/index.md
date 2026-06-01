@@ -1,6 +1,6 @@
 ---
-title: PORTFOLIO
-description: PORTFOLIO description
+title: "Indie Game Portfolio"
+description: "Indie game portfolio projects covering game development, technical art, procedural tools, and playable experiments."
 layout: page
 ---
 

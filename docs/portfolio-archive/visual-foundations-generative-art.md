@@ -1,6 +1,6 @@
 ---
 title: Visual Foundations for Generative Art
-description: 
+description: "Visual development studies that use procedural and generative workflows to explore concept art direction."
 tags: [Concept Art, Digital Painting, Photoshop, Visual Design]
 cover: "/portfolio/visual-foundations-scifi.png"
 category:

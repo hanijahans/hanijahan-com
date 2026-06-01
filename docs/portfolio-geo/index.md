@@ -1,6 +1,6 @@
 ---
-title: PORTFOLIO
-description: PORTFOLIO description
+title: "Geospatial Data Portfolio"
+description: "Geospatial portfolio projects that convert spatial data into procedural simulations, structures, maps, and visual analysis."
 layout: page
 ---
 

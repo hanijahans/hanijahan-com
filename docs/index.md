@@ -3,6 +3,7 @@
 layout: page
 pageClass: home-full-hero
 title: false
+description: "Hani Jahan’s portfolio homepage for technical art, procedural tools, geospatial visualization, and game development work."
 heroShade: 0.5
 heroTextTone: 0.6
 head:

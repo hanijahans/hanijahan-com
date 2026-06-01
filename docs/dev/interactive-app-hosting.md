@@ -1,5 +1,6 @@
 ---
 title: Interactive App Hosting Architecture
+description: "Developer notes for hosting interactive apps as static builds inside the VitePress documentation site."
 ---
 
 # Interactive App Hosting

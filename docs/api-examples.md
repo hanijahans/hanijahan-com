@@ -1,4 +1,6 @@
 ---
+title: "Runtime API Examples"
+description: "VitePress runtime API examples showing how to inspect site, theme, page, and frontmatter data from Markdown and Vue."
 outline: deep
 ---
 

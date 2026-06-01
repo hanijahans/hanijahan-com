@@ -1,6 +1,6 @@
 ---
-title: PORTFOLIO
-description: PORTFOLIO description
+title: "Game Art Portfolio"
+description: "Game art portfolio work focused on stylized assets, technical art workflows, and production-ready interactive content."
 layout: page
 ---
 

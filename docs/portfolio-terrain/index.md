@@ -1,6 +1,6 @@
 ---
-title: PORTFOLIO
-description: PORTFOLIO description
+title: "Terrain Artist Portfolio"
+description: "Terrain portfolio projects spanning procedural generation, real-world data extraction, Houdini workflows, and engine integration."
 layout: page
 ---
 

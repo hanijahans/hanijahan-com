@@ -1,5 +1,6 @@
 ---
 title: Blog
+description: "Blog posts by Hani Jahan about technical art, procedural tools, game development, and project devlogs."
 ---
 
 <script setup>

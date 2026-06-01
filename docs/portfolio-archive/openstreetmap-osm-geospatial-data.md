@@ -1,6 +1,6 @@
 ---
 title: OpenStreetMap (OSM) Geospatial Data
-description: 
+description: "Procedural OpenStreetMap workflow for turning roads, building footprints, and elevation data into structured 3D environments."
 tags: [Houdini, Geospatial, OSM, GIS, Procedural, Terrain]
 cover: "/portfolio/osm-pasadena-05.png"
 category:

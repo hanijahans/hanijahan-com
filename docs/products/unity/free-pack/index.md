@@ -1,5 +1,6 @@
 ---
 title: Basic Game Tiles – Stylized Blocks Prototyping Pack
+description: "Documentation and download information for a free modular stylized 3D platformer prototyping pack for Unity."
 outline: deep
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: PORTFOLIO
-description: PORTFOLIO description
+title: "Hani Jahan Portfolio"
+description: "Technical art portfolio focused on procedural systems, Houdini-integrated pipelines, and data-driven tools for Unreal and Unity."
 layout: page
 ---
 

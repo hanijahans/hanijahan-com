@@ -1,6 +1,6 @@
 ---
-title: PORTFOLIO
-description: PORTFOLIO description
+title: "Technical Art Portfolio"
+description: "Technical art projects focused on Houdini workflows, procedural systems, artist-friendly tools, and real-time production pipelines."
 layout: page
 ---
 

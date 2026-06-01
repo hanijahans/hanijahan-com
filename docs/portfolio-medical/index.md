@@ -1,6 +1,6 @@
 ---
-title: PORTFOLIO
-description: PORTFOLIO description
+title: "Scientific Visualization TD Portfolio"
+description: "Scientific visualization portfolio work using procedural Houdini systems to turn research data into clear visual structures."
 layout: page
 ---
 

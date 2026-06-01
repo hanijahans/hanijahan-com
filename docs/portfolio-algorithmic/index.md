@@ -1,6 +1,6 @@
 ---
-title: PORTFOLIO
-description: PORTFOLIO description
+title: "Algorithmic Art Portfolio"
+description: "Algorithmic portfolio projects exploring math-driven procedural generation, emergent forms, and systems."
 layout: page
 ---
 

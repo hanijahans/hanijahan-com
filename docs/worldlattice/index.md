@@ -2,6 +2,7 @@
 layout: page
 pageClass: worldlattice-hero-page
 title: false
+description: "WorldLattice project page for a fast, rule-driven worldbuilding toy for painting samples and generating tiny worlds."
 heroShade: 0.4        # tweak darkness if needed
 heroTextTone: 0.7     # how light/dark the text should be 
 # The "4-Space" Rule: In standard Markdown, there is a strict rule: If you leave a blank line and then indent text by 4 spaces (or 1 tab), that text is treated as a Code Block.

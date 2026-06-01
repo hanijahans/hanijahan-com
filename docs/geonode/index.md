@@ -1,5 +1,6 @@
 ---
 title: GeoNode
+description: "Project landing page and hosting notes for GeoNode, a geospatial and procedural visualization experiment."
 ---
 
 # GeoNode

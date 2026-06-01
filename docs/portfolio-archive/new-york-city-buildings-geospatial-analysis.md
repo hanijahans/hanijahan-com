@@ -1,6 +1,6 @@
 ---
 title: New York City Buildings Geospatial Analysis
-description: 
+description: "Houdini GeoJSON pipeline that converts New York City building footprints into reprojected, attribute-driven 3D city geometry."
 tags: [Houdini, Geospatial, GIS, GeoJSON, Procedural]
 cover: "/portfolio/data-buildings-footprints-newyork-02.png"
 category:

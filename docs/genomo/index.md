@@ -1,5 +1,6 @@
 ---
 title: Genomo
+description: "Project landing page for Genomo by Hani Jahan."
 ---
 
 # Genomo

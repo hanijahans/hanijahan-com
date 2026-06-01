@@ -1,6 +1,6 @@
 ---
 title: Procedural Utility Tools Collection
-description:
+description: "A Houdini utility toolset for measuring, validating, varying, and scattering procedural assets within production constraints."
 tags: [Houdini]
 cover: "/portfolio/artist-friendly-toolset.png"
 category:

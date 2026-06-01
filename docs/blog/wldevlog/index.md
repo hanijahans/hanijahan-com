@@ -1,5 +1,6 @@
 ---
 title: WorldLattice Devlogs
+description: "WorldLattice devlog posts documenting the design, rebuilds, UI experiments, and evolution of the worldbuilding project."
 ---
 
 # 🌍 WorldLattice Devlogs

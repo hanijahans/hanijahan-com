@@ -1,3 +1,8 @@
+---
+title: "Manual WorldLattice 2D Update Reference"
+description: "Manual workflow reference for copying a WorldLattice 2D production build into the website-hosted static app folder."
+---
+
 # Manual WorldLattice 2D Update Reference
 
 **Purpose:**

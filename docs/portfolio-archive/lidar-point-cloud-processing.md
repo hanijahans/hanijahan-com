@@ -1,6 +1,6 @@
 ---
 title: LiDAR (Point Cloud) Processing
-description: 
+description: "Procedural LiDAR point cloud processing workflow for filtering, classifying, and reconstructing terrain from data."
 tags: [Houdini, Geospatial, LiDAR, Procedural, Terrain]
 cover: "/portfolio/data-lidar-pc-01.png"
 category:

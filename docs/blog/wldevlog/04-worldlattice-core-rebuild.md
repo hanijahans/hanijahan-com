@@ -1,6 +1,7 @@
 ---
 series: WorldLattice Devlog
 title: WorldLattice Devlog 04 - Restarting WorldLattice — The Necessary Rebuild
+description: "A WorldLattice devlog covering a core rebuild that made the project more stable, understandable, and ready to grow."
 tags:
   - worldlattice
   - devlog

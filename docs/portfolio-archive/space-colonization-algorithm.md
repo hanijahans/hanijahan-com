@@ -1,6 +1,6 @@
 ---
 title: Space Colonization
-description: 
+description: "Algorithmic Houdini study of space colonization growth patterns for branching procedural forms."
 tags: [Houdini, Algorithmic, Generative, Space Colonization]
 category:
   - Algorithmic, 2

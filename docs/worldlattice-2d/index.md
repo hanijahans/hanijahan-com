@@ -1,5 +1,6 @@
 ---
 title: WorldLattice 2D
+description: "Landing page for WorldLattice 2D, the browser-hosted version of the WorldLattice worldbuilding tool."
 ---
 
 # WorldLattice 2D

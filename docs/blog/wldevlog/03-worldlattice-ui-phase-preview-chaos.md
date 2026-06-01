@@ -1,6 +1,7 @@
 ---
 series: WorldLattice Devlog
 title: WorldLattice Devlog 03 - I Deleted Most of the UI… and the Game Got Better
+description: "A WorldLattice devlog about cutting back the UI, improving playability, and taming a chaotic Phase Preview feature."
 tags:
   - worldlattice
   - devlog

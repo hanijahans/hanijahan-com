@@ -1,6 +1,6 @@
 ---
 title: Wave Function Collapse
-description: 
+description: "Custom Houdini Wave Function Collapse experiments using overlapping models to generate procedural patterns and structures."
 tags: [Houdini, Algorithmic, WFC, Procedural]
 cover: "/portfolio/wfc-01.png"
 category:

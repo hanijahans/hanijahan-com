@@ -1,5 +1,6 @@
 ---
 title: WorldLattice Documentation
+description: "WorldLattice documentation covering installation, core concepts, controls, and tips for creating generated worlds."
 ---
 
 # **WorldLattice Documentation**

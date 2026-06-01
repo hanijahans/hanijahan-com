@@ -1,6 +1,6 @@
 ---
-title: PORTFOLIO
-description: PORTFOLIO description
+title: "Data Visualization Portfolio"
+description: "Data visualization portfolio projects that transform spatial, network, and urban datasets into readable visual systems."
 layout: page
 ---
 

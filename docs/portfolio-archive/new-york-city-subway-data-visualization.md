@@ -1,6 +1,6 @@
 ---
 title: New York City Subway Data Visualization
-description: 
+description: "Spatial visualization of New York City subway infrastructure, access fields, policy boundaries, and ridership intensity."
 tags: [Houdini, Data Visualization, Transit, Network, NYC]
 cover: /portfolio/data-newyork-subway-01.png
 category:
