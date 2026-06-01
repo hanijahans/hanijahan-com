@@ -4,7 +4,8 @@ description: Procedural programming examples in Houdini using VEX, expressions, 
 tags: [Houdini]
 cover: "/portfolio/houdini-vex-00.png"
 category:
-  - 
+  - Portfolio, 5
+  - Technical Art, 6
 mediaPreview: ""
 videoEmbed: ""
 ---
