@@ -138,6 +138,11 @@ export default defineConfig({
   // Keep cleanUrls - this is good
   cleanUrls: true,
 
+  head: [
+    ['link', { rel: 'icon', type: 'image/png', href: '/hjd/favicon-32.png' }],
+    ['link', { rel: 'apple-touch-icon', href: '/hjd/apple-touch-icon.png' }],
+  ],
+
   // Fixed sitemap configuration
   sitemap: {
     hostname: siteUrl,
