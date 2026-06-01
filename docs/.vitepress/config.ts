@@ -89,6 +89,14 @@ const sitemapExcludedPaths = new Set([
   '/public',
   '/dev/interactive-app-hosting',
   '/dev/frontmatter-standards',
+  '/portfolio-datavis',
+  '/portfolio-gameart',
+  '/portfolio-geo',
+  '/portfolio-indiegame',
+  '/portfolio-medical',
+  '/portfolio-ta',
+  '/apps/genomo',
+  '/apps/geonode',
   '/portfolio-archive/community',
   '/worldlattice/worldlattice-2d-manual-update',
   '/portfolio-archive/procedural-utility-tools-collection',
@@ -135,9 +143,11 @@ export default defineConfig({
         .filter((item) => !isSitemapExcludedPath(sitemapUrlPath(item.url)))
 
       // Add standalone URLs without trailing slashes
-      const standaloneItems = standaloneSitemapUrls.map(url => ({
-        url: normalizeSitemapUrl(url)
-      }))
+      const standaloneItems = standaloneSitemapUrls
+        .map(url => ({
+          url: normalizeSitemapUrl(url)
+        }))
+        .filter((item) => !isSitemapExcludedPath(sitemapUrlPath(item.url)))
 
       // Combine and deduplicate
       return [...filteredItems, ...standaloneItems]

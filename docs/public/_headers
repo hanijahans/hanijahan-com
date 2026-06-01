@@ -1,0 +1,12 @@
+/portfolio-medical
+  X-Robots-Tag: noindex, nofollow
+/portfolio-medical/*
+  X-Robots-Tag: noindex, nofollow
+/apps/genomo
+  X-Robots-Tag: noindex, nofollow
+/apps/genomo/*
+  X-Robots-Tag: noindex, nofollow
+/apps/geonode
+  X-Robots-Tag: noindex, nofollow
+/apps/geonode/*
+  X-Robots-Tag: noindex, nofollow
