@@ -89,6 +89,8 @@ const sitemapExcludedPaths = new Set([
   '/public',
   '/dev/interactive-app-hosting',
   '/dev/frontmatter-standards',
+
+  '/portfolio-all',
   '/portfolio-datavis',
   '/portfolio-gameart',
   '/portfolio-geo',
@@ -96,17 +98,18 @@ const sitemapExcludedPaths = new Set([
   '/portfolio-medical',
   '/portfolio-ta',
 
-  '/genomo',
-  '/geonode',
-  '/apps/genomo',
-  '/apps/geonode',
-
   '/portfolio-archive/community',
-  '/worldlattice/worldlattice-2d-manual-update',
+  '/portfolio-archive/portfolio-algorithmic',
   '/portfolio-archive/procedural-utility-tools-collection',
   '/portfolio-archive/space-colonization-algorithm',
   '/portfolio-archive/superformula-algorithm-generative-design',
   '/portfolio-archive/procedural-infrastructure-system-modular-parametric',
+
+  '/genomo',
+  '/geonode',
+  '/apps/genomo',
+  '/apps/geonode',
+  '/worldlattice/worldlattice-2d-manual-update',
 ])
 
 const excludedPathsRobotsDirective = 'noindex,nofollow'
