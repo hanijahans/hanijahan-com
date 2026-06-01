@@ -87,14 +87,13 @@ const sitemapExcludedPaths = new Set([
   '/api-examples',
   '/markdown-examples',
   '/public',
-  '/portfolio-sidefx',
+  '/dev/interactive-app-hosting',
   '/dev/frontmatter-standards',
   '/portfolio-archive/community',
   '/worldlattice/worldlattice-2d-manual-update',
   '/portfolio-archive/procedural-utility-tools-collection',
   '/portfolio-archive/space-colonization-algorithm',
   '/portfolio-archive/superformula-algorithm-generative-design',
-  '/portfolio-archive/wave-function-collapse-algorithm',
   '/portfolio-archive/procedural-infrastructure-system-modular-parametric',
 ])
 
