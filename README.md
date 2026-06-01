@@ -78,6 +78,12 @@ npm run build:all
 
 Builds WorldLattice 2D, then builds the website.
 
+```bash
+npm run audit:frontmatter
+```
+
+Audits Markdown route pages under `docs/` for missing, empty, or placeholder frontmatter `title` and `description` values. The audit skips `docs/public/` because that folder is used for static public assets. It prints a grouped report and exits with code `1` when problems are found, so it can be used locally before publishing or added to CI.
+
 ## License
 
 Website source code in this repository is licensed under the MIT License.
