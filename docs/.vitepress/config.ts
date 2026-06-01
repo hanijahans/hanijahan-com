@@ -95,8 +95,12 @@ const sitemapExcludedPaths = new Set([
   '/portfolio-indiegame',
   '/portfolio-medical',
   '/portfolio-ta',
+
+  '/genomo',
+  '/geonode',
   '/apps/genomo',
   '/apps/geonode',
+
   '/portfolio-archive/community',
   '/worldlattice/worldlattice-2d-manual-update',
   '/portfolio-archive/procedural-utility-tools-collection',
