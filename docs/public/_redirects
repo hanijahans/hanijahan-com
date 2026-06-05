@@ -4,6 +4,15 @@ https://www.hanijahan.com/* https://hanijahan.com/:splat 301!
 /favicon.ico /favicon.ico 200
 
 # Legacy URL redirects to current routes.
+/portfolio/technical-systems /portfolio/ 301!
+/portfolio/technical-systems/ /portfolio/ 301!
+/portfolio/technical-systems.html /portfolio/ 301!
+/portfolio-archive/indie-game /portfolio-archive/indie-game-development-projects 301!
+/portfolio-archive/indie-game/ /portfolio-archive/indie-game-development-projects 301!
+/portfolio-archive/indie-game.html /portfolio-archive/indie-game-development-projects 301!
+/portfolio-archive/geo-osm /portfolio-archive/openstreetmap-osm-geospatial-data 301!
+/portfolio-archive/geo-osm/ /portfolio-archive/openstreetmap-osm-geospatial-data 301!
+/portfolio-archive/geo-osm.html /portfolio-archive/openstreetmap-osm-geospatial-data 301!
 /portfolio-archive/data-nyc-subway /portfolio-archive/new-york-city-subway-data-visualization 301!
 /portfolio-archive/data-nyc-subway/ /portfolio-archive/new-york-city-subway-data-visualization 301!
 /portfolio/artist-friendly-toolset /portfolio-archive/procedural-utility-tools-collection 301!
