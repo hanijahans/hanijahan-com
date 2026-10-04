@@ -9,6 +9,13 @@ outline: false
 A simple index of Unity Asset Store packages and product documentation from Hani Jahan Design.
 
 <div class="product-grid">
+  <a class="product-card" href="https://assetstore.unity.com/packages/slug/405844" target="_blank" rel="noopener noreferrer">
+    <img src="/portfolio/unity-asset-worldlattice-tool-01.png" alt="WorldLattice Tool preview">
+    <span class="product-card__label">World-Building Tool</span>
+    <strong>WorldLattice Tool</strong>
+    <p>A modular, rule-driven world-generation tool for quickly building and iterating on Unity environments.</p>
+  </a>
+
   <a class="product-card" href="/products/unity/free-pack/">
     <img src="/portfolio/unity-asset-platformer-kit-01.png" alt="Basic Game Tiles – Stylized Blocks Prototyping Pack preview">
     <span class="product-card__label">Free Pack</span>
