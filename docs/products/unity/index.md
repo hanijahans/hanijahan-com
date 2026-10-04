@@ -9,7 +9,7 @@ outline: false
 A simple index of Unity Asset Store packages and product documentation from Hani Jahan Design.
 
 <div class="product-grid">
-  <a class="product-card" href="https://assetstore.unity.com/packages/slug/405844" target="_blank" rel="noopener noreferrer">
+  <a class="product-card" href="/products/unity/worldlattice-tool/">
     <img src="/portfolio/unity-asset-worldlattice-tool-01.png" alt="WorldLattice Tool preview">
     <span class="product-card__label">World-Building Tool</span>
     <strong>WorldLattice Tool</strong>
