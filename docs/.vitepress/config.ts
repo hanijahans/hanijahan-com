@@ -13,7 +13,8 @@ const navItems = [
   {
     text: 'Products',
     items: [
-      // { text: 'Gumroad', link: '/genomo/' },
+      { text: 'Games', link: '/products/games/' },
+      { text: 'Tools', link: '/products/tools/' },
       { text: 'Unity Assets', link: '/products/unity/' },
     ],
   },

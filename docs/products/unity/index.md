@@ -1,21 +1,14 @@
 ---
-title: Unity Products
+title: Unity Assets
 description: "Unity Asset Store products and documentation from Hani Jahan Design."
 outline: false
 ---
 
-# Unity Products
+# Unity Assets
 
-A simple index of Unity Asset Store packages and product documentation from Hani Jahan Design.
+A collection of art packs, shaders, and other production-ready assets for Unity.
 
 <div class="product-grid">
-  <a class="product-card" href="/products/unity/worldlattice-tool/">
-    <img src="/portfolio/unity-asset-worldlattice-tool-01.png" alt="WorldLattice Tool preview">
-    <span class="product-card__label">World-Building Tool</span>
-    <strong>WorldLattice Tool</strong>
-    <p>A modular, rule-driven world-generation tool for quickly building and iterating on Unity environments.</p>
-  </a>
-
   <a class="product-card" href="/products/unity/free-pack/">
     <img src="/portfolio/unity-asset-platformer-kit-01.png" alt="Basic Game Tiles – Stylized Blocks Prototyping Pack preview">
     <span class="product-card__label">Free Pack</span>
@@ -44,63 +37,3 @@ A simple index of Unity Asset Store packages and product documentation from Hani
     <p>Built-in and URP toon shaders with flexible shading sources, color modes, rim light, outlines, presets, and demo scenes.</p>
   </a>
 </div>
-
-<style>
-.product-grid {
-  display: grid;
-  gap: 1.25rem;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  margin-top: 2rem;
-}
-
-.product-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  padding: 1rem;
-  color: var(--vp-c-text-1);
-  text-decoration: none !important;
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 16px;
-  transition: border-color 0.2s ease, transform 0.2s ease;
-}
-
-.product-card:hover {
-  text-decoration: none !important;
-  border-color: var(--vp-c-brand-1);
-  transform: translateY(-2px);
-}
-
-.product-card img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-.product-card__label {
-  width: fit-content;
-  padding: 0.2rem 0.55rem;
-  color: var(--vp-c-brand-1);
-  font-size: 0.78rem;
-  font-weight: 700;
-  background: var(--vp-c-brand-soft);
-  border-radius: 999px;
-}
-
-.product-card strong {
-  font-size: 1.05rem;
-  line-height: 1.3;
-}
-
-.product-card :is(strong, p, span) {
-  text-decoration: none !important;
-}
-
-.product-card p {
-  margin: 0;
-  color: var(--vp-c-text-2);
-  line-height: 1.55;
-}
-</style>
