@@ -10,7 +10,7 @@ Playful, experimental worlds built around procedural systems and creative discov
 
 <div class="product-grid">
   <a class="product-card" href="/worldlattice/">
-    <img src="/worldlattice/worldlattice-hero-image.png" alt="WorldLattice game preview">
+    <img src="/worldlattice/worldlattice-hero-image-02.png" alt="WorldLattice game preview">
     <span class="product-card__label">Steam Game</span>
     <strong>WorldLattice</strong>
     <p>Paint small samples, discover visual rules, and generate tiny worlds in a fast, playful worldbuilding game.</p>

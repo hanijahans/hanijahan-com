@@ -1,9 +1,9 @@
 ---
-title: WorldLattice Documentation
-description: "WorldLattice documentation covering installation, core concepts, controls, and tips for creating generated worlds."
+title: WorldLattice Game Documentation
+description: "WorldLattice Game documentation covering installation, core concepts, controls, and tips for creating generated worlds."
 ---
 
-# **WorldLattice Documentation**
+# **WorldLattice Game Documentation**
 
 Welcome to **WorldLattice**—a fast, rule-driven worldbuilding toy for painting samples and generating tiny, living worlds. This guide covers installation, core concepts, controls, and tips for creating the vibes you want.  
 
