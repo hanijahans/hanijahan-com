@@ -197,7 +197,7 @@ align-items: flex-start;
 
 /* Use a different background on the WorldLattice page */
 .worldlattice-hero-page .home-hero-image::before {
-  background-image: url('/worldlattice/worldlattice-hero-image.png');
+  background-image: url('/worldlattice/worldlattice-hero-image-02.png');
 }
 
 /* Hero buttons (used on WorldLattice hero) */
